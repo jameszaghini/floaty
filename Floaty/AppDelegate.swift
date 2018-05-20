@@ -11,10 +11,11 @@ import Cocoa
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
 
-
-
     func applicationDidFinishLaunching(_ aNotification: Notification) {
-        // Insert code here to initialize your application
+        if let window = NSApplication.shared.mainWindow {
+            window.appearance = NSAppearance(named: .vibrantDark)
+            window.level = .floating
+        }
     }
 
     func applicationWillTerminate(_ aNotification: Notification) {
