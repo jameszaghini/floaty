@@ -12,6 +12,7 @@
 		1ABB83D020B1412A0004C50E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1ABB83CF20B1412A0004C50E /* Assets.xcassets */; };
 		1ABB83D320B1412A0004C50E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1ABB83D120B1412A0004C50E /* Main.storyboard */; };
 		1ABB83DF20B1412A0004C50E /* FloatyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ABB83DE20B1412A0004C50E /* FloatyTests.swift */; };
+		1ABB83EA20B153F70004C50E /* Toolbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ABB83E920B153F70004C50E /* Toolbar.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,6 +36,7 @@
 		1ABB83DA20B1412A0004C50E /* FloatyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FloatyTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1ABB83DE20B1412A0004C50E /* FloatyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloatyTests.swift; sourceTree = "<group>"; };
 		1ABB83E020B1412A0004C50E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1ABB83E920B153F70004C50E /* Toolbar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Toolbar.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,10 +78,10 @@
 		1ABB83CA20B141280004C50E /* Floaty */ = {
 			isa = PBXGroup;
 			children = (
+				1ABB83EC20B1660D0004C50E /* Controllers */,
+				1ABB83EB20B165EC0004C50E /* Views */,
 				1ABB83CB20B141280004C50E /* AppDelegate.swift */,
-				1ABB83CD20B141280004C50E /* ViewController.swift */,
 				1ABB83CF20B1412A0004C50E /* Assets.xcassets */,
-				1ABB83D120B1412A0004C50E /* Main.storyboard */,
 				1ABB83D420B1412A0004C50E /* Info.plist */,
 				1ABB83D520B1412A0004C50E /* Floaty.entitlements */,
 			);
@@ -93,6 +95,23 @@
 				1ABB83E020B1412A0004C50E /* Info.plist */,
 			);
 			path = FloatyTests;
+			sourceTree = "<group>";
+		};
+		1ABB83EB20B165EC0004C50E /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				1ABB83D120B1412A0004C50E /* Main.storyboard */,
+				1ABB83E920B153F70004C50E /* Toolbar.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		1ABB83EC20B1660D0004C50E /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				1ABB83CD20B141280004C50E /* ViewController.swift */,
+			);
+			path = Controllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -195,6 +214,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1ABB83EA20B153F70004C50E /* Toolbar.swift in Sources */,
 				1ABB83CE20B141280004C50E /* ViewController.swift in Sources */,
 				1ABB83CC20B141280004C50E /* AppDelegate.swift in Sources */,
 			);
