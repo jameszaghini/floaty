@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14109"/>
+        <plugIn identifier="com.apple.WebKit2IBPlugin" version="14109"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -717,6 +718,9 @@
                             <defaultToolbarItems>
                                 <toolbarItem reference="U00-CP-vvG"/>
                             </defaultToolbarItems>
+                            <connections>
+                                <outlet property="urlTextField" destination="fn9-bq-lHI" id="f5X-iv-X6F"/>
+                            </connections>
                         </toolbar>
                         <connections>
                             <outlet property="delegate" destination="B8D-0N-5wS" id="98r-iN-zZc"/>
@@ -730,14 +734,42 @@
             </objects>
             <point key="canvasLocation" x="75" y="250"/>
         </scene>
-        <!--View Controller-->
+        <!--Web View Controller-->
         <scene sceneID="hIz-AP-VOD">
             <objects>
-                <viewController id="XfG-lQ-9wD" customClass="ViewController" customModule="Floaty" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="XfG-lQ-9wD" customClass="WebViewController" customModule="Floaty" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" wantsLayer="YES" id="m2S-Jp-Qdl">
                         <rect key="frame" x="0.0" y="0.0" width="480" height="270"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <wkWebView wantsLayer="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lg0-Wc-DQo">
+                                <rect key="frame" x="0.0" y="0.0" width="480" height="270"/>
+                                <wkWebViewConfiguration key="configuration">
+                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                                    <wkPreferences key="preferences"/>
+                                </wkWebViewConfiguration>
+                                <connections>
+                                    <outlet property="navigationDelegate" destination="XfG-lQ-9wD" id="0bG-gM-ghB"/>
+                                </connections>
+                            </wkWebView>
+                            <progressIndicator wantsLayer="YES" maxValue="1" style="bar" translatesAutoresizingMaskIntoConstraints="NO" id="UbP-eh-79a">
+                                <rect key="frame" x="-2" y="258" width="484" height="20"/>
+                            </progressIndicator>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="lg0-Wc-DQo" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" id="1P0-hP-u95"/>
+                            <constraint firstItem="UbP-eh-79a" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="-2" id="9nN-oY-aSU"/>
+                            <constraint firstAttribute="trailing" secondItem="UbP-eh-79a" secondAttribute="trailing" constant="-2" id="Saf-cs-3yZ"/>
+                            <constraint firstAttribute="trailing" secondItem="lg0-Wc-DQo" secondAttribute="trailing" id="UKa-bb-BXK"/>
+                            <constraint firstItem="lg0-Wc-DQo" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" id="e1K-wy-SYO"/>
+                            <constraint firstItem="UbP-eh-79a" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="-7" id="gsv-KI-KG3"/>
+                            <constraint firstAttribute="bottom" secondItem="lg0-Wc-DQo" secondAttribute="bottom" id="vwH-zF-tJj"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="progressIndicator" destination="UbP-eh-79a" id="TCS-Df-rDJ"/>
+                        <outlet property="webView" destination="lg0-Wc-DQo" id="7rY-tN-kHd"/>
+                    </connections>
                 </viewController>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>

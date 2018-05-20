@@ -7,8 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1A9DAC0320B1975000DCE63F /* URL+Massage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A9DAC0220B1975000DCE63F /* URL+Massage.swift */; };
 		1ABB83CC20B141280004C50E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ABB83CB20B141280004C50E /* AppDelegate.swift */; };
-		1ABB83CE20B141280004C50E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ABB83CD20B141280004C50E /* ViewController.swift */; };
+		1ABB83CE20B141280004C50E /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ABB83CD20B141280004C50E /* WebViewController.swift */; };
 		1ABB83D020B1412A0004C50E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1ABB83CF20B1412A0004C50E /* Assets.xcassets */; };
 		1ABB83D320B1412A0004C50E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1ABB83D120B1412A0004C50E /* Main.storyboard */; };
 		1ABB83DF20B1412A0004C50E /* FloatyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ABB83DE20B1412A0004C50E /* FloatyTests.swift */; };
@@ -26,9 +27,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1A9DAC0220B1975000DCE63F /* URL+Massage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL+Massage.swift"; sourceTree = "<group>"; };
 		1ABB83C820B141280004C50E /* Floaty.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Floaty.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1ABB83CB20B141280004C50E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		1ABB83CD20B141280004C50E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		1ABB83CD20B141280004C50E /* WebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
 		1ABB83CF20B1412A0004C50E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1ABB83D220B1412A0004C50E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		1ABB83D420B1412A0004C50E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -57,6 +59,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1A9DAC0420B1982900DCE63F /* Support */ = {
+			isa = PBXGroup;
+			children = (
+				1ABB83D520B1412A0004C50E /* Floaty.entitlements */,
+				1ABB83D420B1412A0004C50E /* Info.plist */,
+			);
+			path = Support;
+			sourceTree = "<group>";
+		};
+		1A9DAC0520B1983700DCE63F /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				1A9DAC0220B1975000DCE63F /* URL+Massage.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		1ABB83BF20B141280004C50E = {
 			isa = PBXGroup;
 			children = (
@@ -78,12 +97,12 @@
 		1ABB83CA20B141280004C50E /* Floaty */ = {
 			isa = PBXGroup;
 			children = (
-				1ABB83EC20B1660D0004C50E /* Controllers */,
-				1ABB83EB20B165EC0004C50E /* Views */,
 				1ABB83CB20B141280004C50E /* AppDelegate.swift */,
 				1ABB83CF20B1412A0004C50E /* Assets.xcassets */,
-				1ABB83D420B1412A0004C50E /* Info.plist */,
-				1ABB83D520B1412A0004C50E /* Floaty.entitlements */,
+				1ABB83EC20B1660D0004C50E /* Controllers */,
+				1A9DAC0520B1983700DCE63F /* Extensions */,
+				1A9DAC0420B1982900DCE63F /* Support */,
+				1ABB83EB20B165EC0004C50E /* Views */,
 			);
 			path = Floaty;
 			sourceTree = "<group>";
@@ -109,7 +128,7 @@
 		1ABB83EC20B1660D0004C50E /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				1ABB83CD20B141280004C50E /* ViewController.swift */,
+				1ABB83CD20B141280004C50E /* WebViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -164,6 +183,11 @@
 				TargetAttributes = {
 					1ABB83C720B141280004C50E = {
 						CreatedOnToolsVersion = 9.3;
+						SystemCapabilities = {
+							com.apple.Sandbox = {
+								enabled = 1;
+							};
+						};
 					};
 					1ABB83D920B1412A0004C50E = {
 						CreatedOnToolsVersion = 9.3;
@@ -215,8 +239,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				1ABB83EA20B153F70004C50E /* Toolbar.swift in Sources */,
-				1ABB83CE20B141280004C50E /* ViewController.swift in Sources */,
+				1ABB83CE20B141280004C50E /* WebViewController.swift in Sources */,
 				1ABB83CC20B141280004C50E /* AppDelegate.swift in Sources */,
+				1A9DAC0320B1975000DCE63F /* URL+Massage.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
