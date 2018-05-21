@@ -14,7 +14,7 @@ protocol ToolbarDelegate: class {
 
 class Toolbar: NSToolbar, NSTextFieldDelegate {
 
-    @IBOutlet private var urlTextField: NSTextField!
+    @IBOutlet private(set) var urlTextField: NSTextField!
 
     weak var toolbarDelegate: ToolbarDelegate?
 
@@ -23,6 +23,7 @@ class Toolbar: NSToolbar, NSTextFieldDelegate {
     override func controlTextDidEndEditing(_ aNotification: Notification) {
         if aNotification.object as? NSTextField == urlTextField {
             toolbarDelegate?.toolbar(self, didChangeText: urlTextField.stringValue)
+            urlTextField.resignFirstResponder()
         }
     }
 }

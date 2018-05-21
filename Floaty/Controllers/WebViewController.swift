@@ -15,6 +15,7 @@ class WebViewController: NSViewController, ToolbarDelegate, WKNavigationDelegate
     @IBOutlet private var progressIndicator: NSProgressIndicator!
 
     private var webViewProgressObserver: NSKeyValueObservation?
+    private var webViewURLObserver: NSKeyValueObservation?
 
     private var url: URL? {
         didSet {
@@ -27,14 +28,19 @@ class WebViewController: NSViewController, ToolbarDelegate, WKNavigationDelegate
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        let window = NSApplication.shared.windows.first!
-        if let toolbar = window.toolbar as? Toolbar {
-            toolbar.toolbarDelegate = self
+        guard let window = NSApplication.shared.windows.first, let toolbar = window.toolbar as? Toolbar else {
+            return
         }
+
+        toolbar.toolbarDelegate = self
 
         webViewProgressObserver = webView.observe(\.estimatedProgress) { [weak self ] (webView, _) in
             self?.progressIndicator.doubleValue = webView.estimatedProgress
             self?.progressIndicator.isHidden = webView.estimatedProgress == 1
+        }
+
+        webViewURLObserver = webView.observe(\.URL) { (webView, _) in
+            toolbar.urlTextField.stringValue = webView.url?.absoluteString ?? ""
         }
 
         url = URL(string: "http://en.wikipedia.org/wiki/Special:Random")!
