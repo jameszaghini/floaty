@@ -27,4 +27,3 @@ class Toolbar: NSToolbar, NSTextFieldDelegate {
         }
     }
 }
-

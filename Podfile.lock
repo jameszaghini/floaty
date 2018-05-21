@@ -1,0 +1,20 @@
+PODS:
+  - HotKey (0.1.0)
+  - SwiftLint (0.25.1)
+
+DEPENDENCIES:
+  - HotKey
+  - SwiftLint
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - HotKey
+    - SwiftLint
+
+SPEC CHECKSUMS:
+  HotKey: aa2b99ed0a4d7026e1bc15b6ae206a70e9a1851f
+  SwiftLint: ce933681be10c3266e82576dad676fa815a602e9
+
+PODFILE CHECKSUM: b802b2004995aace7c69d33cccc55001c96623ab
+
+COCOAPODS: 1.5.2
