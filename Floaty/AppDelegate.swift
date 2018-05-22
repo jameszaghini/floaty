@@ -15,6 +15,9 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         if let window = NSApplication.shared.mainWindow {
             window.appearance = NSAppearance(named: .vibrantDark)
             window.level = .floating
+            window.titlebarAppearsTransparent = true
+//            window.titlebarAppearsTransparent = true
+//            window.styleMask.insert(.fullSizeContentView)
         }
     }
 
