@@ -21,9 +21,15 @@ class Toolbar: NSToolbar, NSTextFieldDelegate {
     // MARK: - NSTextFieldDelegate
 
     override func controlTextDidEndEditing(_ aNotification: Notification) {
-        if aNotification.object as? NSTextField == urlTextField {
-            toolbarDelegate?.toolbar(self, didChangeText: urlTextField.stringValue)
-            urlTextField.resignFirstResponder()
+        guard
+            let textField = aNotification.object as? NSTextField,
+            let dict = aNotification.userInfo as? [String: Any],
+            let code = dict["NSTextMovement"] as? Int else {
+                return
+        }
+
+        if code == NSReturnTextMovement && textField == urlTextField {
+            toolbarDelegate?.toolbar(self, didChangeText: textField.stringValue)
         }
     }
 }
