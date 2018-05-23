@@ -7,6 +7,7 @@
 //
 
 import Cocoa
+import HotKey
 
 protocol ToolbarDelegate: class {
     func toolbar(_ toolBar: Toolbar, didChangeText text: String)
@@ -14,9 +15,19 @@ protocol ToolbarDelegate: class {
 
 class Toolbar: NSToolbar, NSTextFieldDelegate {
 
-    @IBOutlet private(set) var urlTextField: NSTextField!
+    @IBOutlet var urlTextField: URLTextField!
 
     weak var toolbarDelegate: ToolbarDelegate?
+
+    private let hotKey = HotKey(key: .f1, modifiers: [])
+
+    override init(identifier: NSToolbar.Identifier) {
+        super.init(identifier: identifier)
+        hotKey.keyDownHandler = { [weak self] in
+            self?.urlTextField.isEditable = true
+            self?.urlTextField.becomeFirstResponder()
+        }
+    }
 
     // MARK: - NSTextFieldDelegate
 
@@ -29,6 +40,7 @@ class Toolbar: NSToolbar, NSTextFieldDelegate {
         }
 
         if code == NSReturnTextMovement && textField == urlTextField {
+            urlTextField.isEditable = false
             toolbarDelegate?.toolbar(self, didChangeText: textField.stringValue)
         }
     }

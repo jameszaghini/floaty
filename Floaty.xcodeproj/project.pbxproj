@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1A9DAC0320B1975000DCE63F /* URL+Massage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A9DAC0220B1975000DCE63F /* URL+Massage.swift */; };
+		1A9DAC3920B4CD5F00DCE63F /* URLTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A9DAC3820B4CD5F00DCE63F /* URLTextField.swift */; };
 		1ABB83CC20B141280004C50E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ABB83CB20B141280004C50E /* AppDelegate.swift */; };
 		1ABB83CE20B141280004C50E /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ABB83CD20B141280004C50E /* WebViewController.swift */; };
 		1ABB83D020B1412A0004C50E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1ABB83CF20B1412A0004C50E /* Assets.xcassets */; };
@@ -30,6 +31,7 @@
 /* Begin PBXFileReference section */
 		129BE6615AED9D5ADA32B6A2 /* Pods-Floaty.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Floaty.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Floaty/Pods-Floaty.debug.xcconfig"; sourceTree = "<group>"; };
 		1A9DAC0220B1975000DCE63F /* URL+Massage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL+Massage.swift"; sourceTree = "<group>"; };
+		1A9DAC3820B4CD5F00DCE63F /* URLTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLTextField.swift; sourceTree = "<group>"; };
 		1ABB83C820B141280004C50E /* Floaty.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Floaty.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1ABB83CB20B141280004C50E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1ABB83CD20B141280004C50E /* WebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
@@ -62,14 +64,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		1A9DAC0520B1983700DCE63F /* Extensions */ = {
-			isa = PBXGroup;
-			children = (
-				1A9DAC0220B1975000DCE63F /* URL+Massage.swift */,
-			);
-			path = Extensions;
-			sourceTree = "<group>";
-		};
 		1ABB83BF20B141280004C50E = {
 			isa = PBXGroup;
 			children = (
@@ -95,9 +89,11 @@
 			children = (
 				1ABB83CB20B141280004C50E /* AppDelegate.swift */,
 				1ABB83CF20B1412A0004C50E /* Assets.xcassets */,
-				1ABB83EC20B1660D0004C50E /* Controllers */,
-				1A9DAC0520B1983700DCE63F /* Extensions */,
-				1ABB83EB20B165EC0004C50E /* Views */,
+				1ABB83D120B1412A0004C50E /* Main.storyboard */,
+				1ABB83E920B153F70004C50E /* Toolbar.swift */,
+				1A9DAC0220B1975000DCE63F /* URL+Massage.swift */,
+				1A9DAC3820B4CD5F00DCE63F /* URLTextField.swift */,
+				1ABB83CD20B141280004C50E /* WebViewController.swift */,
 			);
 			path = Floaty;
 			sourceTree = "<group>";
@@ -109,23 +105,6 @@
 				1ABB83E020B1412A0004C50E /* Info.plist */,
 			);
 			path = FloatyTests;
-			sourceTree = "<group>";
-		};
-		1ABB83EB20B165EC0004C50E /* Views */ = {
-			isa = PBXGroup;
-			children = (
-				1ABB83D120B1412A0004C50E /* Main.storyboard */,
-				1ABB83E920B153F70004C50E /* Toolbar.swift */,
-			);
-			path = Views;
-			sourceTree = "<group>";
-		};
-		1ABB83EC20B1660D0004C50E /* Controllers */ = {
-			isa = PBXGroup;
-			children = (
-				1ABB83CD20B141280004C50E /* WebViewController.swift */,
-			);
-			path = Controllers;
 			sourceTree = "<group>";
 		};
 		30C04C84412F27EBD95E4AA1 /* Pods */ = {
@@ -288,6 +267,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1ABB83EA20B153F70004C50E /* Toolbar.swift in Sources */,
+				1A9DAC3920B4CD5F00DCE63F /* URLTextField.swift in Sources */,
 				1ABB83CE20B141280004C50E /* WebViewController.swift in Sources */,
 				1ABB83CC20B141280004C50E /* AppDelegate.swift in Sources */,
 				1A9DAC0320B1975000DCE63F /* URL+Massage.swift in Sources */,

@@ -688,7 +688,7 @@
                     <window key="window" title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" animationBehavior="default" titleVisibility="hidden" id="IQv-IB-iLA">
                         <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
                         <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
-                        <rect key="contentRect" x="196" y="240" width="480" height="270"/>
+                        <rect key="contentRect" x="196" y="240" width="960" height="540"/>
                         <rect key="screenRect" x="0.0" y="0.0" width="1680" height="1027"/>
                         <toolbar key="toolbar" implicitIdentifier="FCA9C238-08C2-40D1-905C-18F56BE9B6A2" autosavesConfiguration="NO" allowsUserCustomization="NO" displayMode="iconOnly" sizeMode="regular" id="gc6-xp-Ui8" customClass="Toolbar" customModule="Floaty" customModuleProvider="target">
                             <allowedToolbarItems>
@@ -696,24 +696,24 @@
                                 <toolbarItem implicitItemIdentifier="NSToolbarShowFontsItem" id="Mlu-63-b35"/>
                                 <toolbarItem implicitItemIdentifier="NSToolbarPrintItem" id="Kg3-yp-Iqx"/>
                                 <toolbarItem implicitItemIdentifier="NSToolbarSpaceItem" id="8tH-Qh-zMw"/>
-                                <toolbarItem implicitItemIdentifier="NSToolbarFlexibleSpaceItem" id="bmD-ya-VUb"/>
-                                <toolbarItem implicitItemIdentifier="69909E21-EEB3-4D64-ABB6-0B056CF7616D" label="Custom View" paletteLabel="Custom View" id="U00-CP-vvG">
+                                <toolbarItem implicitItemIdentifier="69909E21-EEB3-4D64-ABB6-0B056CF7616D" label="URL" paletteLabel="URL" id="U00-CP-vvG">
                                     <nil key="toolTip"/>
                                     <size key="minSize" width="96" height="22"/>
-                                    <size key="maxSize" width="400" height="22"/>
-                                    <textField key="view" focusRingType="none" verticalHuggingPriority="750" id="fn9-bq-lHI">
-                                        <rect key="frame" x="0.0" y="14" width="400" height="22"/>
+                                    <size key="maxSize" width="3000" height="22"/>
+                                    <textField key="view" focusRingType="none" verticalHuggingPriority="750" id="fn9-bq-lHI" customClass="URLTextField" customModule="Floaty" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="14" width="3000" height="22"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" state="on" focusRingType="none" drawsBackground="YES" id="8Oj-6x-j1p">
+                                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" state="on" focusRingType="none" alignment="left" drawsBackground="YES" usesSingleLineMode="YES" id="8Oj-6x-j1p">
                                             <font key="font" metaFont="system"/>
                                             <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
-                                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="deviceRGB"/>
                                         </textFieldCell>
                                         <connections>
                                             <outlet property="delegate" destination="gc6-xp-Ui8" id="Izy-RN-lkS"/>
                                         </connections>
                                     </textField>
                                 </toolbarItem>
+                                <toolbarItem implicitItemIdentifier="NSToolbarFlexibleSpaceItem" id="bmD-ya-VUb"/>
                             </allowedToolbarItems>
                             <defaultToolbarItems>
                                 <toolbarItem reference="U00-CP-vvG"/>
@@ -739,11 +739,11 @@
             <objects>
                 <viewController id="XfG-lQ-9wD" customClass="WebViewController" customModule="Floaty" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" wantsLayer="YES" id="m2S-Jp-Qdl">
-                        <rect key="frame" x="0.0" y="0.0" width="480" height="270"/>
+                        <rect key="frame" x="0.0" y="0.0" width="960" height="540"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <wkWebView wantsLayer="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lg0-Wc-DQo">
-                                <rect key="frame" x="0.0" y="0.0" width="480" height="270"/>
+                                <rect key="frame" x="0.0" y="0.0" width="960" height="540"/>
                                 <wkWebViewConfiguration key="configuration">
                                     <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
                                     <wkPreferences key="preferences"/>
@@ -753,7 +753,7 @@
                                 </connections>
                             </wkWebView>
                             <progressIndicator wantsLayer="YES" maxValue="1" style="bar" translatesAutoresizingMaskIntoConstraints="NO" id="UbP-eh-79a">
-                                <rect key="frame" x="-2" y="258" width="484" height="20"/>
+                                <rect key="frame" x="-2" y="528" width="964" height="20"/>
                             </progressIndicator>
                         </subviews>
                         <constraints>
@@ -773,7 +773,7 @@
                 </viewController>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="75" y="655"/>
+            <point key="canvasLocation" x="75" y="1010"/>
         </scene>
     </scenes>
 </document>

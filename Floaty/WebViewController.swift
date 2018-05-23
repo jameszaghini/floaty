@@ -51,6 +51,7 @@ class WebViewController: NSViewController, ToolbarDelegate, WKNavigationDelegate
     func toolbar(_ toolBar: Toolbar, didChangeText text: String) {
         guard let url = URL(string: text) else { return }
         self.url = url
+        toolBar.urlTextField.resignFirstResponder()
     }
 
     // MARK: - WKNavigationDelegate
