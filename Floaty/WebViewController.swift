@@ -9,7 +9,7 @@
 import Cocoa
 import WebKit
 
-class WebViewController: NSViewController, ToolbarDelegate, WKNavigationDelegate {
+class WebViewController: NSViewController, ToolbarDelegate, WKNavigationDelegate, WKUIDelegate {
 
     @IBOutlet private var webView: WKWebView!
     @IBOutlet private var progressIndicator: NSProgressIndicator!
@@ -64,6 +64,14 @@ class WebViewController: NSViewController, ToolbarDelegate, WKNavigationDelegate
 
     func webView(_ webView: WKWebView, didFailProvisionalNavigation navigation: WKNavigation!, withError error: Error) {
         print(error)
+    }
+
+    // MARK: - WKUIDelegate
+
+    func webView(_ webView: WKWebView, createWebViewWith configuration: WKWebViewConfiguration, for navigationAction: WKNavigationAction, windowFeatures: WKWindowFeatures) -> WKWebView? {
+        // Open URLs that would open in a new window in the same web view
+        url = navigationAction.request.url
+        return nil
     }
 
 }

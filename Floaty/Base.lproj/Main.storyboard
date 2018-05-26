@@ -747,6 +747,7 @@
                                     <wkPreferences key="preferences"/>
                                 </wkWebViewConfiguration>
                                 <connections>
+                                    <outlet property="UIDelegate" destination="XfG-lQ-9wD" id="zBq-dN-NvJ"/>
                                     <outlet property="navigationDelegate" destination="XfG-lQ-9wD" id="0bG-gM-ghB"/>
                                 </connections>
                             </wkWebView>
