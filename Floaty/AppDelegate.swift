@@ -15,13 +15,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         if let window = NSApplication.shared.mainWindow {
             window.appearance = NSAppearance(named: .vibrantDark)
             window.level = .floating
+            window.hideTrafficLights()
         }
     }
 
-    func applicationWillTerminate(_ aNotification: Notification) {
-        // Insert code here to tear down your application
-    }
-
-
 }
-
