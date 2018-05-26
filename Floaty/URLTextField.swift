@@ -10,9 +10,9 @@ import Cocoa
 
 class URLTextField: NSTextField {
 
-    override func textDidEndEditing(_ notification: Notification) {
-        super.textDidEndEditing(notification)
-        isEditable = false
+    override func mouseDown(with event: NSEvent) {
+        super.mouseDown(with: event)
+        currentEditor()?.selectAll(self)
     }
 
 }

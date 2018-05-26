@@ -17,6 +17,8 @@ class WebViewController: NSViewController, ToolbarDelegate, WKNavigationDelegate
     private var webViewProgressObserver: NSKeyValueObservation?
     private var webViewURLObserver: NSKeyValueObservation?
 
+    private var toolbar: Toolbar? = { NSApplication.shared.windows.first?.toolbar as? Toolbar }()
+
     private var url: URL? {
         didSet {
             guard let url = url else { return }
@@ -40,7 +42,9 @@ class WebViewController: NSViewController, ToolbarDelegate, WKNavigationDelegate
         }
 
         webViewURLObserver = webView.observe(\.URL) { (webView, _) in
-            toolbar.urlTextField.stringValue = webView.url?.absoluteString ?? ""
+            if let urlString = webView.url?.absoluteString, urlString != toolbar.urlTextField.stringValue {
+                toolbar.urlTextField.stringValue = urlString
+            }
         }
 
         url = URL(string: "http://en.wikipedia.org/wiki/Special:Random")!
@@ -49,9 +53,7 @@ class WebViewController: NSViewController, ToolbarDelegate, WKNavigationDelegate
     // MARK: - ToolbarDelegate
 
     func toolbar(_ toolBar: Toolbar, didChangeText text: String) {
-        guard let url = URL(string: text) else { return }
-        self.url = url
-        toolBar.urlTextField.resignFirstResponder()
+        url = URL(string: text)
     }
 
     // MARK: - WKNavigationDelegate

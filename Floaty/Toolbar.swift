@@ -24,7 +24,6 @@ class Toolbar: NSToolbar, NSTextFieldDelegate {
     override init(identifier: NSToolbar.Identifier) {
         super.init(identifier: identifier)
         hotKey.keyDownHandler = { [weak self] in
-            self?.urlTextField.isEditable = true
             self?.urlTextField.becomeFirstResponder()
         }
     }
@@ -39,9 +38,14 @@ class Toolbar: NSToolbar, NSTextFieldDelegate {
                 return
         }
 
-        if code == NSReturnTextMovement && textField == urlTextField {
-            urlTextField.isEditable = false
-            toolbarDelegate?.toolbar(self, didChangeText: textField.stringValue)
+        DispatchQueue.main.async {
+            textField.window?.makeFirstResponder(nil)
+            if let selectedRange = textField.currentEditor()?.selectedRange {
+                textField.currentEditor()?.selectedRange = selectedRange
+            }
+            if code == NSReturnTextMovement && textField == self.urlTextField {
+                self.toolbarDelegate?.toolbar(self, didChangeText: textField.stringValue)
+            }
         }
     }
 }
