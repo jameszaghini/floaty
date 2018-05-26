@@ -17,8 +17,6 @@ class WebViewController: NSViewController, ToolbarDelegate, WKNavigationDelegate
     private var webViewProgressObserver: NSKeyValueObservation?
     private var webViewURLObserver: NSKeyValueObservation?
 
-    private var toolbar: Toolbar? = { NSApplication.shared.windows.first?.toolbar as? Toolbar }()
-
     private var url: URL? {
         didSet {
             guard let url = url else { return }
@@ -30,10 +28,7 @@ class WebViewController: NSViewController, ToolbarDelegate, WKNavigationDelegate
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        guard let window = NSApplication.shared.windows.first, let toolbar = window.toolbar as? Toolbar else {
-            return
-        }
-
+        guard let toolbar = NSApplication.shared.windows.first?.toolbar as? Toolbar else { return }
         toolbar.toolbarDelegate = self
 
         webViewProgressObserver = webView.observe(\.estimatedProgress) { [weak self ] (webView, _) in
