@@ -9,7 +9,7 @@
 import Cocoa
 import WebKit
 
-class WebViewController: NSViewController, ToolbarDelegate, WKNavigationDelegate, WKUIDelegate {
+class WebViewController: NSViewController, ToolbarDelegate, WKNavigationDelegate, WKUIDelegate, JavascriptPanelDismissalDelegate {
 
     @IBOutlet private var webView: WKWebView!
     @IBOutlet private var progressIndicator: NSProgressIndicator!
@@ -22,6 +22,13 @@ class WebViewController: NSViewController, ToolbarDelegate, WKNavigationDelegate
             guard let url = url else { return }
             let request = URLRequest(url: url.massagedURL())
             webView.load(request)
+        }
+    }
+
+    private var javascriptPanelWindowController: JavascriptPanelWindowController? {
+        didSet {
+            guard let panelWindow = javascriptPanelWindowController?.window else { return }
+            view.window?.beginSheet(panelWindow)
         }
     }
 
@@ -42,10 +49,12 @@ class WebViewController: NSViewController, ToolbarDelegate, WKNavigationDelegate
             }
         }
 
-        url = URL(string: "http://en.wikipedia.org/wiki/Special:Random")!
+        url = URL(string: "https://www.w3schools.com/jsref/tryit.asp?filename=tryjsref_confirm"/*http://en.wikipedia.org/wiki/Special:Random"*/)!
     }
 
     // MARK: - ToolbarDelegate
+
+    var windowController: NSWindowController?
 
     func toolbar(_ toolBar: Toolbar, didChangeText text: String) {
         url = URL(string: text)
@@ -69,4 +78,29 @@ class WebViewController: NSViewController, ToolbarDelegate, WKNavigationDelegate
         return nil
     }
 
+    func webView(_ webView: WKWebView, runJavaScriptConfirmPanelWithMessage message: String, initiatedByFrame frame: WKFrameInfo, completionHandler: @escaping (Bool) -> Void) {
+        let controller = JavascriptConfirmWindowController(windowNibName: NSNib.Name("JavascriptConfirmWindowController"))
+        controller.loadWindow()
+        controller.delegate = self
+        controller.textView.string = message
+        controller.completionHandler = completionHandler
+        javascriptPanelWindowController = controller
+    }
+
+    func webView(_ webView: WKWebView, runJavaScriptAlertPanelWithMessage message: String, initiatedByFrame frame: WKFrameInfo, completionHandler: @escaping () -> Void) {
+        let controller = JavascriptAlertWindowController(windowNibName: NSNib.Name("JavascriptAlertWindowController"))
+        controller.loadWindow()
+        controller.delegate = self
+        controller.textView.string = message
+        controller.completionHandler = completionHandler
+        javascriptPanelWindowController = controller
+    }
+
+    // MARK: - JavascriptPanelWindowControllerDelegate
+
+    func didDismissJavascriptPanelWindowController(_ windowController: JavascriptPanelWindowController) {
+        guard let window = view.window, let panelWindow = javascriptPanelWindowController?.window else { return }
+        window.endSheet(panelWindow)
+        javascriptPanelWindowController = nil
+    }
 }
