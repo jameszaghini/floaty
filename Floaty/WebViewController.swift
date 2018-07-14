@@ -8,8 +8,9 @@
 
 import Cocoa
 import WebKit
+import RxSwift
 
-class WebViewController: NSViewController, ToolbarDelegate, WKNavigationDelegate, WKUIDelegate, JavascriptPanelDismissalDelegate {
+class WebViewController: NSViewController, ToolbarDelegate, WKNavigationDelegate, WKUIDelegate, JavascriptPanelDismissalDelegate, Serviceable {
 
     @IBOutlet private var webView: WKWebView!
     @IBOutlet private var progressIndicator: NSProgressIndicator!
@@ -38,6 +39,8 @@ class WebViewController: NSViewController, ToolbarDelegate, WKNavigationDelegate
         guard let toolbar = NSApplication.shared.windows.first?.toolbar as? Toolbar else { return }
         toolbar.toolbarDelegate = self
 
+        webView.customUserAgent = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_5) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/11.1.1 Safari/605.1.15"
+
         webViewProgressObserver = webView.observe(\.estimatedProgress) { [weak self ] (webView, _) in
             self?.progressIndicator.doubleValue = webView.estimatedProgress
             self?.progressIndicator.isHidden = webView.estimatedProgress == 1
@@ -49,7 +52,7 @@ class WebViewController: NSViewController, ToolbarDelegate, WKNavigationDelegate
             }
         }
 
-        url = URL(string: "https://www.w3schools.com/jsref/tryit.asp?filename=tryjsref_confirm"/*http://en.wikipedia.org/wiki/Special:Random"*/)!
+        url = URL(string: "https://en.wikipedia.org/wiki/Special:Random")!
     }
 
     // MARK: - ToolbarDelegate

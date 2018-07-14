@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14109"/>
-        <plugIn identifier="com.apple.WebKit2IBPlugin" version="14109"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14113"/>
+        <plugIn identifier="com.apple.WebKit2IBPlugin" version="14113"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -23,7 +23,11 @@
                                             </connections>
                                         </menuItem>
                                         <menuItem isSeparatorItem="YES" id="VOq-y0-SEH"/>
-                                        <menuItem title="Preferences…" keyEquivalent="," id="BOF-NM-1cW"/>
+                                        <menuItem title="Preferences…" keyEquivalent="," id="BOF-NM-1cW">
+                                            <connections>
+                                                <segue destination="UQ1-zC-BFR" kind="show" id="I9J-ws-R3S"/>
+                                            </connections>
+                                        </menuItem>
                                         <menuItem isSeparatorItem="YES" id="wFC-TO-SCJ"/>
                                         <menuItem title="Services" id="NMo-om-nkz">
                                             <modifierMask key="keyEquivalentModifierMask"/>
@@ -684,9 +688,9 @@
         <!--Window Controller-->
         <scene sceneID="R2V-B0-nI4">
             <objects>
-                <windowController id="B8D-0N-5wS" sceneMemberID="viewController">
-                    <window key="window" title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" animationBehavior="default" titleVisibility="hidden" id="IQv-IB-iLA">
-                        <windowStyleMask key="styleMask" titled="YES" resizable="YES"/>
+                <windowController id="B8D-0N-5wS" customClass="WebWindowController" customModule="Floaty" customModuleProvider="target" sceneMemberID="viewController">
+                    <window key="window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" animationBehavior="default" titleVisibility="hidden" id="IQv-IB-iLA" customClass="Window" customModule="Floaty" customModuleProvider="target">
+                        <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
                         <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
                         <rect key="contentRect" x="196" y="240" width="960" height="540"/>
                         <rect key="screenRect" x="0.0" y="0.0" width="1680" height="1027"/>
@@ -731,6 +735,74 @@
                 <customObject id="Oky-zY-oP4" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="75" y="250"/>
+        </scene>
+        <!--Window Controller-->
+        <scene sceneID="Wau-fV-AHv">
+            <objects>
+                <windowController id="UQ1-zC-BFR" sceneMemberID="viewController">
+                    <window key="window" title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" frameAutosaveName="" animationBehavior="default" titleVisibility="hidden" id="Pm5-bp-Eb7">
+                        <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES"/>
+                        <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
+                        <rect key="contentRect" x="294" y="363" width="480" height="270"/>
+                        <rect key="screenRect" x="0.0" y="0.0" width="1920" height="1178"/>
+                        <toolbar key="toolbar" implicitIdentifier="4CDDAF43-4796-4F6D-87EC-EF9AAAF529C6" autosavesConfiguration="NO" allowsUserCustomization="NO" displayMode="iconAndLabel" sizeMode="regular" id="bAj-Te-OlW">
+                            <allowedToolbarItems>
+                                <toolbarItem implicitItemIdentifier="NSToolbarShowColorsItem" id="0qa-2D-spv"/>
+                                <toolbarItem implicitItemIdentifier="NSToolbarShowFontsItem" id="SaL-ji-dSc"/>
+                                <toolbarItem implicitItemIdentifier="NSToolbarPrintItem" id="N67-j7-8Hh"/>
+                                <toolbarItem implicitItemIdentifier="NSToolbarSpaceItem" id="fOD-zP-fc0"/>
+                                <toolbarItem implicitItemIdentifier="NSToolbarFlexibleSpaceItem" id="1QF-2g-esv"/>
+                                <toolbarItem implicitItemIdentifier="18C10660-1442-4ED9-8A4B-2A866DC44ECD" label="Toolbar Item" paletteLabel="Toolbar Item" tag="-1" id="Sii-Lq-sTL"/>
+                            </allowedToolbarItems>
+                            <defaultToolbarItems>
+                                <toolbarItem reference="1QF-2g-esv"/>
+                                <toolbarItem reference="Sii-Lq-sTL"/>
+                            </defaultToolbarItems>
+                        </toolbar>
+                        <connections>
+                            <outlet property="delegate" destination="UQ1-zC-BFR" id="m7E-ap-xc6"/>
+                        </connections>
+                    </window>
+                    <connections>
+                        <segue destination="dmE-PD-IGl" kind="relationship" relationship="window.shadowedContentViewController" id="jF2-Ho-R83"/>
+                    </connections>
+                </windowController>
+                <customObject id="Dr4-o9-k3v" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="966" y="133"/>
+        </scene>
+        <!--Settings View Controller-->
+        <scene sceneID="UtS-z9-nHR">
+            <objects>
+                <viewController id="dmE-PD-IGl" customClass="SettingsViewController" customModule="Floaty" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" id="Ktc-ZX-ubL">
+                        <rect key="frame" x="0.0" y="0.0" width="480" height="270"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="YuK-PY-dkH">
+                                <rect key="frame" x="18" y="234" width="444" height="18"/>
+                                <buttonCell key="cell" type="check" title="Show traffic lights" bezelStyle="regularSquare" imagePosition="left" inset="2" id="odl-PS-TEZ">
+                                    <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="didToggleTrafficLightsButtonWithSender:" target="dmE-PD-IGl" id="Bw0-MZ-M92"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="YuK-PY-dkH" firstAttribute="leading" secondItem="Ktc-ZX-ubL" secondAttribute="leading" constant="20" id="S8U-IA-1zg"/>
+                            <constraint firstAttribute="trailing" secondItem="YuK-PY-dkH" secondAttribute="trailing" constant="20" id="mzz-5t-oOl"/>
+                            <constraint firstItem="YuK-PY-dkH" firstAttribute="top" secondItem="Ktc-ZX-ubL" secondAttribute="top" constant="20" id="ofD-Ur-lvG"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="trafficLightsButton" destination="YuK-PY-dkH" id="dQn-NG-5fx"/>
+                    </connections>
+                </viewController>
+                <customObject id="krR-By-U9r" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="966" y="529"/>
         </scene>
         <!--Web View Controller-->
         <scene sceneID="hIz-AP-VOD">

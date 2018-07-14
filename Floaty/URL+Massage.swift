@@ -8,6 +8,10 @@
 
 import Foundation
 
+struct SiteEnhancement {
+    var userAgentString: String?
+}
+
 extension URL {
 
     func massagedURL() -> URL {
@@ -16,6 +20,8 @@ extension URL {
         if !urlString.hasPrefix("http://") && !urlString.hasPrefix("https://") {
             urlString = "https://" + urlString
         }
+
+        urlString = urlString.replacingOccurrences(of: "https://www.youtube.com/watch?v=", with: "https://www.youtube.com/embed/")
 
         let massagedURL = URL(string: urlString)
         return massagedURL ?? self

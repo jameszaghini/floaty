@@ -10,11 +10,11 @@ import Cocoa
 
 extension NSWindow {
 
-    func hideTrafficLights() {
+    func hideTrafficLights(_ hide: Bool) {
         contentView?.superview?.subviews.forEach({ subview in
             if subview.isKind(of: NSClassFromString("NSTitlebarContainerView")!) {
                 let titlebarView = subview.subviews[0]
-                titlebarView.subviews.forEach { $0.isHidden = $0 is NSButton }
+                titlebarView.subviews.forEach { $0.isHidden = ($0 is NSButton && hide)  }
             }
         })
     }
