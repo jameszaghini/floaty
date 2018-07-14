@@ -14,11 +14,11 @@ class SettingsViewController: NSViewController, Serviceable {
     @IBOutlet private var trafficLightsButton: NSButton!
 
     @IBAction private func didToggleTrafficLightsButton(sender: NSButton) {
-        services.settings.trafficLightsEnabled.value = sender.state == .off
+        services.settings.trafficLightsEnabled.value = sender.state == .on
     }
 
     override func viewDidLoad() {
-        // TODO: initial state
+        trafficLightsButton.state = services.settings.trafficLightsEnabled.value ? .on : .off
     }
 
 }

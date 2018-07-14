@@ -20,8 +20,8 @@ class WebWindowController: NSWindowController, Serviceable {
         window?.hideTrafficLights(true)
         window?.appearance = NSAppearance(named: .vibrantDark)
 
-        trafficLightsObserver = services.settings.trafficLightsEnabled.asObservable().subscribe(onNext: { [weak self] hide in
-            self?.window?.hideTrafficLights(hide)
+        trafficLightsObserver = services.settings.trafficLightsEnabled.asObservable().subscribe(onNext: { [weak self] show in
+            self?.window?.hideTrafficLights(!show)
         })
     }
 
