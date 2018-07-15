@@ -61,7 +61,11 @@ class WebViewController: NSViewController, ToolbarDelegate, WKNavigationDelegate
     var windowController: NSWindowController?
 
     func toolbar(_ toolBar: Toolbar, didChangeText text: String) {
-        url = URL(string: text)
+        if let url = URL(string: text) {
+            self.url = url
+        } else if let query = text.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)  {
+            self.url = URL(string: "http://google.com/search?client=safari&q=\(query)")
+        }
     }
 
     // MARK: - WKNavigationDelegate
