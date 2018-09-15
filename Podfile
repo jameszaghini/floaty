@@ -1,4 +1,7 @@
 platform :osx, '10.13'
+
+inhibit_all_warnings!
+
 target 'Floaty' do
     pod 'HotKey'
     pod 'SwiftLint'
