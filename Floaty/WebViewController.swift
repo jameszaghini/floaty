@@ -47,7 +47,7 @@ class WebViewController: NSViewController, ToolbarDelegate, WKNavigationDelegate
             self?.progressIndicator.isHidden = webView.estimatedProgress == 1
         }
 
-        webViewURLObserver = webView.observe(\.URL) { (webView, _) in
+        webViewURLObserver = webView.observe(\.url) { (webView, _) in
             if let urlString = webView.url?.absoluteString, urlString != toolbar.urlTextField.stringValue {
                 toolbar.urlTextField.stringValue = urlString
             }
