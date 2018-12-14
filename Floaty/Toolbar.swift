@@ -7,7 +7,6 @@
 //
 
 import Cocoa
-import HotKey
 
 protocol ToolbarDelegate: class {
     func toolbar(_ toolBar: Toolbar, didChangeText text: String)
@@ -18,15 +17,6 @@ class Toolbar: NSToolbar, NSTextFieldDelegate {
     @IBOutlet var urlTextField: URLTextField!
 
     weak var toolbarDelegate: ToolbarDelegate?
-
-    private let hotKey = HotKey(key: .f1, modifiers: [])
-
-    override init(identifier: NSToolbar.Identifier) {
-        super.init(identifier: identifier)
-        hotKey.keyDownHandler = { [weak self] in
-            self?.urlTextField.becomeFirstResponder()
-        }
-    }
 
     // MARK: - NSTextFieldDelegate
 
