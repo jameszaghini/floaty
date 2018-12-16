@@ -53,7 +53,9 @@ class WebViewController: NSViewController, ToolbarDelegate, WKNavigationDelegate
             }
         }
 
-        url = URL(string: "https://en.wikipedia.org/wiki/Special:Random")!
+        if let url = URL(string: services.settings.homepageURL) {
+            self.url = url
+        }
     }
 
     // MARK: - ToolbarDelegate

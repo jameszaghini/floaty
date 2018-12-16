@@ -14,7 +14,7 @@ protocol ToolbarDelegate: class {
 
 class Toolbar: NSToolbar, NSTextFieldDelegate {
 
-    @IBOutlet var urlTextField: URLTextField!
+    @IBOutlet private(set) var urlTextField: URLTextField!
 
     weak var toolbarDelegate: ToolbarDelegate?
 

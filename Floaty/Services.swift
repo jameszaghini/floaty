@@ -8,7 +8,7 @@
 
 struct Services {
     static let shared = Services()
-    let settings = Settings()
+    var settings = Settings.load()
 }
 
 protocol Serviceable {

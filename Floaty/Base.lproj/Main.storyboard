@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14113"/>
-        <plugIn identifier="com.apple.WebKit2IBPlugin" version="14113"/>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14460.31"/>
+        <plugIn identifier="com.apple.WebKit2IBPlugin" version="14460.31"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -689,7 +690,7 @@
         <scene sceneID="R2V-B0-nI4">
             <objects>
                 <windowController id="B8D-0N-5wS" customClass="WebWindowController" customModule="Floaty" customModuleProvider="target" sceneMemberID="viewController">
-                    <window key="window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" animationBehavior="default" titleVisibility="hidden" id="IQv-IB-iLA" customClass="Window" customModule="Floaty" customModuleProvider="target">
+                    <window key="window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" animationBehavior="default" titleVisibility="hidden" id="IQv-IB-iLA" customClass="Window" customModule="Floaty" customModuleProvider="target">
                         <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
                         <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
                         <rect key="contentRect" x="196" y="240" width="960" height="540"/>
@@ -705,7 +706,7 @@
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" refusesFirstResponder="YES" state="on" borderStyle="bezel" focusRingType="none" alignment="left" usesSingleLineMode="YES" bezelStyle="round" id="8Oj-6x-j1p">
                                             <font key="font" metaFont="system"/>
-                                            <color key="textColor" name="disabledControlTextColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="textColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.94901960780000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                             <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="deviceRGB"/>
                                         </textFieldCell>
                                         <connections>
@@ -721,7 +722,7 @@
                                 <toolbarItem reference="bmD-ya-VUb"/>
                             </defaultToolbarItems>
                             <connections>
-                                <outlet property="urlTextField" destination="fn9-bq-lHI" id="f5X-iv-X6F"/>
+                                <outlet property="urlTextField" destination="fn9-bq-lHI" id="8ei-aX-nau"/>
                             </connections>
                         </toolbar>
                         <connections>
@@ -740,7 +741,7 @@
         <scene sceneID="Wau-fV-AHv">
             <objects>
                 <windowController id="UQ1-zC-BFR" sceneMemberID="viewController">
-                    <window key="window" title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" frameAutosaveName="" animationBehavior="default" titleVisibility="hidden" id="Pm5-bp-Eb7">
+                    <window key="window" title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" frameAutosaveName="" animationBehavior="default" titleVisibility="hidden" id="Pm5-bp-Eb7">
                         <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES"/>
                         <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
                         <rect key="contentRect" x="294" y="363" width="480" height="270"/>
@@ -779,25 +780,38 @@
                         <rect key="frame" x="0.0" y="0.0" width="480" height="270"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
-                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="YuK-PY-dkH">
-                                <rect key="frame" x="18" y="234" width="444" height="18"/>
-                                <buttonCell key="cell" type="check" title="Show traffic lights" bezelStyle="regularSquare" imagePosition="left" inset="2" id="odl-PS-TEZ">
-                                    <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                            <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="iwb-tU-Q5M">
+                                <rect key="frame" x="20" y="203" width="440" height="22"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" drawsBackground="YES" id="cLJ-tW-4iQ">
                                     <font key="font" metaFont="system"/>
-                                </buttonCell>
+                                    <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
                                 <connections>
-                                    <action selector="didToggleTrafficLightsButtonWithSender:" target="dmE-PD-IGl" id="Bw0-MZ-M92"/>
+                                    <outlet property="delegate" destination="dmE-PD-IGl" id="XSY-nz-FR3"/>
                                 </connections>
-                            </button>
+                            </textField>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="1ff-id-YLM">
+                                <rect key="frame" x="18" y="233" width="444" height="17"/>
+                                <textFieldCell key="cell" lineBreakMode="clipping" title="Homepage URL" id="QhM-pd-RZw">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
                         </subviews>
                         <constraints>
-                            <constraint firstItem="YuK-PY-dkH" firstAttribute="leading" secondItem="Ktc-ZX-ubL" secondAttribute="leading" constant="20" id="S8U-IA-1zg"/>
-                            <constraint firstAttribute="trailing" secondItem="YuK-PY-dkH" secondAttribute="trailing" constant="20" id="mzz-5t-oOl"/>
-                            <constraint firstItem="YuK-PY-dkH" firstAttribute="top" secondItem="Ktc-ZX-ubL" secondAttribute="top" constant="20" id="ofD-Ur-lvG"/>
+                            <constraint firstItem="iwb-tU-Q5M" firstAttribute="leading" secondItem="1ff-id-YLM" secondAttribute="leading" id="3ss-oD-Xtr"/>
+                            <constraint firstItem="iwb-tU-Q5M" firstAttribute="top" secondItem="1ff-id-YLM" secondAttribute="bottom" constant="8" id="ARC-d7-CX4"/>
+                            <constraint firstItem="iwb-tU-Q5M" firstAttribute="trailing" secondItem="1ff-id-YLM" secondAttribute="trailing" id="YBn-3Y-YtK"/>
+                            <constraint firstItem="iwb-tU-Q5M" firstAttribute="top" secondItem="1ff-id-YLM" secondAttribute="bottom" constant="8" id="Zma-cr-f4L"/>
+                            <constraint firstItem="1ff-id-YLM" firstAttribute="leading" secondItem="Ktc-ZX-ubL" secondAttribute="leading" constant="20" id="caB-1f-W87"/>
+                            <constraint firstItem="1ff-id-YLM" firstAttribute="top" secondItem="Ktc-ZX-ubL" secondAttribute="top" constant="20" id="hGA-Te-OcT"/>
+                            <constraint firstAttribute="trailing" secondItem="1ff-id-YLM" secondAttribute="trailing" constant="20" id="lat-bj-Fqp"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="trafficLightsButton" destination="YuK-PY-dkH" id="dQn-NG-5fx"/>
+                        <outlet property="homepageURLTextField" destination="iwb-tU-Q5M" id="dTg-gt-upc"/>
                     </connections>
                 </viewController>
                 <customObject id="krR-By-U9r" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>

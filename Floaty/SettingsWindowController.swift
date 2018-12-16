@@ -7,18 +7,19 @@
 //
 
 import Cocoa
-import RxSwift
 
-class SettingsViewController: NSViewController, Serviceable {
+class SettingsViewController: NSViewController, NSTextFieldDelegate, Serviceable {
 
-    @IBOutlet private var trafficLightsButton: NSButton!
-
-    @IBAction private func didToggleTrafficLightsButton(sender: NSButton) {
-        services.settings.trafficLightsEnabled.value = sender.state == .on
-    }
+    @IBOutlet private var homepageURLTextField: NSTextField!
 
     override func viewDidLoad() {
-        trafficLightsButton.state = services.settings.trafficLightsEnabled.value ? .on : .off
+        homepageURLTextField.stringValue = services.settings.homepageURL
     }
 
+    override func controlTextDidEndEditing(_ aNotification: Notification) {
+        if aNotification.object as? NSTextField == homepageURLTextField {
+            var settings = Services.shared.settings
+            settings.homepageURL = homepageURLTextField.stringValue
+        }
+    }
 }
