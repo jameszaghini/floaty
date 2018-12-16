@@ -3,6 +3,6 @@ osx_image: xcode10.1
 xcode_workspace: Floaty.xcworkspace
 xcode_scheme:  Floaty
 script:
-  - xcodebuild -scheme Floaty -workspace Floaty.xcworkspace -sdk macosx  -destination 'platform=OS X,arch=x86_64' build test
+  - xcodebuild -scheme Floaty -workspace Floaty.xcworkspace -sdk macosx  -destination 'platform=OS X,arch=x86_64' build test CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO
 after_success:
   - bash <(curl -s https://codecov.io/bash)
