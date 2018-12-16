@@ -5,4 +5,4 @@ xcode_scheme:  Floaty
 script:
   - xcodebuild -scheme Floaty -workspace Floaty.xcworkspace -sdk macosx  -destination 'platform=OS X,arch=x86_64' build test CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO
 after_success:
-  - bash <(curl -s https://codecov.io/bash)
+  - bash <(curl -s https://codecov.io/bash) -t 9ce781de-b56f-42dc-a044-8f6d5e6333b5
