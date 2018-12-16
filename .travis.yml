@@ -1,0 +1,6 @@
+language: swift # or objective-c
+osx_image: xcode10.1
+script:
+  - xcodebuild -scheme Floaty -workspace Floaty.xcworkspace -sdk macosx build test
+after_success:
+  - bash <(curl -s https://codecov.io/bash)
