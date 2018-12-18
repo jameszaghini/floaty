@@ -7,18 +7,27 @@
 //
 
 import Cocoa
+import Observable
 
 struct Settings: Codable {
 
     private var defaults: UserDefaults = UserDefaults.standard
     private static let defaultsKey = "settings"
 
-    private enum CodingKeys: String, CodingKey {
-        case homepageURL
-    }
-
     var homepageURL: String {
         didSet { save() }
+    }
+
+    var windowOpacityObservable = Observable(CGFloat(1))
+    var windowOpacity: CGFloat {
+        didSet {
+            windowOpacityObservable.value = windowOpacity
+            save()
+        }
+    }
+
+    private enum CodingKeys: String, CodingKey {
+        case homepageURL, windowOpacity
     }
 
     static func load(defaults: UserDefaults = UserDefaults.standard) -> Settings {
@@ -32,9 +41,10 @@ struct Settings: Codable {
 
     // MARK: - Private
 
-    private init(homepageURL: String = "https://www.duckduckgo.com?kae=d", defaults: UserDefaults = UserDefaults.standard) {
+    private init(homepageURL: String = "https://www.duckduckgo.com?kae=d", windowOpacity: CGFloat = 1, defaults: UserDefaults = UserDefaults.standard) {
         self.homepageURL = homepageURL
         self.defaults = defaults
+        self.windowOpacity = windowOpacity
     }
 
     private func save() {

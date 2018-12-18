@@ -25,6 +25,7 @@
 		1ABB83DF20B1412A0004C50E /* FloatyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ABB83DE20B1412A0004C50E /* FloatyTests.swift */; };
 		1ABB83EA20B153F70004C50E /* Toolbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ABB83E920B153F70004C50E /* Toolbar.swift */; };
 		1AC9589721C604DD00B85B15 /* SettingsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AC9589621C604DD00B85B15 /* SettingsTests.swift */; };
+		1AC958A821C7697F00B85B15 /* SearchProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AC958A721C7697F00B85B15 /* SearchProvider.swift */; };
 		A316E2B1FC2F78FAE3E3F867 /* libPods-Floaty.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7DE51FC5E3272560686C0310 /* libPods-Floaty.a */; };
 		FDC55852096CAC9DFC6F7924 /* libPods-FloatyTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 76977957CDD1F1E448770CB1 /* libPods-FloatyTests.a */; };
 /* End PBXBuildFile section */
@@ -62,6 +63,7 @@
 		1ABB83E020B1412A0004C50E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1ABB83E920B153F70004C50E /* Toolbar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Toolbar.swift; sourceTree = "<group>"; };
 		1AC9589621C604DD00B85B15 /* SettingsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTests.swift; sourceTree = "<group>"; };
+		1AC958A721C7697F00B85B15 /* SearchProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchProvider.swift; sourceTree = "<group>"; };
 		767D3548A058D0353A31A205 /* Pods-FloatyTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FloatyTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-FloatyTests/Pods-FloatyTests.release.xcconfig"; sourceTree = "<group>"; };
 		76977957CDD1F1E448770CB1 /* libPods-FloatyTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-FloatyTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7DE51FC5E3272560686C0310 /* libPods-Floaty.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Floaty.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -119,6 +121,7 @@
 				1A49F6A920C545BD00D5A98B /* JavascriptPanelWindowController.swift */,
 				1ABB83D120B1412A0004C50E /* Main.storyboard */,
 				1A9DAC4020B63B5F00DCE63F /* NSWindow+Floaty.swift */,
+				1AC958A721C7697F00B85B15 /* SearchProvider.swift */,
 				1A6B726D20CDFE3F00AE2008 /* Services.swift */,
 				1A6B727320CE000700AE2008 /* Settings.swift */,
 				1AA751E020CB806300490962 /* SettingsWindowController.swift */,
@@ -332,6 +335,7 @@
 				1ABB83EA20B153F70004C50E /* Toolbar.swift in Sources */,
 				1A49F6AA20C545BD00D5A98B /* JavascriptPanelWindowController.swift in Sources */,
 				1A9DAC3920B4CD5F00DCE63F /* URLTextField.swift in Sources */,
+				1AC958A821C7697F00B85B15 /* SearchProvider.swift in Sources */,
 				1A9DAC4120B63B5F00DCE63F /* NSWindow+Floaty.swift in Sources */,
 				1ABB83CE20B141280004C50E /* WebViewController.swift in Sources */,
 				1A6B726E20CDFE3F00AE2008 /* Services.swift in Sources */,

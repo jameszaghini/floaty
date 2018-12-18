@@ -8,7 +8,7 @@
 
 import Cocoa
 import WebKit
-import RxSwift
+import Observable
 
 class WebViewController: NSViewController, ToolbarDelegate, WKNavigationDelegate, WKUIDelegate, JavascriptPanelDismissalDelegate, Serviceable {
 
@@ -33,11 +33,18 @@ class WebViewController: NSViewController, ToolbarDelegate, WKNavigationDelegate
         }
     }
 
+    private var disposable: Disposable?
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
         guard let toolbar = NSApplication.shared.windows.first?.toolbar as? Toolbar else { return }
         toolbar.toolbarDelegate = self
+
+        disposable = services.settings.windowOpacityObservable.observe { [weak self] opacity, _ in
+            self?.webView.alphaValue = opacity
+            self?.view.window?.backgroundColor = NSColor(red: 0.3, green: 0.3, blue: 0.3, alpha: opacity)
+        }
 
         // Some sites won't work with the default user agent, so I've set this to the Safari user agent
         webView.customUserAgent = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_5) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/11.1.1 Safari/605.1.15"

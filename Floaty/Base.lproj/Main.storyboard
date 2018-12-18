@@ -690,7 +690,7 @@
         <scene sceneID="R2V-B0-nI4">
             <objects>
                 <windowController id="B8D-0N-5wS" customClass="WebWindowController" customModule="Floaty" customModuleProvider="target" sceneMemberID="viewController">
-                    <window key="window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" animationBehavior="default" titleVisibility="hidden" id="IQv-IB-iLA" customClass="Window" customModule="Floaty" customModuleProvider="target">
+                    <window key="window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" animationBehavior="default" titleVisibility="hidden" id="IQv-IB-iLA" customClass="WebWindow" customModule="Floaty" customModuleProvider="target">
                         <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
                         <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
                         <rect key="contentRect" x="196" y="240" width="960" height="540"/>
@@ -799,19 +799,41 @@
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Hl7-6C-ECX">
+                                <rect key="frame" x="18" y="172" width="444" height="17"/>
+                                <textFieldCell key="cell" lineBreakMode="clipping" title="Opacity" id="NA6-nL-ZIi">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <slider verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="5uM-FD-SWL">
+                                <rect key="frame" x="18" y="147" width="444" height="19"/>
+                                <sliderCell key="cell" continuous="YES" state="on" alignment="left" minValue="0.34999999999999998" maxValue="1" doubleValue="1" tickMarkPosition="above" sliderType="linear" id="AoS-TG-YRL"/>
+                                <connections>
+                                    <action selector="sliderChanged:" target="dmE-PD-IGl" id="f0f-RP-SCr"/>
+                                </connections>
+                            </slider>
                         </subviews>
                         <constraints>
+                            <constraint firstItem="Hl7-6C-ECX" firstAttribute="top" secondItem="iwb-tU-Q5M" secondAttribute="bottom" constant="14" id="0Tl-zV-db4"/>
                             <constraint firstItem="iwb-tU-Q5M" firstAttribute="leading" secondItem="1ff-id-YLM" secondAttribute="leading" id="3ss-oD-Xtr"/>
                             <constraint firstItem="iwb-tU-Q5M" firstAttribute="top" secondItem="1ff-id-YLM" secondAttribute="bottom" constant="8" id="ARC-d7-CX4"/>
+                            <constraint firstItem="5uM-FD-SWL" firstAttribute="trailing" secondItem="Hl7-6C-ECX" secondAttribute="trailing" id="N4b-Fd-TUH"/>
+                            <constraint firstItem="Hl7-6C-ECX" firstAttribute="trailing" secondItem="iwb-tU-Q5M" secondAttribute="trailing" id="VrA-TJ-Fde"/>
+                            <constraint firstItem="Hl7-6C-ECX" firstAttribute="leading" secondItem="iwb-tU-Q5M" secondAttribute="leading" id="XMt-XA-d1j"/>
                             <constraint firstItem="iwb-tU-Q5M" firstAttribute="trailing" secondItem="1ff-id-YLM" secondAttribute="trailing" id="YBn-3Y-YtK"/>
                             <constraint firstItem="iwb-tU-Q5M" firstAttribute="top" secondItem="1ff-id-YLM" secondAttribute="bottom" constant="8" id="Zma-cr-f4L"/>
                             <constraint firstItem="1ff-id-YLM" firstAttribute="leading" secondItem="Ktc-ZX-ubL" secondAttribute="leading" constant="20" id="caB-1f-W87"/>
                             <constraint firstItem="1ff-id-YLM" firstAttribute="top" secondItem="Ktc-ZX-ubL" secondAttribute="top" constant="20" id="hGA-Te-OcT"/>
                             <constraint firstAttribute="trailing" secondItem="1ff-id-YLM" secondAttribute="trailing" constant="20" id="lat-bj-Fqp"/>
+                            <constraint firstItem="5uM-FD-SWL" firstAttribute="leading" secondItem="Hl7-6C-ECX" secondAttribute="leading" id="mHl-wH-ONy"/>
+                            <constraint firstItem="5uM-FD-SWL" firstAttribute="top" secondItem="Hl7-6C-ECX" secondAttribute="bottom" constant="8" id="vJs-lO-LEg"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="homepageURLTextField" destination="iwb-tU-Q5M" id="dTg-gt-upc"/>
+                        <outlet property="opacitySlider" destination="5uM-FD-SWL" id="DRF-vK-yyx"/>
                     </connections>
                 </viewController>
                 <customObject id="krR-By-U9r" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
@@ -827,7 +849,7 @@
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <wkWebView wantsLayer="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lg0-Wc-DQo">
-                                <rect key="frame" x="0.0" y="0.0" width="960" height="540"/>
+                                <rect key="frame" x="0.0" y="0.0" width="960" height="502"/>
                                 <wkWebViewConfiguration key="configuration">
                                     <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
                                     <wkPreferences key="preferences"/>
@@ -838,16 +860,16 @@
                                 </connections>
                             </wkWebView>
                             <progressIndicator wantsLayer="YES" maxValue="1" style="bar" translatesAutoresizingMaskIntoConstraints="NO" id="UbP-eh-79a">
-                                <rect key="frame" x="-2" y="528" width="964" height="20"/>
+                                <rect key="frame" x="-2" y="489" width="964" height="20"/>
                             </progressIndicator>
                         </subviews>
                         <constraints>
-                            <constraint firstItem="lg0-Wc-DQo" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" id="1P0-hP-u95"/>
+                            <constraint firstItem="lg0-Wc-DQo" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="38" id="1P0-hP-u95"/>
                             <constraint firstItem="UbP-eh-79a" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="-2" id="9nN-oY-aSU"/>
                             <constraint firstAttribute="trailing" secondItem="UbP-eh-79a" secondAttribute="trailing" constant="-2" id="Saf-cs-3yZ"/>
                             <constraint firstAttribute="trailing" secondItem="lg0-Wc-DQo" secondAttribute="trailing" id="UKa-bb-BXK"/>
                             <constraint firstItem="lg0-Wc-DQo" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" id="e1K-wy-SYO"/>
-                            <constraint firstItem="UbP-eh-79a" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="-7" id="gsv-KI-KG3"/>
+                            <constraint firstItem="lg0-Wc-DQo" firstAttribute="top" secondItem="UbP-eh-79a" secondAttribute="bottom" constant="-12" id="kGi-RK-Vhe"/>
                             <constraint firstAttribute="bottom" secondItem="lg0-Wc-DQo" secondAttribute="bottom" id="vwH-zF-tJj"/>
                         </constraints>
                     </view>
