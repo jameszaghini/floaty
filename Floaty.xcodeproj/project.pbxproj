@@ -149,10 +149,10 @@
 			children = (
 				1ABB83DE20B1412A0004C50E /* FloatyTests.swift */,
 				1ABB83E020B1412A0004C50E /* Info.plist */,
-				1AC9589621C604DD00B85B15 /* SettingsTests.swift */,
-				1A02ED7621C9F6D30093114C /* WindowTests.swift */,
 				1A8BECB721CA26F3001FE824 /* JavascriptAlertWindowControllerTests.swift */,
 				1A8BECB921CA3ED9001FE824 /* JavascriptConfirmWindowControllerTests.swift */,
+				1AC9589621C604DD00B85B15 /* SettingsTests.swift */,
+				1A02ED7621C9F6D30093114C /* WindowTests.swift */,
 			);
 			path = FloatyTests;
 			sourceTree = "<group>";

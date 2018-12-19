@@ -7,17 +7,12 @@
 //
 
 import XCTest
+import Observable
 @testable import Floaty
 
 class SettingsTests: XCTestCase {
 
-    override func setUp() {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
-    }
-
-    override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-    }
+    var disposable: Disposable?
 
     func testChangingHomepageURLSaves() {
         var settings = Settings.load()
@@ -27,4 +22,22 @@ class SettingsTests: XCTestCase {
         XCTAssertEqual(settings2.homepageURL, urlString)
     }
 
+    func testChangingWindowOpacityFiresObserver() {
+
+        var settings = Settings.load()
+        let newOpacity: CGFloat = 0.05
+
+        let promise = expectation(description: "Observer will fire on opacity change")
+
+        disposable = settings.windowOpacityObservable.observe { opacity, _ in
+            guard opacity == newOpacity else { return }
+            promise.fulfill()
+        }
+
+        settings.windowOpacity = newOpacity
+
+        waitForExpectations(timeout: 3) { _ in
+            XCTAssertEqual(settings.windowOpacity, newOpacity, accuracy: CGFloat.ulpOfOne)
+        }
+    }
 }
