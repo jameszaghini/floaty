@@ -14,6 +14,8 @@ protocol JavascriptPanelDismissalDelegate: class {
 
 final class JavascriptAlertWindowController: JavascriptPanelWindowController {
 
+    static let nibName = NSNib.Name("JavascriptAlertWindowController")
+
     var completionHandler: (() -> Void)?
 
     // MARK: - Private
@@ -25,6 +27,8 @@ final class JavascriptAlertWindowController: JavascriptPanelWindowController {
 }
 
 final class JavascriptConfirmWindowController: JavascriptPanelWindowController {
+
+    static let nibName = NSNib.Name("JavascriptConfirmWindowController")
 
     var completionHandler: ((Bool) -> Void)?
 

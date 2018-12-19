@@ -96,13 +96,13 @@ class WebViewController: NSViewController, ToolbarDelegate, WKNavigationDelegate
     }
 
     func webView(_ webView: WKWebView, runJavaScriptConfirmPanelWithMessage message: String, initiatedByFrame frame: WKFrameInfo, completionHandler: @escaping (Bool) -> Void) {
-        let controller = JavascriptConfirmWindowController(windowNibName: NSNib.Name("JavascriptConfirmWindowController"))
+        let controller = JavascriptConfirmWindowController(windowNibName: JavascriptConfirmWindowController.nibName)
         controller.completionHandler = completionHandler
         setupJavascriptWindowController(controller, message: message)
     }
 
     func webView(_ webView: WKWebView, runJavaScriptAlertPanelWithMessage message: String, initiatedByFrame frame: WKFrameInfo, completionHandler: @escaping () -> Void) {
-        let controller = JavascriptAlertWindowController(windowNibName: NSNib.Name("JavascriptAlertWindowController"))
+        let controller = JavascriptAlertWindowController(windowNibName: JavascriptAlertWindowController.nibName)
         controller.completionHandler = completionHandler
         setupJavascriptWindowController(controller, message: message)
     }
