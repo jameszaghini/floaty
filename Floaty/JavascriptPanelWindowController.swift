@@ -47,8 +47,8 @@ class JavascriptPanelWindowController: NSWindowController {
 
     weak var delegate: JavascriptPanelDismissalDelegate?
 
-    override func windowDidLoad() {
-        super.windowDidLoad()
+    override func awakeFromNib() {
+        super.awakeFromNib()
         textView.isEditable = false
     }
 
