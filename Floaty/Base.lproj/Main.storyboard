@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14109"/>
-        <plugIn identifier="com.apple.WebKit2IBPlugin" version="14109"/>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14460.31"/>
+        <plugIn identifier="com.apple.WebKit2IBPlugin" version="14460.31"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -23,7 +24,11 @@
                                             </connections>
                                         </menuItem>
                                         <menuItem isSeparatorItem="YES" id="VOq-y0-SEH"/>
-                                        <menuItem title="Preferences…" keyEquivalent="," id="BOF-NM-1cW"/>
+                                        <menuItem title="Preferences…" keyEquivalent="," id="BOF-NM-1cW">
+                                            <connections>
+                                                <segue destination="UQ1-zC-BFR" kind="show" id="I9J-ws-R3S"/>
+                                            </connections>
+                                        </menuItem>
                                         <menuItem isSeparatorItem="YES" id="wFC-TO-SCJ"/>
                                         <menuItem title="Services" id="NMo-om-nkz">
                                             <modifierMask key="keyEquivalentModifierMask"/>
@@ -684,9 +689,9 @@
         <!--Window Controller-->
         <scene sceneID="R2V-B0-nI4">
             <objects>
-                <windowController id="B8D-0N-5wS" sceneMemberID="viewController">
-                    <window key="window" title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" animationBehavior="default" titleVisibility="hidden" id="IQv-IB-iLA">
-                        <windowStyleMask key="styleMask" titled="YES" resizable="YES"/>
+                <windowController id="B8D-0N-5wS" customClass="WebWindowController" customModule="Floaty" customModuleProvider="target" sceneMemberID="viewController">
+                    <window key="window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" animationBehavior="default" titleVisibility="hidden" id="IQv-IB-iLA" customClass="WebWindow" customModule="Floaty" customModuleProvider="target">
+                        <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
                         <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
                         <rect key="contentRect" x="196" y="240" width="960" height="540"/>
                         <rect key="screenRect" x="0.0" y="0.0" width="1680" height="1027"/>
@@ -701,7 +706,7 @@
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" refusesFirstResponder="YES" state="on" borderStyle="bezel" focusRingType="none" alignment="left" usesSingleLineMode="YES" bezelStyle="round" id="8Oj-6x-j1p">
                                             <font key="font" metaFont="system"/>
-                                            <color key="textColor" name="disabledControlTextColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="textColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.94901960780000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                             <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="deviceRGB"/>
                                         </textFieldCell>
                                         <connections>
@@ -717,7 +722,7 @@
                                 <toolbarItem reference="bmD-ya-VUb"/>
                             </defaultToolbarItems>
                             <connections>
-                                <outlet property="urlTextField" destination="fn9-bq-lHI" id="f5X-iv-X6F"/>
+                                <outlet property="urlTextField" destination="fn9-bq-lHI" id="8ei-aX-nau"/>
                             </connections>
                         </toolbar>
                         <connections>
@@ -732,6 +737,109 @@
             </objects>
             <point key="canvasLocation" x="75" y="250"/>
         </scene>
+        <!--Window Controller-->
+        <scene sceneID="Wau-fV-AHv">
+            <objects>
+                <windowController id="UQ1-zC-BFR" sceneMemberID="viewController">
+                    <window key="window" title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" frameAutosaveName="" animationBehavior="default" titleVisibility="hidden" id="Pm5-bp-Eb7" customClass="Window" customModule="Floaty" customModuleProvider="target">
+                        <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES"/>
+                        <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
+                        <rect key="contentRect" x="294" y="363" width="480" height="270"/>
+                        <rect key="screenRect" x="0.0" y="0.0" width="1920" height="1178"/>
+                        <toolbar key="toolbar" implicitIdentifier="4CDDAF43-4796-4F6D-87EC-EF9AAAF529C6" autosavesConfiguration="NO" allowsUserCustomization="NO" displayMode="iconAndLabel" sizeMode="regular" id="bAj-Te-OlW">
+                            <allowedToolbarItems>
+                                <toolbarItem implicitItemIdentifier="NSToolbarShowColorsItem" id="0qa-2D-spv"/>
+                                <toolbarItem implicitItemIdentifier="NSToolbarShowFontsItem" id="SaL-ji-dSc"/>
+                                <toolbarItem implicitItemIdentifier="NSToolbarPrintItem" id="N67-j7-8Hh"/>
+                                <toolbarItem implicitItemIdentifier="NSToolbarSpaceItem" id="fOD-zP-fc0"/>
+                                <toolbarItem implicitItemIdentifier="NSToolbarFlexibleSpaceItem" id="1QF-2g-esv"/>
+                                <toolbarItem implicitItemIdentifier="18C10660-1442-4ED9-8A4B-2A866DC44ECD" label="Toolbar Item" paletteLabel="Toolbar Item" tag="-1" id="Sii-Lq-sTL"/>
+                            </allowedToolbarItems>
+                            <defaultToolbarItems>
+                                <toolbarItem reference="1QF-2g-esv"/>
+                                <toolbarItem reference="Sii-Lq-sTL"/>
+                            </defaultToolbarItems>
+                        </toolbar>
+                        <connections>
+                            <outlet property="delegate" destination="UQ1-zC-BFR" id="m7E-ap-xc6"/>
+                        </connections>
+                    </window>
+                    <connections>
+                        <segue destination="dmE-PD-IGl" kind="relationship" relationship="window.shadowedContentViewController" id="jF2-Ho-R83"/>
+                    </connections>
+                </windowController>
+                <customObject id="Dr4-o9-k3v" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="966" y="133"/>
+        </scene>
+        <!--Settings View Controller-->
+        <scene sceneID="UtS-z9-nHR">
+            <objects>
+                <viewController id="dmE-PD-IGl" customClass="SettingsViewController" customModule="Floaty" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" id="Ktc-ZX-ubL">
+                        <rect key="frame" x="0.0" y="0.0" width="480" height="270"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="iwb-tU-Q5M">
+                                <rect key="frame" x="20" y="203" width="440" height="22"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" drawsBackground="YES" id="cLJ-tW-4iQ">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                                <connections>
+                                    <outlet property="delegate" destination="dmE-PD-IGl" id="XSY-nz-FR3"/>
+                                </connections>
+                            </textField>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="1ff-id-YLM">
+                                <rect key="frame" x="18" y="233" width="444" height="17"/>
+                                <textFieldCell key="cell" lineBreakMode="clipping" title="Homepage URL" id="QhM-pd-RZw">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Hl7-6C-ECX">
+                                <rect key="frame" x="18" y="172" width="444" height="17"/>
+                                <textFieldCell key="cell" lineBreakMode="clipping" title="Opacity" id="NA6-nL-ZIi">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <slider verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="5uM-FD-SWL">
+                                <rect key="frame" x="18" y="147" width="444" height="19"/>
+                                <sliderCell key="cell" continuous="YES" state="on" alignment="left" minValue="0.34999999999999998" maxValue="1" doubleValue="1" tickMarkPosition="above" sliderType="linear" id="AoS-TG-YRL"/>
+                                <connections>
+                                    <action selector="sliderChanged:" target="dmE-PD-IGl" id="f0f-RP-SCr"/>
+                                </connections>
+                            </slider>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="Hl7-6C-ECX" firstAttribute="top" secondItem="iwb-tU-Q5M" secondAttribute="bottom" constant="14" id="0Tl-zV-db4"/>
+                            <constraint firstItem="iwb-tU-Q5M" firstAttribute="leading" secondItem="1ff-id-YLM" secondAttribute="leading" id="3ss-oD-Xtr"/>
+                            <constraint firstItem="iwb-tU-Q5M" firstAttribute="top" secondItem="1ff-id-YLM" secondAttribute="bottom" constant="8" id="ARC-d7-CX4"/>
+                            <constraint firstItem="5uM-FD-SWL" firstAttribute="trailing" secondItem="Hl7-6C-ECX" secondAttribute="trailing" id="N4b-Fd-TUH"/>
+                            <constraint firstItem="Hl7-6C-ECX" firstAttribute="trailing" secondItem="iwb-tU-Q5M" secondAttribute="trailing" id="VrA-TJ-Fde"/>
+                            <constraint firstItem="Hl7-6C-ECX" firstAttribute="leading" secondItem="iwb-tU-Q5M" secondAttribute="leading" id="XMt-XA-d1j"/>
+                            <constraint firstItem="iwb-tU-Q5M" firstAttribute="trailing" secondItem="1ff-id-YLM" secondAttribute="trailing" id="YBn-3Y-YtK"/>
+                            <constraint firstItem="iwb-tU-Q5M" firstAttribute="top" secondItem="1ff-id-YLM" secondAttribute="bottom" constant="8" id="Zma-cr-f4L"/>
+                            <constraint firstItem="1ff-id-YLM" firstAttribute="leading" secondItem="Ktc-ZX-ubL" secondAttribute="leading" constant="20" id="caB-1f-W87"/>
+                            <constraint firstItem="1ff-id-YLM" firstAttribute="top" secondItem="Ktc-ZX-ubL" secondAttribute="top" constant="20" id="hGA-Te-OcT"/>
+                            <constraint firstAttribute="trailing" secondItem="1ff-id-YLM" secondAttribute="trailing" constant="20" id="lat-bj-Fqp"/>
+                            <constraint firstItem="5uM-FD-SWL" firstAttribute="leading" secondItem="Hl7-6C-ECX" secondAttribute="leading" id="mHl-wH-ONy"/>
+                            <constraint firstItem="5uM-FD-SWL" firstAttribute="top" secondItem="Hl7-6C-ECX" secondAttribute="bottom" constant="8" id="vJs-lO-LEg"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="homepageURLTextField" destination="iwb-tU-Q5M" id="dTg-gt-upc"/>
+                        <outlet property="opacitySlider" destination="5uM-FD-SWL" id="DRF-vK-yyx"/>
+                    </connections>
+                </viewController>
+                <customObject id="krR-By-U9r" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="966" y="529"/>
+        </scene>
         <!--Web View Controller-->
         <scene sceneID="hIz-AP-VOD">
             <objects>
@@ -741,26 +849,27 @@
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <wkWebView wantsLayer="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lg0-Wc-DQo">
-                                <rect key="frame" x="0.0" y="0.0" width="960" height="540"/>
+                                <rect key="frame" x="0.0" y="0.0" width="960" height="502"/>
                                 <wkWebViewConfiguration key="configuration">
                                     <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
                                     <wkPreferences key="preferences"/>
                                 </wkWebViewConfiguration>
                                 <connections>
+                                    <outlet property="UIDelegate" destination="XfG-lQ-9wD" id="zBq-dN-NvJ"/>
                                     <outlet property="navigationDelegate" destination="XfG-lQ-9wD" id="0bG-gM-ghB"/>
                                 </connections>
                             </wkWebView>
                             <progressIndicator wantsLayer="YES" maxValue="1" style="bar" translatesAutoresizingMaskIntoConstraints="NO" id="UbP-eh-79a">
-                                <rect key="frame" x="-2" y="528" width="964" height="20"/>
+                                <rect key="frame" x="-2" y="489" width="964" height="20"/>
                             </progressIndicator>
                         </subviews>
                         <constraints>
-                            <constraint firstItem="lg0-Wc-DQo" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" id="1P0-hP-u95"/>
+                            <constraint firstItem="lg0-Wc-DQo" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="38" id="1P0-hP-u95"/>
                             <constraint firstItem="UbP-eh-79a" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="-2" id="9nN-oY-aSU"/>
                             <constraint firstAttribute="trailing" secondItem="UbP-eh-79a" secondAttribute="trailing" constant="-2" id="Saf-cs-3yZ"/>
                             <constraint firstAttribute="trailing" secondItem="lg0-Wc-DQo" secondAttribute="trailing" id="UKa-bb-BXK"/>
                             <constraint firstItem="lg0-Wc-DQo" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" id="e1K-wy-SYO"/>
-                            <constraint firstItem="UbP-eh-79a" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="-7" id="gsv-KI-KG3"/>
+                            <constraint firstItem="lg0-Wc-DQo" firstAttribute="top" secondItem="UbP-eh-79a" secondAttribute="bottom" constant="-12" id="kGi-RK-Vhe"/>
                             <constraint firstAttribute="bottom" secondItem="lg0-Wc-DQo" secondAttribute="bottom" id="vwH-zF-tJj"/>
                         </constraints>
                     </view>

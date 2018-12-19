@@ -8,16 +8,15 @@
 
 import Cocoa
 import WebKit
+import Observable
 
-class WebViewController: NSViewController, ToolbarDelegate, WKNavigationDelegate {
+class WebViewController: NSViewController, ToolbarDelegate, WKNavigationDelegate, WKUIDelegate, JavascriptPanelDismissalDelegate, Serviceable {
 
     @IBOutlet private var webView: WKWebView!
     @IBOutlet private var progressIndicator: NSProgressIndicator!
 
     private var webViewProgressObserver: NSKeyValueObservation?
     private var webViewURLObserver: NSKeyValueObservation?
-
-    private var toolbar: Toolbar? = { NSApplication.shared.windows.first?.toolbar as? Toolbar }()
 
     private var url: URL? {
         didSet {
@@ -27,33 +26,55 @@ class WebViewController: NSViewController, ToolbarDelegate, WKNavigationDelegate
         }
     }
 
+    private var javascriptPanelWindowController: JavascriptPanelWindowController? {
+        didSet {
+            guard let panelWindow = javascriptPanelWindowController?.window else { return }
+            view.window?.beginSheet(panelWindow)
+        }
+    }
+
+    private var disposable: Disposable?
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        guard let window = NSApplication.shared.windows.first, let toolbar = window.toolbar as? Toolbar else {
-            return
+        guard let toolbar = NSApplication.shared.windows.first?.toolbar as? Toolbar else { return }
+        toolbar.toolbarDelegate = self
+
+        disposable = services.settings.windowOpacityObservable.observe { [weak self] opacity, _ in
+            self?.webView.alphaValue = opacity
+            self?.view.window?.backgroundColor = ColorPalette.background.withAlphaComponent(opacity)
         }
 
-        toolbar.toolbarDelegate = self
+        // Some sites won't work with the default user agent, so I've set this to the Safari user agent
+        webView.customUserAgent = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_5) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/11.1.1 Safari/605.1.15"
 
         webViewProgressObserver = webView.observe(\.estimatedProgress) { [weak self ] (webView, _) in
             self?.progressIndicator.doubleValue = webView.estimatedProgress
             self?.progressIndicator.isHidden = webView.estimatedProgress == 1
         }
 
-        webViewURLObserver = webView.observe(\.URL) { (webView, _) in
+        webViewURLObserver = webView.observe(\.url) { (webView, _) in
             if let urlString = webView.url?.absoluteString, urlString != toolbar.urlTextField.stringValue {
                 toolbar.urlTextField.stringValue = urlString
             }
         }
 
-        url = URL(string: "http://en.wikipedia.org/wiki/Special:Random")!
+        if let url = URL(string: services.settings.homepageURL) {
+            self.url = url
+        }
     }
 
     // MARK: - ToolbarDelegate
 
+    var windowController: NSWindowController?
+
     func toolbar(_ toolBar: Toolbar, didChangeText text: String) {
-        url = URL(string: text)
+        if let url = URL(string: text) {
+            self.url = url
+        } else if let query = text.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed) {
+            self.url = URL(string: "http://google.com/search?client=safari&q=\(query)")
+        }
     }
 
     // MARK: - WKNavigationDelegate
@@ -66,4 +87,40 @@ class WebViewController: NSViewController, ToolbarDelegate, WKNavigationDelegate
         print(error)
     }
 
+    // MARK: - WKUIDelegate
+
+    func webView(_ webView: WKWebView, createWebViewWith configuration: WKWebViewConfiguration, for navigationAction: WKNavigationAction, windowFeatures: WKWindowFeatures) -> WKWebView? {
+        // Open URLs that would open in a new window in the same web view
+        url = navigationAction.request.url
+        return nil
+    }
+
+    func webView(_ webView: WKWebView, runJavaScriptConfirmPanelWithMessage message: String, initiatedByFrame frame: WKFrameInfo, completionHandler: @escaping (Bool) -> Void) {
+        let controller = JavascriptConfirmWindowController(windowNibName: JavascriptConfirmWindowController.nibName)
+        controller.completionHandler = completionHandler
+        setupJavascriptWindowController(controller, message: message)
+    }
+
+    func webView(_ webView: WKWebView, runJavaScriptAlertPanelWithMessage message: String, initiatedByFrame frame: WKFrameInfo, completionHandler: @escaping () -> Void) {
+        let controller = JavascriptAlertWindowController(windowNibName: JavascriptAlertWindowController.nibName)
+        controller.completionHandler = completionHandler
+        setupJavascriptWindowController(controller, message: message)
+    }
+
+    // MARK: - JavascriptPanelWindowControllerDelegate
+
+    func didDismissJavascriptPanelWindowController(_ windowController: JavascriptPanelWindowController) {
+        guard let window = view.window, let panelWindow = javascriptPanelWindowController?.window else { return }
+        window.endSheet(panelWindow)
+        javascriptPanelWindowController = nil
+    }
+
+    // MARK: - Private
+
+    private func setupJavascriptWindowController(_ controller: JavascriptPanelWindowController, message: String) {
+        controller.loadWindow()
+        controller.delegate = self
+        controller.textView.string = message
+        javascriptPanelWindowController = controller
+    }
 }

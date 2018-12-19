@@ -7,7 +7,6 @@
 //
 
 import Cocoa
-import HotKey
 
 protocol ToolbarDelegate: class {
     func toolbar(_ toolBar: Toolbar, didChangeText text: String)
@@ -15,37 +14,19 @@ protocol ToolbarDelegate: class {
 
 class Toolbar: NSToolbar, NSTextFieldDelegate {
 
-    @IBOutlet var urlTextField: URLTextField!
+    @IBOutlet private(set) var urlTextField: URLTextField!
 
     weak var toolbarDelegate: ToolbarDelegate?
 
-    private let hotKey = HotKey(key: .f1, modifiers: [])
-
-    override init(identifier: NSToolbar.Identifier) {
-        super.init(identifier: identifier)
-        hotKey.keyDownHandler = { [weak self] in
-            self?.urlTextField.becomeFirstResponder()
-        }
-    }
-
     // MARK: - NSTextFieldDelegate
 
-    override func controlTextDidEndEditing(_ aNotification: Notification) {
-        guard
-            let textField = aNotification.object as? NSTextField,
-            let dict = aNotification.userInfo as? [String: Any],
-            let code = dict["NSTextMovement"] as? Int else {
-                return
+    func control(_ control: NSControl, textView: NSTextView, doCommandBy commandSelector: Selector) -> Bool {
+        guard control == urlTextField else { return false }
+        if commandSelector == #selector(NSResponder.insertNewline(_:)) {
+            toolbarDelegate?.toolbar(self, didChangeText: control.stringValue)
+            return true
         }
-
-        DispatchQueue.main.async {
-            textField.window?.makeFirstResponder(nil)
-            if let selectedRange = textField.currentEditor()?.selectedRange {
-                textField.currentEditor()?.selectedRange = selectedRange
-            }
-            if code == NSReturnTextMovement && textField == self.urlTextField {
-                self.toolbarDelegate?.toolbar(self, didChangeText: textField.stringValue)
-            }
-        }
+        return false
     }
+
 }
