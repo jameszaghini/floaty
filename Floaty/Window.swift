@@ -14,7 +14,7 @@ class Window: NSWindow {
         super.init(contentRect: contentRect, styleMask: style, backing: backingStoreType, defer: flag)
         collectionBehavior = .canJoinAllSpaces
         level = .floating
-        backgroundColor = NSColor(red: 0.3, green: 0.3, blue: 0.3, alpha: Services.shared.settings.windowOpacity)
+        backgroundColor = ColorPalette.background.withAlphaComponent(Services.shared.settings.windowOpacity)
     }
 }
 

@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1A006B0C20F9A82100E0D87F /* Window.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A006B0B20F9A82000E0D87F /* Window.swift */; };
+		1A02ED7021C9CFB30093114C /* ColorPalette.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A02ED6F21C9CFB30093114C /* ColorPalette.swift */; };
 		1A49F6AA20C545BD00D5A98B /* JavascriptPanelWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A49F6A920C545BD00D5A98B /* JavascriptPanelWindowController.swift */; };
 		1A49F6AC20C54E7F00D5A98B /* JavascriptAlertWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1A49F6AB20C54E7F00D5A98B /* JavascriptAlertWindowController.xib */; };
 		1A4BE7E320C3980D000B3769 /* JavascriptConfirmWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1A4BE7E120C3980D000B3769 /* JavascriptConfirmWindowController.xib */; };
@@ -43,6 +44,7 @@
 /* Begin PBXFileReference section */
 		129BE6615AED9D5ADA32B6A2 /* Pods-Floaty.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Floaty.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Floaty/Pods-Floaty.debug.xcconfig"; sourceTree = "<group>"; };
 		1A006B0B20F9A82000E0D87F /* Window.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Window.swift; sourceTree = "<group>"; };
+		1A02ED6F21C9CFB30093114C /* ColorPalette.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorPalette.swift; sourceTree = "<group>"; };
 		1A49F6A920C545BD00D5A98B /* JavascriptPanelWindowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JavascriptPanelWindowController.swift; sourceTree = "<group>"; };
 		1A49F6AB20C54E7F00D5A98B /* JavascriptAlertWindowController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = JavascriptAlertWindowController.xib; sourceTree = "<group>"; };
 		1A4BE7E120C3980D000B3769 /* JavascriptConfirmWindowController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = JavascriptConfirmWindowController.xib; sourceTree = "<group>"; };
@@ -116,6 +118,7 @@
 			children = (
 				1ABB83CB20B141280004C50E /* AppDelegate.swift */,
 				1ABB83CF20B1412A0004C50E /* Assets.xcassets */,
+				1A02ED6F21C9CFB30093114C /* ColorPalette.swift */,
 				1A49F6AB20C54E7F00D5A98B /* JavascriptAlertWindowController.xib */,
 				1A4BE7E120C3980D000B3769 /* JavascriptConfirmWindowController.xib */,
 				1A49F6A920C545BD00D5A98B /* JavascriptPanelWindowController.swift */,
@@ -337,6 +340,7 @@
 				1A9DAC3920B4CD5F00DCE63F /* URLTextField.swift in Sources */,
 				1AC958A821C7697F00B85B15 /* SearchProvider.swift in Sources */,
 				1A9DAC4120B63B5F00DCE63F /* NSWindow+Floaty.swift in Sources */,
+				1A02ED7021C9CFB30093114C /* ColorPalette.swift in Sources */,
 				1ABB83CE20B141280004C50E /* WebViewController.swift in Sources */,
 				1A6B726E20CDFE3F00AE2008 /* Services.swift in Sources */,
 				1ABB83CC20B141280004C50E /* AppDelegate.swift in Sources */,

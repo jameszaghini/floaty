@@ -43,7 +43,7 @@ class WebViewController: NSViewController, ToolbarDelegate, WKNavigationDelegate
 
         disposable = services.settings.windowOpacityObservable.observe { [weak self] opacity, _ in
             self?.webView.alphaValue = opacity
-            self?.view.window?.backgroundColor = NSColor(red: 0.3, green: 0.3, blue: 0.3, alpha: opacity)
+            self?.view.window?.backgroundColor = ColorPalette.background.withAlphaComponent(opacity)
         }
 
         // Some sites won't work with the default user agent, so I've set this to the Safari user agent
