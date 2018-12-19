@@ -5,3 +5,5 @@
 [![Maintainability](https://api.codeclimate.com/v1/badges/c921f9572d8f098a4be6/maintainability)](https://codeclimate.com/github/jameszaghini/floaty/maintainability)
 
 A browser window that floats on top of other application windows.
+
+![Shows floaty floating above another app](assets/screen-shot.png "Screen shot")
