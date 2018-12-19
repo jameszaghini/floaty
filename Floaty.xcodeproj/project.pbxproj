@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		1A006B0C20F9A82100E0D87F /* Window.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A006B0B20F9A82000E0D87F /* Window.swift */; };
 		1A02ED7021C9CFB30093114C /* ColorPalette.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A02ED6F21C9CFB30093114C /* ColorPalette.swift */; };
+		1A02ED7721C9F6D40093114C /* WindowTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A02ED7621C9F6D30093114C /* WindowTests.swift */; };
 		1A49F6AA20C545BD00D5A98B /* JavascriptPanelWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A49F6A920C545BD00D5A98B /* JavascriptPanelWindowController.swift */; };
 		1A49F6AC20C54E7F00D5A98B /* JavascriptAlertWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1A49F6AB20C54E7F00D5A98B /* JavascriptAlertWindowController.xib */; };
 		1A4BE7E320C3980D000B3769 /* JavascriptConfirmWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1A4BE7E120C3980D000B3769 /* JavascriptConfirmWindowController.xib */; };
@@ -45,6 +46,7 @@
 		129BE6615AED9D5ADA32B6A2 /* Pods-Floaty.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Floaty.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Floaty/Pods-Floaty.debug.xcconfig"; sourceTree = "<group>"; };
 		1A006B0B20F9A82000E0D87F /* Window.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Window.swift; sourceTree = "<group>"; };
 		1A02ED6F21C9CFB30093114C /* ColorPalette.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorPalette.swift; sourceTree = "<group>"; };
+		1A02ED7621C9F6D30093114C /* WindowTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindowTests.swift; sourceTree = "<group>"; };
 		1A49F6A920C545BD00D5A98B /* JavascriptPanelWindowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JavascriptPanelWindowController.swift; sourceTree = "<group>"; };
 		1A49F6AB20C54E7F00D5A98B /* JavascriptAlertWindowController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = JavascriptAlertWindowController.xib; sourceTree = "<group>"; };
 		1A4BE7E120C3980D000B3769 /* JavascriptConfirmWindowController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = JavascriptConfirmWindowController.xib; sourceTree = "<group>"; };
@@ -144,6 +146,7 @@
 				1ABB83DE20B1412A0004C50E /* FloatyTests.swift */,
 				1ABB83E020B1412A0004C50E /* Info.plist */,
 				1AC9589621C604DD00B85B15 /* SettingsTests.swift */,
+				1A02ED7621C9F6D30093114C /* WindowTests.swift */,
 			);
 			path = FloatyTests;
 			sourceTree = "<group>";
@@ -358,6 +361,7 @@
 			files = (
 				1AC9589721C604DD00B85B15 /* SettingsTests.swift in Sources */,
 				1ABB83DF20B1412A0004C50E /* FloatyTests.swift in Sources */,
+				1A02ED7721C9F6D40093114C /* WindowTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
