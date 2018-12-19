@@ -14,7 +14,6 @@ class Window: NSWindow {
         super.init(contentRect: contentRect, styleMask: style, backing: backingStoreType, defer: flag)
         collectionBehavior = .canJoinAllSpaces
         level = .floating
-        backgroundColor = ColorPalette.background.withAlphaComponent(Services.shared.settings.windowOpacity)
     }
 }
 
@@ -25,5 +24,6 @@ class WebWindow: Window {
         isOpaque = false
         styleMask.insert(.fullSizeContentView)
         titlebarAppearsTransparent = true
+        backgroundColor = ColorPalette.background.withAlphaComponent(Services.shared.settings.windowOpacity)
     }
 }
