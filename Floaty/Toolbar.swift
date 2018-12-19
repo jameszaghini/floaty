@@ -20,22 +20,13 @@ class Toolbar: NSToolbar, NSTextFieldDelegate {
 
     // MARK: - NSTextFieldDelegate
 
-    override func controlTextDidEndEditing(_ aNotification: Notification) {
-        guard
-            let textField = aNotification.object as? NSTextField,
-            let dict = aNotification.userInfo as? [String: Any],
-            let code = dict["NSTextMovement"] as? Int else {
-                return
+    func control(_ control: NSControl, textView: NSTextView, doCommandBy commandSelector: Selector) -> Bool {
+        guard control == urlTextField else { return false }
+        if commandSelector == #selector(NSResponder.insertNewline(_:)) {
+            toolbarDelegate?.toolbar(self, didChangeText: control.stringValue)
+            return true
         }
-
-        DispatchQueue.main.async {
-            textField.window?.makeFirstResponder(nil)
-            if let selectedRange = textField.currentEditor()?.selectedRange {
-                textField.currentEditor()?.selectedRange = selectedRange
-            }
-            if code == NSReturnTextMovement && textField == self.urlTextField {
-                self.toolbarDelegate?.toolbar(self, didChangeText: textField.stringValue)
-            }
-        }
+        return false
     }
+
 }
