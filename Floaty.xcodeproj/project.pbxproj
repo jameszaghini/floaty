@@ -19,6 +19,7 @@
 		1A8BECB821CA26F3001FE824 /* JavascriptAlertWindowControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A8BECB721CA26F3001FE824 /* JavascriptAlertWindowControllerTests.swift */; };
 		1A8BECBA21CA3ED9001FE824 /* JavascriptConfirmWindowControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A8BECB921CA3ED9001FE824 /* JavascriptConfirmWindowControllerTests.swift */; };
 		1A8BECC021CAF839001FE824 /* URLTextFieldTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A8BECBF21CAF839001FE824 /* URLTextFieldTests.swift */; };
+		1A8BECC421CC58BB001FE824 /* URLTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A8BECC321CC58BB001FE824 /* URLTests.swift */; };
 		1A9DAC0320B1975000DCE63F /* URL+Massage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A9DAC0220B1975000DCE63F /* URL+Massage.swift */; };
 		1A9DAC3920B4CD5F00DCE63F /* URLTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A9DAC3820B4CD5F00DCE63F /* URLTextField.swift */; };
 		1AA751E120CB806300490962 /* SettingsWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AA751E020CB806300490962 /* SettingsWindowController.swift */; };
@@ -58,6 +59,7 @@
 		1A8BECB721CA26F3001FE824 /* JavascriptAlertWindowControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JavascriptAlertWindowControllerTests.swift; sourceTree = "<group>"; };
 		1A8BECB921CA3ED9001FE824 /* JavascriptConfirmWindowControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JavascriptConfirmWindowControllerTests.swift; sourceTree = "<group>"; };
 		1A8BECBF21CAF839001FE824 /* URLTextFieldTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLTextFieldTests.swift; sourceTree = "<group>"; };
+		1A8BECC321CC58BB001FE824 /* URLTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLTests.swift; sourceTree = "<group>"; };
 		1A9DAC0220B1975000DCE63F /* URL+Massage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL+Massage.swift"; sourceTree = "<group>"; };
 		1A9DAC3820B4CD5F00DCE63F /* URLTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLTextField.swift; sourceTree = "<group>"; };
 		1AA751E020CB806300490962 /* SettingsWindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsWindowController.swift; sourceTree = "<group>"; };
@@ -153,6 +155,7 @@
 				1AC9589621C604DD00B85B15 /* SettingsTests.swift */,
 				1A8BECBF21CAF839001FE824 /* URLTextFieldTests.swift */,
 				1A02ED7621C9F6D30093114C /* WindowTests.swift */,
+				1A8BECC321CC58BB001FE824 /* URLTests.swift */,
 			);
 			path = FloatyTests;
 			sourceTree = "<group>";
@@ -364,6 +367,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1A8BECC421CC58BB001FE824 /* URLTests.swift in Sources */,
 				1AC9589721C604DD00B85B15 /* SettingsTests.swift in Sources */,
 				1A8BECBA21CA3ED9001FE824 /* JavascriptConfirmWindowControllerTests.swift in Sources */,
 				1ABB83DF20B1412A0004C50E /* FloatyTests.swift in Sources */,

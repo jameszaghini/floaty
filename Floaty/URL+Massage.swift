@@ -8,10 +8,6 @@
 
 import Foundation
 
-struct SiteEnhancement {
-    var userAgentString: String?
-}
-
 extension URL {
 
     func massagedURL() -> URL {
