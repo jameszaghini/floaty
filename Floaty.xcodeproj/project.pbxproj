@@ -25,6 +25,8 @@
 		1A8BECCB21CCC820001FE824 /* Plugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A8BECCA21CCC820001FE824 /* Plugin.swift */; };
 		1A8BECD221CD20BB001FE824 /* VimeoPlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A8BECD121CD20BB001FE824 /* VimeoPlugin.swift */; };
 		1A8BECD421CD2364001FE824 /* VimeoPluginTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A8BECD321CD2364001FE824 /* VimeoPluginTests.swift */; };
+		1A8BECD621CD8EDA001FE824 /* TwitchPlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A8BECD521CD8EDA001FE824 /* TwitchPlugin.swift */; };
+		1A8BECD821CD93B5001FE824 /* TwitchPluginTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A8BECD721CD93B5001FE824 /* TwitchPluginTests.swift */; };
 		1A9DAC0320B1975000DCE63F /* URL+Massage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A9DAC0220B1975000DCE63F /* URL+Massage.swift */; };
 		1A9DAC3920B4CD5F00DCE63F /* URLTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A9DAC3820B4CD5F00DCE63F /* URLTextField.swift */; };
 		1AA751E120CB806300490962 /* SettingsWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AA751E020CB806300490962 /* SettingsWindowController.swift */; };
@@ -70,6 +72,8 @@
 		1A8BECCA21CCC820001FE824 /* Plugin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Plugin.swift; sourceTree = "<group>"; };
 		1A8BECD121CD20BB001FE824 /* VimeoPlugin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VimeoPlugin.swift; sourceTree = "<group>"; };
 		1A8BECD321CD2364001FE824 /* VimeoPluginTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VimeoPluginTests.swift; sourceTree = "<group>"; };
+		1A8BECD521CD8EDA001FE824 /* TwitchPlugin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwitchPlugin.swift; sourceTree = "<group>"; };
+		1A8BECD721CD93B5001FE824 /* TwitchPluginTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwitchPluginTests.swift; sourceTree = "<group>"; };
 		1A9DAC0220B1975000DCE63F /* URL+Massage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL+Massage.swift"; sourceTree = "<group>"; };
 		1A9DAC3820B4CD5F00DCE63F /* URLTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLTextField.swift; sourceTree = "<group>"; };
 		1AA751E020CB806300490962 /* SettingsWindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsWindowController.swift; sourceTree = "<group>"; };
@@ -115,6 +119,7 @@
 			isa = PBXGroup;
 			children = (
 				1A8BECCA21CCC820001FE824 /* Plugin.swift */,
+				1A8BECD521CD8EDA001FE824 /* TwitchPlugin.swift */,
 				1A8BECD121CD20BB001FE824 /* VimeoPlugin.swift */,
 				1A8BECC721CCC7DC001FE824 /* YoutubePlugin.swift */,
 			);
@@ -174,6 +179,7 @@
 				1A8BECB721CA26F3001FE824 /* JavascriptAlertWindowControllerTests.swift */,
 				1A8BECB921CA3ED9001FE824 /* JavascriptConfirmWindowControllerTests.swift */,
 				1AC9589621C604DD00B85B15 /* SettingsTests.swift */,
+				1A8BECD721CD93B5001FE824 /* TwitchPluginTests.swift */,
 				1A8BECC321CC58BB001FE824 /* URLTests.swift */,
 				1A8BECBF21CAF839001FE824 /* URLTextFieldTests.swift */,
 				1A8BECD321CD2364001FE824 /* VimeoPluginTests.swift */,
@@ -386,6 +392,7 @@
 				1A6B727420CE000700AE2008 /* Settings.swift in Sources */,
 				1A9DAC0320B1975000DCE63F /* URL+Massage.swift in Sources */,
 				1A006B0C20F9A82100E0D87F /* Window.swift in Sources */,
+				1A8BECD621CD8EDA001FE824 /* TwitchPlugin.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -396,6 +403,7 @@
 				1A8BECC421CC58BB001FE824 /* URLTests.swift in Sources */,
 				1AC9589721C604DD00B85B15 /* SettingsTests.swift in Sources */,
 				1A8BECC621CCC7C1001FE824 /* YoutubePluginTests.swift in Sources */,
+				1A8BECD821CD93B5001FE824 /* TwitchPluginTests.swift in Sources */,
 				1A8BECBA21CA3ED9001FE824 /* JavascriptConfirmWindowControllerTests.swift in Sources */,
 				1ABB83DF20B1412A0004C50E /* FloatyTests.swift in Sources */,
 				1A02ED7721C9F6D40093114C /* WindowTests.swift in Sources */,

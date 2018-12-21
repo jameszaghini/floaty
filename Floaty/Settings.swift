@@ -26,7 +26,7 @@ struct Settings: Codable {
         }
     }
 
-    var plugins: [Plugin] = [YoutubePlugin(), VimeoPlugin()]
+    var plugins: [Plugin] = [YoutubePlugin(), VimeoPlugin(), TwitchPlugin()]
 
     private enum CodingKeys: String, CodingKey {
         case homepageURL, windowOpacity
