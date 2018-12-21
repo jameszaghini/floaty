@@ -13,7 +13,8 @@ class VimeoPluginTests: XCTestCase {
 
     func testURLMassaged() {
         var url = URL(string: "https://vimeo.com/176121677")!
-        url = url.massagedURL()
+        let plugin = VimeoPlugin()
+        url = plugin.massageURL(url)
         XCTAssertEqual(url.absoluteString, "https://player.vimeo.com/video/176121677")
     }
 }
