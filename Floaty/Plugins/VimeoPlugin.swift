@@ -17,7 +17,7 @@ struct VimeoPlugin: Plugin {
 
     func massageURL(_ url: URL) -> URL {
         guard hostnames.contains(url.host ?? "") else { return url }
-        let newURLString = url.absoluteString.replacingOccurrences(of: "https://vimeo.com/", with: "http://player.vimeo.com/video/")
+        let newURLString = url.absoluteString.replacingOccurrences(of: "https://vimeo.com/", with: "https://player.vimeo.com/video/")
         return URL(string: newURLString) ?? url
     }
 }
