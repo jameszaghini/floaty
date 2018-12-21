@@ -23,6 +23,7 @@
 		1A8BECC621CCC7C1001FE824 /* YoutubePluginTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A8BECC521CCC7C1001FE824 /* YoutubePluginTests.swift */; };
 		1A8BECC821CCC7DC001FE824 /* YoutubePlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A8BECC721CCC7DC001FE824 /* YoutubePlugin.swift */; };
 		1A8BECCB21CCC820001FE824 /* Plugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A8BECCA21CCC820001FE824 /* Plugin.swift */; };
+		1A8BECD221CD20BB001FE824 /* VimeoPlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A8BECD121CD20BB001FE824 /* VimeoPlugin.swift */; };
 		1A9DAC0320B1975000DCE63F /* URL+Massage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A9DAC0220B1975000DCE63F /* URL+Massage.swift */; };
 		1A9DAC3920B4CD5F00DCE63F /* URLTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A9DAC3820B4CD5F00DCE63F /* URLTextField.swift */; };
 		1AA751E120CB806300490962 /* SettingsWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AA751E020CB806300490962 /* SettingsWindowController.swift */; };
@@ -66,6 +67,7 @@
 		1A8BECC521CCC7C1001FE824 /* YoutubePluginTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YoutubePluginTests.swift; sourceTree = "<group>"; };
 		1A8BECC721CCC7DC001FE824 /* YoutubePlugin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YoutubePlugin.swift; sourceTree = "<group>"; };
 		1A8BECCA21CCC820001FE824 /* Plugin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Plugin.swift; sourceTree = "<group>"; };
+		1A8BECD121CD20BB001FE824 /* VimeoPlugin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VimeoPlugin.swift; sourceTree = "<group>"; };
 		1A9DAC0220B1975000DCE63F /* URL+Massage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL+Massage.swift"; sourceTree = "<group>"; };
 		1A9DAC3820B4CD5F00DCE63F /* URLTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLTextField.swift; sourceTree = "<group>"; };
 		1AA751E020CB806300490962 /* SettingsWindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsWindowController.swift; sourceTree = "<group>"; };
@@ -110,8 +112,9 @@
 		1A8BECC921CCC806001FE824 /* Plugins */ = {
 			isa = PBXGroup;
 			children = (
-				1A8BECC721CCC7DC001FE824 /* YoutubePlugin.swift */,
 				1A8BECCA21CCC820001FE824 /* Plugin.swift */,
+				1A8BECD121CD20BB001FE824 /* VimeoPlugin.swift */,
+				1A8BECC721CCC7DC001FE824 /* YoutubePlugin.swift */,
 			);
 			path = Plugins;
 			sourceTree = "<group>";
@@ -375,6 +378,7 @@
 				1A6B726E20CDFE3F00AE2008 /* Services.swift in Sources */,
 				1ABB83CC20B141280004C50E /* AppDelegate.swift in Sources */,
 				1A6B726C20CD5EA000AE2008 /* WebWindowController.swift in Sources */,
+				1A8BECD221CD20BB001FE824 /* VimeoPlugin.swift in Sources */,
 				1AA751E120CB806300490962 /* SettingsWindowController.swift in Sources */,
 				1A6B727420CE000700AE2008 /* Settings.swift in Sources */,
 				1A9DAC0320B1975000DCE63F /* URL+Massage.swift in Sources */,
