@@ -7,3 +7,13 @@
 //
 
 import Foundation
+
+typealias ParameterKey = String
+typealias ParameterValue = String
+
+protocol Plugin {
+    var name: String { get }
+    var hostnames: [String] { get }
+    var additionalQueryParams: DictionaryLiteral<ParameterKey, ParameterValue> { get }
+    func massageURL(_ url: URL) -> URL
+}
