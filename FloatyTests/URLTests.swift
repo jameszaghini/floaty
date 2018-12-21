@@ -11,6 +11,12 @@ import XCTest
 
 class URLTests: XCTestCase {
 
+    func testContainsParameterKey() {
+        let key = "funky"
+        let url = URL(string: "https://www.google.com?\(key)=monkey")!
+        XCTAssertTrue(url.containsParameterKey(key))
+    }
+
     func testWWWShouldBePrefixedWithHttps() {
         let url = URL(string: "www.google.com")!
         let massaged = url.massagedURL()

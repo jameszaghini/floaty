@@ -10,6 +10,10 @@ import Foundation
 
 extension URL {
 
+    func containsParameterKey(_ key: ParameterKey) -> Bool {
+        return URLComponents(string: absoluteString)?.queryItems?.first(where: { $0.name == key }) != nil
+    }
+
     func massagedURL() -> URL {
         var urlString = absoluteString
 
@@ -17,9 +21,11 @@ extension URL {
             urlString = "https://" + urlString
         }
 
-        urlString = urlString.replacingOccurrences(of: "https://www.youtube.com/watch?v=", with: "https://www.youtube.com/embed/")
+        var massagedURL: URL?
+        Services.shared.settings.plugins.forEach { plugin in
+            massagedURL = plugin.massageURL(URL(string: urlString)!)
+        }
 
-        let massagedURL = URL(string: urlString)
         return massagedURL ?? self
     }
 }
