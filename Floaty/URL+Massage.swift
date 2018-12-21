@@ -21,11 +21,11 @@ extension URL {
             urlString = "https://" + urlString
         }
 
-        var massagedURL: URL?
+        var massagedURL = self
         Services.shared.settings.plugins.forEach { plugin in
-            massagedURL = plugin.massageURL(URL(string: urlString)!)
+            massagedURL = plugin.massageURL(massagedURL)
         }
 
-        return massagedURL ?? self
+        return massagedURL
     }
 }
