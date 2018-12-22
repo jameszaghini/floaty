@@ -41,6 +41,6 @@ struct DuckDuckGo: SearchProvider {
 
 struct Bing: SearchProvider {
     let providerId = "bing"
-    var url = URL(string: "https://www.bing.com/")
+    var url = URL(string: "https://www.bing.com/")!
     var searchURLString = "https://www.bing.com/search?q="
 }
