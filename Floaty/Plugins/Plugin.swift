@@ -23,29 +23,37 @@ extension Plugin {
 
     func massageURL(_ url: URL) -> URL {
         guard hostnames.contains(url.host ?? "") else { return url }
+        var url = url
+        url = doReplace(url: url)
+        url = addAdditionalParams(url: url)
+        return url
+    }
 
+    func doReplace(url: URL) -> URL {
         var newURLString = url.absoluteString
 
         replace.forEach {
             newURLString = url.absoluteString.replacingOccurrences(of: $0, with: $1)
         }
 
-        guard let newURL = URL(string: newURLString) else { return url }
-
-        if !additionalQueryParams.isEmpty {
-            if newURL.query == nil {
-                newURLString += "?"
-            }
-
-            additionalQueryParams.forEach { (key: ParameterKey, value: ParameterValue) in
-                if !newURL.containsParameterKey(key) {
-                    newURLString.append("\(key)=\(value)&")
-                }
-            }
-            newURLString = String(newURLString.dropLast())
-        }
-
         return URL(string: newURLString) ?? url
     }
 
+    func addAdditionalParams(url: URL) -> URL {
+        guard !additionalQueryParams.isEmpty else { return url }
+        var urlString = url.absoluteString
+
+        if url.query == nil {
+            urlString += "?"
+        }
+
+        additionalQueryParams.forEach { (key: ParameterKey, value: ParameterValue) in
+            if !url.containsParameterKey(key) {
+                urlString.append("\(key)=\(value)&")
+            }
+        }
+        urlString = String(urlString.dropLast())
+
+        return URL(string: urlString) ?? url
+    }
 }
