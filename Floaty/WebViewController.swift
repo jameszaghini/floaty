@@ -18,7 +18,7 @@ class WebViewController: NSViewController, ToolbarDelegate, WKNavigationDelegate
     private var webViewProgressObserver: NSKeyValueObservation?
     private var webViewURLObserver: NSKeyValueObservation?
 
-    private var url: URL? {
+    private(set) var url: URL? {
         didSet {
             guard let url = url else { return }
             let request = URLRequest(url: url.massagedURL())
