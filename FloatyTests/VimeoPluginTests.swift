@@ -15,6 +15,6 @@ class VimeoPluginTests: XCTestCase {
         var url = URL(string: "https://vimeo.com/176121677")!
         let plugin = VimeoPlugin()
         url = plugin.massageURL(url)
-        XCTAssertEqual(url.absoluteString, "https://player.vimeo.com/video/176121677")
+        XCTAssertTrue(url.absoluteString.hasPrefix("https://player.vimeo.com/video/176121677"))
     }
 }

@@ -9,6 +9,7 @@
 import Foundation
 
 struct VimeoPlugin: Plugin {
+
     var name = "Vimeo"
 
     var hostnames = ["www.vimeo.com", "vimeo.com"]
@@ -19,9 +20,7 @@ struct VimeoPlugin: Plugin {
         "autoplay": "1",
     ]
 
-    func massageURL(_ url: URL) -> URL {
-        guard hostnames.contains(url.host ?? "") else { return url }
-        let newURLString = url.absoluteString.replacingOccurrences(of: "https://vimeo.com/", with: "https://player.vimeo.com/video/")
-        return URL(string: newURLString) ?? url
-    }
+    var replace: [String: String] = [
+        "https://vimeo.com/": "https://player.vimeo.com/video/",
+    ]
 }

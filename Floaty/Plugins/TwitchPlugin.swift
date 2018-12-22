@@ -9,13 +9,14 @@
 import Foundation
 
 struct TwitchPlugin: Plugin {
+
     var name = "Twitch"
+
     var hostnames = ["www.twitch.tv", "twitch.tv"]
+
     var additionalQueryParams: DictionaryLiteral<ParameterKey, ParameterValue> = [:]
 
-    func massageURL(_ url: URL) -> URL {
-        guard hostnames.contains(url.host ?? "") else { return url }
-        let newURLString = url.absoluteString.replacingOccurrences(of: "https://twitch.tv/videos/", with: "https://player.twitch.tv/?video=v")
-        return URL(string: newURLString) ?? url
-    }
+    var replace: [String: String] = [
+        "https://twitch.tv/videos/": "https://player.twitch.tv/?video=v",
+    ]
 }
