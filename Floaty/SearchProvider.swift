@@ -17,7 +17,7 @@ protocol SearchProvider {
 }
 
 struct Search {
-    static let allProviders: [SearchProvider] = [DuckDuckGo(), Google()]
+    static let allProviders: [SearchProvider] = [DuckDuckGo(), Google(), Bing()]
     static let defaultProvider: SearchProvider = {
         return allProviders.first!
     }()
@@ -37,4 +37,10 @@ struct DuckDuckGo: SearchProvider {
     let providerId = "duckduckgo"
     var url = URL(string: "https://www.duckduckgo.com?kae=d")!
     var searchURLString = "https://duckduckgo.com/?q="
+}
+
+struct Bing: SearchProvider {
+    let providerId = "bing"
+    var url = URL(string: "https://www.bing.com/")
+    var searchURLString = "https://www.bing.com/search?q="
 }
