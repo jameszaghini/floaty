@@ -28,8 +28,12 @@ struct Settings: Codable {
 
     var plugins: [Plugin] = [YoutubePlugin(), VimeoPlugin(), TwitchPlugin()]
 
+    var searchProviderId: SearchProviderId {
+        didSet { save() }
+    }
+
     private enum CodingKeys: String, CodingKey {
-        case homepageURL, windowOpacity
+        case homepageURL, windowOpacity, searchProviderId
     }
 
     static func load(defaults: UserDefaults = UserDefaults.standard) -> Settings {
@@ -43,10 +47,14 @@ struct Settings: Codable {
 
     // MARK: - Private
 
-    private init(homepageURL: String = "https://www.duckduckgo.com?kae=d", windowOpacity: CGFloat = 1, defaults: UserDefaults = UserDefaults.standard) {
+    private init(homepageURL: String = "https://www.duckduckgo.com?kae=d",
+                 windowOpacity: CGFloat = 1,
+                 searchProviderId: SearchProviderId = Search.defaultProvider.providerId,
+                 defaults: UserDefaults = UserDefaults.standard) {
         self.homepageURL = homepageURL
-        self.defaults = defaults
         self.windowOpacity = windowOpacity
+        self.searchProviderId = searchProviderId
+        self.defaults = defaults
     }
 
     private func save() {

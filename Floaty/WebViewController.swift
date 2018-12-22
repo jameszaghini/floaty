@@ -73,7 +73,8 @@ class WebViewController: NSViewController, ToolbarDelegate, WKNavigationDelegate
         if let url = URL(string: text) {
             self.url = url
         } else if let query = text.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed) {
-            self.url = URL(string: "http://google.com/search?client=safari&q=\(query)")
+            let searchProvider = Search.activeProvider(settings: Services.shared.settings)
+            self.url = URL(string: searchProvider.searchURLString + query)
         }
     }
 
