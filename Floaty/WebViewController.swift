@@ -85,7 +85,7 @@ class WebViewController: NSViewController, ToolbarDelegate, WKNavigationDelegate
     }
 
     func webView(_ webView: WKWebView, didFailProvisionalNavigation navigation: WKNavigation!, withError error: Error) {
-        print(error)
+        webView.loadHTMLString("<div style=\"position: relative; text-align: center; top: 50%; transform: translateY(-50%); font-family: Arial\">" + error.localizedDescription + "</div>", baseURL: Bundle.main.bundleURL)
     }
 
     // MARK: - WKUIDelegate
