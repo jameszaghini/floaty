@@ -9,6 +9,7 @@
 import Cocoa
 import WebKit
 import Observable
+import CocoaLumberjack
 
 class WebViewController: NSViewController, ToolbarDelegate, WKNavigationDelegate, WKUIDelegate, JavascriptPanelDismissalDelegate, Serviceable {
 
@@ -81,11 +82,12 @@ class WebViewController: NSViewController, ToolbarDelegate, WKNavigationDelegate
     // MARK: - WKNavigationDelegate
 
     func webView(_ webView: WKWebView, didFail navigation: WKNavigation!, withError error: Error) {
-        print(error)
+        DDLogInfo(error.localizedDescription)
     }
 
     func webView(_ webView: WKWebView, didFailProvisionalNavigation navigation: WKNavigation!, withError error: Error) {
         webView.loadHTMLString("<div style=\"position: relative; text-align: center; top: 50%; transform: translateY(-50%); font-family: Arial\">" + error.localizedDescription + "</div>", baseURL: Bundle.main.bundleURL)
+        DDLogInfo(error.localizedDescription)
     }
 
     // MARK: - WKUIDelegate
