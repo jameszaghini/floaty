@@ -32,12 +32,12 @@
 		1A8BECDE21CEEEFD001FE824 /* WebViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A8BECDD21CEEEFD001FE824 /* WebViewControllerTests.swift */; };
 		1A9DAC0320B1975000DCE63F /* URL+Massage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A9DAC0220B1975000DCE63F /* URL+Massage.swift */; };
 		1A9DAC3920B4CD5F00DCE63F /* URLTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A9DAC3820B4CD5F00DCE63F /* URLTextField.swift */; };
+		1AA4DA5621D84576001E27A4 /* AppDelegateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AA4DA5521D84576001E27A4 /* AppDelegateTests.swift */; };
 		1AA751E120CB806300490962 /* SettingsWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AA751E020CB806300490962 /* SettingsWindowController.swift */; };
 		1ABB83CC20B141280004C50E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ABB83CB20B141280004C50E /* AppDelegate.swift */; };
 		1ABB83CE20B141280004C50E /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ABB83CD20B141280004C50E /* WebViewController.swift */; };
 		1ABB83D020B1412A0004C50E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1ABB83CF20B1412A0004C50E /* Assets.xcassets */; };
 		1ABB83D320B1412A0004C50E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1ABB83D120B1412A0004C50E /* Main.storyboard */; };
-		1ABB83DF20B1412A0004C50E /* FloatyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ABB83DE20B1412A0004C50E /* FloatyTests.swift */; };
 		1ABB83EA20B153F70004C50E /* Toolbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ABB83E920B153F70004C50E /* Toolbar.swift */; };
 		1AC9589721C604DD00B85B15 /* SettingsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AC9589621C604DD00B85B15 /* SettingsTests.swift */; };
 		1AC958A821C7697F00B85B15 /* SearchProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AC958A721C7697F00B85B15 /* SearchProvider.swift */; };
@@ -82,6 +82,7 @@
 		1A8BECDD21CEEEFD001FE824 /* WebViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewControllerTests.swift; sourceTree = "<group>"; };
 		1A9DAC0220B1975000DCE63F /* URL+Massage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL+Massage.swift"; sourceTree = "<group>"; };
 		1A9DAC3820B4CD5F00DCE63F /* URLTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLTextField.swift; sourceTree = "<group>"; };
+		1AA4DA5521D84576001E27A4 /* AppDelegateTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegateTests.swift; sourceTree = "<group>"; };
 		1AA751E020CB806300490962 /* SettingsWindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsWindowController.swift; sourceTree = "<group>"; };
 		1ABB83C820B141280004C50E /* Floaty.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Floaty.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1ABB83CB20B141280004C50E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -89,7 +90,6 @@
 		1ABB83CF20B1412A0004C50E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1ABB83D220B1412A0004C50E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		1ABB83DA20B1412A0004C50E /* FloatyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FloatyTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		1ABB83DE20B1412A0004C50E /* FloatyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloatyTests.swift; sourceTree = "<group>"; };
 		1ABB83E020B1412A0004C50E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1ABB83E920B153F70004C50E /* Toolbar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Toolbar.swift; sourceTree = "<group>"; };
 		1AC9589621C604DD00B85B15 /* SettingsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTests.swift; sourceTree = "<group>"; };
@@ -181,7 +181,7 @@
 		1ABB83DD20B1412A0004C50E /* floatyTests */ = {
 			isa = PBXGroup;
 			children = (
-				1ABB83DE20B1412A0004C50E /* FloatyTests.swift */,
+				1AA4DA5521D84576001E27A4 /* AppDelegateTests.swift */,
 				1ABB83E020B1412A0004C50E /* Info.plist */,
 				1A8BECB721CA26F3001FE824 /* JavascriptAlertWindowControllerTests.swift */,
 				1A8BECB921CA3ED9001FE824 /* JavascriptConfirmWindowControllerTests.swift */,
@@ -191,9 +191,9 @@
 				1A8BECC321CC58BB001FE824 /* URLTests.swift */,
 				1A8BECBF21CAF839001FE824 /* URLTextFieldTests.swift */,
 				1A8BECD321CD2364001FE824 /* VimeoPluginTests.swift */,
+				1A8BECDD21CEEEFD001FE824 /* WebViewControllerTests.swift */,
 				1A02ED7621C9F6D30093114C /* WindowTests.swift */,
 				1A8BECC521CCC7C1001FE824 /* YoutubePluginTests.swift */,
-				1A8BECDD21CEEEFD001FE824 /* WebViewControllerTests.swift */,
 			);
 			path = floatyTests;
 			sourceTree = "<group>";
@@ -415,13 +415,13 @@
 				1A8BECC621CCC7C1001FE824 /* YoutubePluginTests.swift in Sources */,
 				1A8BECD821CD93B5001FE824 /* TwitchPluginTests.swift in Sources */,
 				1A8BECBA21CA3ED9001FE824 /* JavascriptConfirmWindowControllerTests.swift in Sources */,
-				1ABB83DF20B1412A0004C50E /* FloatyTests.swift in Sources */,
 				1A02ED7721C9F6D40093114C /* WindowTests.swift in Sources */,
 				1A8BECDE21CEEEFD001FE824 /* WebViewControllerTests.swift in Sources */,
 				1A8BECB821CA26F3001FE824 /* JavascriptAlertWindowControllerTests.swift in Sources */,
 				1A8BECC021CAF839001FE824 /* URLTextFieldTests.swift in Sources */,
 				1A8BECDC21CE7338001FE824 /* SearchProviderTests.swift in Sources */,
 				1A8BECD421CD2364001FE824 /* VimeoPluginTests.swift in Sources */,
+				1AA4DA5621D84576001E27A4 /* AppDelegateTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
