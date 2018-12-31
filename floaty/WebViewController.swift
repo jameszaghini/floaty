@@ -13,6 +13,8 @@ import CocoaLumberjack
 
 class WebViewController: NSViewController, ToolbarDelegate, WKNavigationDelegate, WKUIDelegate, JavascriptPanelDismissalDelegate, Serviceable {
 
+    @IBOutlet var topLayoutConstraint: NSLayoutConstraint!
+
     @IBOutlet private var webView: WKWebView!
     @IBOutlet private var progressIndicator: NSProgressIndicator!
 
