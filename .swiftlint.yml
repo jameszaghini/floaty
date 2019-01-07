@@ -6,6 +6,7 @@ opt_in_rules:
   - empty_count
 excluded:
   - Pods
+  - vendor
 
 trailing_comma:
   mandatory_comma: true
