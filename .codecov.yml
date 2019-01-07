@@ -1,3 +1,4 @@
 ignore:
   - "Pods"
+  - "vendor"
   - "floatyTests"
