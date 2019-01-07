@@ -98,7 +98,7 @@ class WebViewController: NSViewController, ToolbarDelegate, WKNavigationDelegate
 
     func webView(_ webView: WKWebView, createWebViewWith configuration: WKWebViewConfiguration, for navigationAction: WKNavigationAction, windowFeatures: WKWindowFeatures) -> WKWebView? {
         // Open URLs that would open in a new window in the same web view
-        self.url = navigationAction.request.url
+        url = navigationAction.request.url
         return nil
     }
 
