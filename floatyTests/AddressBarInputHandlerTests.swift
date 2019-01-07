@@ -39,6 +39,14 @@ class AddressBarInputHandlerTests: XCTestCase {
         XCTAssertEqual(action, expectedAction)
     }
 
+    func testHostWithPathReturnsURL() {
+        let text = "abc.net.au/news"
+        let url = URL(string: "https://" + text)!
+        let expectedAction = BrowserAction.visit(url: url)
+        let action = AddressBarInputHandler.actionFromEnteredText(text)
+        XCTAssertEqual(action, expectedAction)
+    }
+
     func testRedditDotComReturnsURL() {
         let text = "reddit.com"
         let url = URL(string: "https://" + text)!

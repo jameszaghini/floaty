@@ -24,7 +24,11 @@ struct AddressBarInputHandler {
         }
 
         do {
-            if try DomainParser().parse(host: text) == nil {
+            let parser = try DomainParser()
+            let urlParsedHost = parser.parse(host: url.host ?? "")
+            let prefixedURL = URL(string: "https://" + url.absoluteString)
+            let prefixedURLParsedHost = parser.parse(host: prefixedURL?.host ?? "")
+            if urlParsedHost == nil && prefixedURLParsedHost == nil {
                 return .search(text: text)
             }
         } catch let error {
