@@ -11,7 +11,7 @@
 		1A02ED7021C9CFB30093114C /* ColorPalette.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A02ED6F21C9CFB30093114C /* ColorPalette.swift */; };
 		1A02ED7721C9F6D40093114C /* WindowTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A02ED7621C9F6D30093114C /* WindowTests.swift */; };
 		1A2088FB21E08DE00034ED83 /* AddressBarInputHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A2088FA21E08DE00034ED83 /* AddressBarInputHandler.swift */; };
-		1A2088FD21E0913B0034ED83 /* URLHandlerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A2088FC21E0913B0034ED83 /* URLHandlerTests.swift */; };
+		1A2088FD21E0913B0034ED83 /* AddressBarInputHandlerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A2088FC21E0913B0034ED83 /* AddressBarInputHandlerTests.swift */; };
 		1A2088FF21E16B6E0034ED83 /* String+Conveniences.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A2088FE21E16B6E0034ED83 /* String+Conveniences.swift */; };
 		1A20890121E16D950034ED83 /* BrowserAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A20890021E16D950034ED83 /* BrowserAction.swift */; };
 		1A31400821E32462008026BC /* DomainParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A31400021E32462008026BC /* DomainParser.swift */; };
@@ -73,7 +73,7 @@
 		1A02ED6F21C9CFB30093114C /* ColorPalette.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorPalette.swift; sourceTree = "<group>"; };
 		1A02ED7621C9F6D30093114C /* WindowTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindowTests.swift; sourceTree = "<group>"; };
 		1A2088FA21E08DE00034ED83 /* AddressBarInputHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressBarInputHandler.swift; sourceTree = "<group>"; };
-		1A2088FC21E0913B0034ED83 /* URLHandlerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLHandlerTests.swift; sourceTree = "<group>"; };
+		1A2088FC21E0913B0034ED83 /* AddressBarInputHandlerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressBarInputHandlerTests.swift; sourceTree = "<group>"; };
 		1A2088FE21E16B6E0034ED83 /* String+Conveniences.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Conveniences.swift"; sourceTree = "<group>"; };
 		1A20890021E16D950034ED83 /* BrowserAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrowserAction.swift; sourceTree = "<group>"; };
 		1A31400021E32462008026BC /* DomainParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DomainParser.swift; path = "vendor/SwiftDomainParser-8979d6c  /DomainParser/DomainParser/DomainParser.swift"; sourceTree = SOURCE_ROOT; };
@@ -244,6 +244,7 @@
 		1ABB83DD20B1412A0004C50E /* floatyTests */ = {
 			isa = PBXGroup;
 			children = (
+				1A2088FC21E0913B0034ED83 /* AddressBarInputHandlerTests.swift */,
 				1AA4DA5521D84576001E27A4 /* AppDelegateTests.swift */,
 				1ABB83E020B1412A0004C50E /* Info.plist */,
 				1A8BECB721CA26F3001FE824 /* JavascriptAlertWindowControllerTests.swift */,
@@ -251,7 +252,6 @@
 				1A8BECDB21CE7338001FE824 /* SearchProviderTests.swift */,
 				1AC9589621C604DD00B85B15 /* SettingsTests.swift */,
 				1A8BECD721CD93B5001FE824 /* TwitchPluginTests.swift */,
-				1A2088FC21E0913B0034ED83 /* URLHandlerTests.swift */,
 				1A8BECC321CC58BB001FE824 /* URLTests.swift */,
 				1A8BECBF21CAF839001FE824 /* URLTextFieldTests.swift */,
 				1A8BECD321CD2364001FE824 /* VimeoPluginTests.swift */,
@@ -489,7 +489,7 @@
 				1AC9589721C604DD00B85B15 /* SettingsTests.swift in Sources */,
 				1A8BECC621CCC7C1001FE824 /* YoutubePluginTests.swift in Sources */,
 				1A8BECD821CD93B5001FE824 /* TwitchPluginTests.swift in Sources */,
-				1A2088FD21E0913B0034ED83 /* URLHandlerTests.swift in Sources */,
+				1A2088FD21E0913B0034ED83 /* AddressBarInputHandlerTests.swift in Sources */,
 				1A8BECBA21CA3ED9001FE824 /* JavascriptConfirmWindowControllerTests.swift in Sources */,
 				1A02ED7721C9F6D40093114C /* WindowTests.swift in Sources */,
 				1A8BECDE21CEEEFD001FE824 /* WebViewControllerTests.swift in Sources */,

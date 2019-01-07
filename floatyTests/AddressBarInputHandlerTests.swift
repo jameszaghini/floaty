@@ -9,7 +9,7 @@
 import XCTest
 @testable import Floaty
 
-class AddressBarInputHandler: XCTestCase {
+class AddressBarInputHandlerTests: XCTestCase {
 
     func testEmptyStringDoesNothing() {
         let text = ""
