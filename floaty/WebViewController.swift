@@ -68,19 +68,6 @@ class WebViewController: NSViewController, ToolbarDelegate, WKNavigationDelegate
         }
     }
 
-    // MARK: - ToolbarDelegate
-
-    var windowController: NSWindowController?
-
-    func toolbar(_ toolBar: Toolbar, didChangeText text: String) {
-        if let url = URL(string: text) {
-            self.url = url
-        } else if let query = text.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed) {
-            let searchProvider = Search.activeProvider(settings: Services.shared.settings)
-            self.url = URL(string: searchProvider.searchURLString + query)
-        }
-    }
-
     // MARK: - WKNavigationDelegate
 
     func webView(_ webView: WKWebView, didFail navigation: WKNavigation!, withError error: Error) {
@@ -92,11 +79,26 @@ class WebViewController: NSViewController, ToolbarDelegate, WKNavigationDelegate
         DDLogInfo(error.localizedDescription)
     }
 
+    // MARK: - ToolbarDelegate
+
+    func toolbar(_ toolBar: Toolbar, didChangeText text: String) {
+        switch AddressBarInputHandler.actionFromEnteredText(text) {
+        case .visit(let url):
+            self.url = url
+        case .search(let query):
+            guard let encodedQuery = query.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed) else { break }
+            let searchProvider = Search.activeProvider(settings: Services.shared.settings)
+            self.url = URL(string: searchProvider.searchURLString + encodedQuery)
+        case .none:
+            break
+        }
+    }
+
     // MARK: - WKUIDelegate
 
     func webView(_ webView: WKWebView, createWebViewWith configuration: WKWebViewConfiguration, for navigationAction: WKNavigationAction, windowFeatures: WKWindowFeatures) -> WKWebView? {
         // Open URLs that would open in a new window in the same web view
-        url = navigationAction.request.url
+        self.url = navigationAction.request.url
         return nil
     }
 

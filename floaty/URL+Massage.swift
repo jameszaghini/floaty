@@ -15,13 +15,7 @@ extension URL {
     }
 
     func massagedURL() -> URL {
-        var urlString = absoluteString
-
-        if !urlString.hasPrefix("http://") && !urlString.hasPrefix("https://") {
-            urlString = "https://" + urlString
-        }
-
-        var massagedURL = URL(string: urlString)
+        var massagedURL = URL(string: absoluteString)
         Services.shared.settings.plugins.forEach { plugin in
             massagedURL = plugin.massageURL(massagedURL ?? self)
         }

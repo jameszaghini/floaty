@@ -16,4 +16,19 @@ class WindowTests: XCTestCase {
         XCTAssertEqual(window.level, .floating)
     }
 
+//    func testMouseExitedHidesToolbar() {
+//        var webViewController: WebViewController?
+//        let storyboardName = NSStoryboard.Name("Main")
+//        let storyboard = NSStoryboard(name: storyboardName, bundle: nil)
+//        let webWindowController = storyboard.instantiateInitialController() as? WebWindowController
+//        webViewController = webWindowController?.window?.contentViewController as? WebViewController
+//        webViewController?.loadView()
+//
+//        let window = webWindowController!.window!
+//
+//        window.mouseExited(with: NSEvent())
+//        sleep(1)
+//        XCTAssertEqual((window.toolbar as? Toolbar)?.urlTextField.alphaValue, 0)
+//    }
+
 }

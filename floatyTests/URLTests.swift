@@ -17,10 +17,4 @@ class URLTests: XCTestCase {
         XCTAssertTrue(url.containsParameterKey(key))
     }
 
-    func testWWWShouldBePrefixedWithHttps() {
-        let url = URL(string: "www.google.com")!
-        let massaged = url.massagedURL()
-        XCTAssertTrue(massaged.scheme ?? "" == "https")
-    }
-
 }
