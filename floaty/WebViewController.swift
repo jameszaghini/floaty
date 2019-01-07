@@ -86,8 +86,9 @@ class WebViewController: NSViewController, ToolbarDelegate, WKNavigationDelegate
         case .visit(let url):
             self.url = url
         case .search(let query):
+            guard let encodedQuery = query.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed) else { break }
             let searchProvider = Search.activeProvider(settings: Services.shared.settings)
-            self.url = URL(string: searchProvider.searchURLString + query)
+            self.url = URL(string: searchProvider.searchURLString + encodedQuery)
         case .none:
             break
         }
