@@ -7,4 +7,4 @@
 
 A browser window that floats on top of other application windows.
 
-![Demo of floaty](https://gfycat.com/PartialSpeedyAustraliankelpie)
+![Shows floaty floating above another app](assets/screen-shot.png "Screen shot")
