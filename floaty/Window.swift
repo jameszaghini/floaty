@@ -58,16 +58,17 @@ class WebWindow: Window {
             self.toolbar?.showsBaselineSeparator = false
         }
         let alpha: CGFloat = show ? 1 : 0
+        let urlTextField = (toolbar as? Toolbar)?.urlTextField
         NSAnimationContext.runAnimationGroup({ context in
             context.duration = 0.2
             context.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
-            (toolbar as? Toolbar)?.urlTextField.animator().alphaValue = alpha
+            urlTextField?.animator().alphaValue = alpha
             trafficLightButtons().forEach {
                 $0.animator().alphaValue = alpha
             }
             webViewController?.topLayoutConstraint.animator().constant = show ? initialWebViewConstraintConstant : 0
         }, completionHandler: {
-            if show {
+            if urlTextField?.alphaValue == 1 {
                 self.toolbar?.showsBaselineSeparator = true
             }
         })
