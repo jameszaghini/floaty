@@ -11,7 +11,7 @@ import CocoaLumberjack
 
 struct AddressBarInputHandler {
 
-    // Note, a single word returns a URL from URL(string
+    // Note, a single word returns a URL from URL(string: )
     // But we want to search if the text is a single word :\
     static func actionFromEnteredText(_ text: String) -> BrowserAction {
 
@@ -23,16 +23,7 @@ struct AddressBarInputHandler {
             return .search(text: text)
         }
 
-        do {
-            let parser = try DomainParser()
-            let urlParsedHost = parser.parse(host: url.host ?? "")
-            let prefixedURL = URL(string: "https://" + url.absoluteString)
-            let prefixedURLParsedHost = parser.parse(host: prefixedURL?.host ?? "")
-            if urlParsedHost == nil && prefixedURLParsedHost == nil {
-                return .search(text: text)
-            }
-        } catch let error {
-            DDLogError(error.localizedDescription)
+        if parseHost(url) == nil {
             return .search(text: text)
         }
 
@@ -42,6 +33,19 @@ struct AddressBarInputHandler {
 
         let adjustedURL = URL(string: "https://" + text)!
         return .visit(url: adjustedURL)
+    }
+
+    static func parseHost(_ url: URL) -> ParsedHost? {
+        do {
+            let parser = try DomainParser()
+            let urlParsedHost = parser.parse(host: url.host ?? "")
+            let prefixedURL = URL(string: "https://" + url.absoluteString)
+            let prefixedURLParsedHost = parser.parse(host: prefixedURL?.host ?? "")
+            return urlParsedHost ?? prefixedURLParsedHost
+        } catch let error {
+            DDLogError(error.localizedDescription)
+            return nil
+        }
     }
 
 }
