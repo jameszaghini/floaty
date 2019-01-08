@@ -19,20 +19,17 @@ struct AddressBarInputHandler {
             return .none
         }
 
-        guard let url = URL(string: text) else {
-            return .search(text: text)
+        var action: BrowserAction?
+
+        if let url = URL(string: text), parseHost(url) != nil {
+            if url.scheme != nil {
+                action = .visit(url: url)
+            } else if let adjustedURL = URL(string: "https://" + text) {
+                action = .visit(url: adjustedURL)
+            }
         }
 
-        if parseHost(url) == nil {
-            return .search(text: text)
-        }
-
-        if url.scheme != nil {
-            return .visit(url: url)
-        }
-
-        let adjustedURL = URL(string: "https://" + text)!
-        return .visit(url: adjustedURL)
+        return action ?? .search(text: text)
     }
 
     static func parseHost(_ url: URL) -> ParsedHost? {
