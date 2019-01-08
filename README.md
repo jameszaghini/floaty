@@ -8,3 +8,11 @@
 A browser window that floats on top of other application windows.
 
 ![Shows floaty floating above another app](assets/screen-shot.png "Screen shot")
+
+## Installing floaty
+
+floaty is available for direct download on the [releases page](https://github.com/jameszaghini/floaty/releases) or using [homebrew cask](https://github.com/caskroom/homebrew-cask).
+
+```
+brew cask install https://raw.githubusercontent.com/jameszaghini/floaty/develop/floaty.rb
+```
