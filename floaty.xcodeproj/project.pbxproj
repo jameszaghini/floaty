@@ -10,6 +10,9 @@
 		1A006B0C20F9A82100E0D87F /* Window.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A006B0B20F9A82000E0D87F /* Window.swift */; };
 		1A02ED7021C9CFB30093114C /* ColorPalette.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A02ED6F21C9CFB30093114C /* ColorPalette.swift */; };
 		1A02ED7721C9F6D40093114C /* WindowTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A02ED7621C9F6D30093114C /* WindowTests.swift */; };
+		1A1BA46C21E551E700203A53 /* error.html in Resources */ = {isa = PBXBuildFile; fileRef = 1A1BA46B21E551E700203A53 /* error.html */; };
+		1A1BA49D21E5B78700203A53 /* ErrorHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A1BA49C21E5B78700203A53 /* ErrorHandler.swift */; };
+		1A1BA49F21E5B7BA00203A53 /* WKWebView+ErrorHTML.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A1BA49E21E5B7BA00203A53 /* WKWebView+ErrorHTML.swift */; };
 		1A2088FB21E08DE00034ED83 /* AddressBarInputHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A2088FA21E08DE00034ED83 /* AddressBarInputHandler.swift */; };
 		1A2088FD21E0913B0034ED83 /* AddressBarInputHandlerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A2088FC21E0913B0034ED83 /* AddressBarInputHandlerTests.swift */; };
 		1A2088FF21E16B6E0034ED83 /* String+Conveniences.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A2088FE21E16B6E0034ED83 /* String+Conveniences.swift */; };
@@ -42,6 +45,7 @@
 		1A8BECD821CD93B5001FE824 /* TwitchPluginTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A8BECD721CD93B5001FE824 /* TwitchPluginTests.swift */; };
 		1A8BECDC21CE7338001FE824 /* SearchProviderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A8BECDB21CE7338001FE824 /* SearchProviderTests.swift */; };
 		1A8BECDE21CEEEFD001FE824 /* WebViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A8BECDD21CEEEFD001FE824 /* WebViewControllerTests.swift */; };
+		1A8F059821E622AD003E78DD /* ErrorHandlerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A8F059621E62224003E78DD /* ErrorHandlerTests.swift */; };
 		1A9DAC0320B1975000DCE63F /* URL+Massage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A9DAC0220B1975000DCE63F /* URL+Massage.swift */; };
 		1A9DAC3920B4CD5F00DCE63F /* URLTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A9DAC3820B4CD5F00DCE63F /* URLTextField.swift */; };
 		1AA4DA5621D84576001E27A4 /* AppDelegateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AA4DA5521D84576001E27A4 /* AppDelegateTests.swift */; };
@@ -72,6 +76,9 @@
 		1A006B0B20F9A82000E0D87F /* Window.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Window.swift; sourceTree = "<group>"; };
 		1A02ED6F21C9CFB30093114C /* ColorPalette.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorPalette.swift; sourceTree = "<group>"; };
 		1A02ED7621C9F6D30093114C /* WindowTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindowTests.swift; sourceTree = "<group>"; };
+		1A1BA46B21E551E700203A53 /* error.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = error.html; sourceTree = "<group>"; };
+		1A1BA49C21E5B78700203A53 /* ErrorHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorHandler.swift; sourceTree = "<group>"; };
+		1A1BA49E21E5B7BA00203A53 /* WKWebView+ErrorHTML.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WKWebView+ErrorHTML.swift"; sourceTree = "<group>"; };
 		1A2088FA21E08DE00034ED83 /* AddressBarInputHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressBarInputHandler.swift; sourceTree = "<group>"; };
 		1A2088FC21E0913B0034ED83 /* AddressBarInputHandlerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressBarInputHandlerTests.swift; sourceTree = "<group>"; };
 		1A2088FE21E16B6E0034ED83 /* String+Conveniences.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Conveniences.swift"; sourceTree = "<group>"; };
@@ -105,6 +112,7 @@
 		1A8BECD721CD93B5001FE824 /* TwitchPluginTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwitchPluginTests.swift; sourceTree = "<group>"; };
 		1A8BECDB21CE7338001FE824 /* SearchProviderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchProviderTests.swift; sourceTree = "<group>"; };
 		1A8BECDD21CEEEFD001FE824 /* WebViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewControllerTests.swift; sourceTree = "<group>"; };
+		1A8F059621E62224003E78DD /* ErrorHandlerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ErrorHandlerTests.swift; path = FloatyTests/ErrorHandlerTests.swift; sourceTree = SOURCE_ROOT; };
 		1A9DAC0220B1975000DCE63F /* URL+Massage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL+Massage.swift"; sourceTree = "<group>"; };
 		1A9DAC3820B4CD5F00DCE63F /* URLTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLTextField.swift; sourceTree = "<group>"; };
 		1AA4DA5521D84576001E27A4 /* AppDelegateTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegateTests.swift; sourceTree = "<group>"; };
@@ -146,6 +154,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1A1BA46A21E551C200203A53 /* html */ = {
+			isa = PBXGroup;
+			children = (
+				1A1BA46B21E551E700203A53 /* error.html */,
+			);
+			path = html;
+			sourceTree = "<group>";
+		};
 		1A313FBF21E32198008026BC /* vendor */ = {
 			isa = PBXGroup;
 			children = (
@@ -219,6 +235,8 @@
 				1ABB83CF20B1412A0004C50E /* Assets.xcassets */,
 				1A20890021E16D950034ED83 /* BrowserAction.swift */,
 				1A02ED6F21C9CFB30093114C /* ColorPalette.swift */,
+				1A1BA49C21E5B78700203A53 /* ErrorHandler.swift */,
+				1A1BA46A21E551C200203A53 /* html */,
 				1A49F6AB20C54E7F00D5A98B /* JavascriptAlertWindowController.xib */,
 				1A4BE7E120C3980D000B3769 /* JavascriptConfirmWindowController.xib */,
 				1A49F6A920C545BD00D5A98B /* JavascriptPanelWindowController.swift */,
@@ -237,6 +255,7 @@
 				1ABB83CD20B141280004C50E /* WebViewController.swift */,
 				1A6B726B20CD5EA000AE2008 /* WebWindowController.swift */,
 				1A006B0B20F9A82000E0D87F /* Window.swift */,
+				1A1BA49E21E5B7BA00203A53 /* WKWebView+ErrorHTML.swift */,
 			);
 			path = floaty;
 			sourceTree = "<group>";
@@ -246,6 +265,7 @@
 			children = (
 				1A2088FC21E0913B0034ED83 /* AddressBarInputHandlerTests.swift */,
 				1AA4DA5521D84576001E27A4 /* AppDelegateTests.swift */,
+				1A8F059621E62224003E78DD /* ErrorHandlerTests.swift */,
 				1ABB83E020B1412A0004C50E /* Info.plist */,
 				1A8BECB721CA26F3001FE824 /* JavascriptAlertWindowControllerTests.swift */,
 				1A8BECB921CA3ED9001FE824 /* JavascriptConfirmWindowControllerTests.swift */,
@@ -375,6 +395,7 @@
 				1A49F6AC20C54E7F00D5A98B /* JavascriptAlertWindowController.xib in Resources */,
 				1ABB83D020B1412A0004C50E /* Assets.xcassets in Resources */,
 				1A31400F21E32989008026BC /* public_suffix_list.dat in Resources */,
+				1A1BA46C21E551E700203A53 /* error.html in Resources */,
 				1A31400B21E32462008026BC /* Info.plist in Resources */,
 				1ABB83D320B1412A0004C50E /* Main.storyboard in Resources */,
 			);
@@ -452,8 +473,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				1ABB83EA20B153F70004C50E /* Toolbar.swift in Sources */,
+				1A1BA49D21E5B78700203A53 /* ErrorHandler.swift in Sources */,
 				1A49F6AA20C545BD00D5A98B /* JavascriptPanelWindowController.swift in Sources */,
 				1A2088FF21E16B6E0034ED83 /* String+Conveniences.swift in Sources */,
+				1A1BA49F21E5B7BA00203A53 /* WKWebView+ErrorHTML.swift in Sources */,
 				1A31400D21E32462008026BC /* Rule.swift in Sources */,
 				1A42FF2F21D2581B00276C7A /* Log.swift in Sources */,
 				1A8BECC821CCC7DC001FE824 /* YoutubePlugin.swift in Sources */,
@@ -488,6 +511,7 @@
 				1A8BECC421CC58BB001FE824 /* URLTests.swift in Sources */,
 				1AC9589721C604DD00B85B15 /* SettingsTests.swift in Sources */,
 				1A8BECC621CCC7C1001FE824 /* YoutubePluginTests.swift in Sources */,
+				1A8F059821E622AD003E78DD /* ErrorHandlerTests.swift in Sources */,
 				1A8BECD821CD93B5001FE824 /* TwitchPluginTests.swift in Sources */,
 				1A2088FD21E0913B0034ED83 /* AddressBarInputHandlerTests.swift in Sources */,
 				1A8BECBA21CA3ED9001FE824 /* JavascriptConfirmWindowControllerTests.swift in Sources */,

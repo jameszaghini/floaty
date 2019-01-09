@@ -11,7 +11,7 @@ import WebKit
 import Observable
 import CocoaLumberjack
 
-class WebViewController: NSViewController, ToolbarDelegate, WKNavigationDelegate, WKUIDelegate, JavascriptPanelDismissalDelegate, Serviceable {
+class WebViewController: NSViewController, ToolbarDelegate, WKUIDelegate, JavascriptPanelDismissalDelegate, Serviceable {
 
     @IBOutlet var topLayoutConstraint: NSLayoutConstraint!
 
@@ -68,17 +68,6 @@ class WebViewController: NSViewController, ToolbarDelegate, WKNavigationDelegate
         }
     }
 
-    // MARK: - WKNavigationDelegate
-
-    func webView(_ webView: WKWebView, didFail navigation: WKNavigation!, withError error: Error) {
-        DDLogInfo(error.localizedDescription)
-    }
-
-    func webView(_ webView: WKWebView, didFailProvisionalNavigation navigation: WKNavigation!, withError error: Error) {
-        webView.loadHTMLString("<div style=\"position: relative; text-align: center; top: 50%; transform: translateY(-50%); font-family: Arial\">" + error.localizedDescription + "</div>", baseURL: Bundle.main.bundleURL)
-        DDLogInfo(error.localizedDescription)
-    }
-
     // MARK: - ToolbarDelegate
 
     func toolbar(_ toolBar: Toolbar, didChangeText text: String) {
@@ -129,5 +118,20 @@ class WebViewController: NSViewController, ToolbarDelegate, WKNavigationDelegate
         controller.delegate = self
         controller.textView.string = message
         javascriptPanelWindowController = controller
+    }
+}
+
+extension WebViewController: WKNavigationDelegate {
+    func webView(_ webView: WKWebView, didFail navigation: WKNavigation!, withError error: Error) {
+        handleNavigationDelegateError(error)
+    }
+
+    func webView(_ webView: WKWebView, didFailProvisionalNavigation navigation: WKNavigation!, withError error: Error) {
+        handleNavigationDelegateError(error)
+    }
+
+    private func handleNavigationDelegateError(_ error: Error) {
+        webView.presentAnError(error)
+        DDLogInfo(error.localizedDescription)
     }
 }
