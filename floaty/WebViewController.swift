@@ -15,7 +15,7 @@ class WebViewController: NSViewController, ToolbarDelegate, WKUIDelegate, Javasc
 
     @IBOutlet var topLayoutConstraint: NSLayoutConstraint!
 
-    @IBOutlet private var webView: WKWebView!
+    @IBOutlet private(set) var webView: WKWebView!
     @IBOutlet private var progressIndicator: NSProgressIndicator!
 
     private var webViewProgressObserver: NSKeyValueObservation?
@@ -87,7 +87,9 @@ class WebViewController: NSViewController, ToolbarDelegate, WKUIDelegate, Javasc
 
     func webView(_ webView: WKWebView, createWebViewWith configuration: WKWebViewConfiguration, for navigationAction: WKNavigationAction, windowFeatures: WKWindowFeatures) -> WKWebView? {
         // Open URLs that would open in a new window in the same web view
-        url = navigationAction.request.url
+        if navigationAction.targetFrame == nil {
+            url = navigationAction.request.url
+        }
         return nil
     }
 
