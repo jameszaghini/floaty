@@ -217,13 +217,6 @@
 			path = Plugins;
 			sourceTree = "<group>";
 		};
-		1A8F05AE21E6BE48003E78DD /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Frameworks;
-			sourceTree = "<group>";
-		};
 		1A8F05E621E6C859003E78DD /* Observable */ = {
 			isa = PBXGroup;
 			children = (
@@ -239,7 +232,6 @@
 			children = (
 				1ABB83CA20B141280004C50E /* floaty */,
 				1ABB83DD20B1412A0004C50E /* floatyTests */,
-				1A8F05AE21E6BE48003E78DD /* Frameworks */,
 				1ABB83C920B141280004C50E /* Products */,
 				1A313FBF21E32198008026BC /* vendor */,
 			);
