@@ -56,29 +56,41 @@ class WebViewController: NSViewController, ToolbarDelegate, WKUIDelegate, Javasc
         }
 
         webViewURLObserver = webView.observe(\.url) { (webView, _) in
-            if let urlString = webView.url?.absoluteString, urlString != toolbar.urlTextField.stringValue {
-                toolbar.urlTextField.stringValue = urlString
+            switch self.browserAction {
+            case .visit(let url):
+                toolbar.urlTextField.stringValue = url?.absoluteString ?? ""
+            case .search:
+                toolbar.urlTextField.stringValue = webView.url?.absoluteString ?? ""
+            default: break
             }
         }
 
         if let url = URL(string: services.settings.homepageURL) {
-            self.url = url
+            browserAction = .visit(url: url)
         }
     }
 
     // MARK: - ToolbarDelegate
 
-    func toolbar(_ toolBar: Toolbar, didChangeText text: String) {
-        switch AddressBarInputHandler.actionFromEnteredText(text) {
-        case .visit(let url):
-            self.url = url
-        case .search(let query):
-            guard let encodedQuery = query.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed) else { break }
-            let searchProvider = Search.activeProvider(settings: Services.shared.settings)
-            self.url = URL(string: searchProvider.searchURLString + encodedQuery)
-        case .none:
-            break
+    var browserAction: BrowserAction = .none {
+        didSet {
+            switch browserAction {
+            case .visit(let url):
+                self.url = url
+            case .search(let query):
+                guard let encodedQuery = query.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed) else { break }
+                let searchProvider = Search.activeProvider(settings: Services.shared.settings)
+                self.url = URL(string: searchProvider.searchURLString + encodedQuery)
+            case .showError(let title, let message):
+                webView.presentAnError(title: title, message: message)
+                Log.info(message)
+            case .none: break
+            }
         }
+    }
+
+    func toolbar(_ toolBar: Toolbar, didChangeText text: String) {
+        browserAction = AddressBarInputHandler.actionFromEnteredText(text)
     }
 
     // MARK: - WKUIDelegate
@@ -86,7 +98,7 @@ class WebViewController: NSViewController, ToolbarDelegate, WKUIDelegate, Javasc
     func webView(_ webView: WKWebView, createWebViewWith configuration: WKWebViewConfiguration, for navigationAction: WKNavigationAction, windowFeatures: WKWindowFeatures) -> WKWebView? {
         // Open URLs that would open in a new window in the same web view
         if navigationAction.targetFrame == nil {
-            url = navigationAction.request.url
+            browserAction = .visit(url: navigationAction.request.url)
         }
         return nil
     }
@@ -122,16 +134,16 @@ class WebViewController: NSViewController, ToolbarDelegate, WKUIDelegate, Javasc
 }
 
 extension WebViewController: WKNavigationDelegate {
+
     func webView(_ webView: WKWebView, didFail navigation: WKNavigation!, withError error: Error) {
-        handleNavigationDelegateError(error)
+        handleError(error)
     }
 
     func webView(_ webView: WKWebView, didFailProvisionalNavigation navigation: WKNavigation!, withError error: Error) {
-        handleNavigationDelegateError(error)
+        handleError(error)
     }
 
-    private func handleNavigationDelegateError(_ error: Error) {
-        webView.presentAnError(error)
-        Log.info(error.localizedDescription)
+    private func handleError(_ error: Error) {
+        browserAction = .showError(title: "Floaty couldn't load the URL", message: error.localizedDescription)
     }
 }
