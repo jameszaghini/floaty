@@ -19,6 +19,23 @@ class WebViewController: NSViewController, ToolbarDelegate, WKUIDelegate, Javasc
     private var webViewProgressObserver: NSKeyValueObservation?
     private var webViewURLObserver: NSKeyValueObservation?
 
+    var browserAction: BrowserAction = .none {
+        didSet {
+            switch browserAction {
+            case .visit(let url):
+                self.url = url
+            case .search(let query):
+                guard let encodedQuery = query.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed) else { break }
+                let searchProvider = Search.activeProvider(settings: Services.shared.settings)
+                self.url = URL(string: searchProvider.searchURLString + encodedQuery)
+            case .showError(let title, let message):
+                webView.presentAnError(title: title, message: message)
+                Log.info(message)
+            case .none: break
+            }
+        }
+    }
+
     private(set) var url: URL? {
         didSet {
             guard let url = url else { return }
@@ -72,22 +89,7 @@ class WebViewController: NSViewController, ToolbarDelegate, WKUIDelegate, Javasc
 
     // MARK: - ToolbarDelegate
 
-    var browserAction: BrowserAction = .none {
-        didSet {
-            switch browserAction {
-            case .visit(let url):
-                self.url = url
-            case .search(let query):
-                guard let encodedQuery = query.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed) else { break }
-                let searchProvider = Search.activeProvider(settings: Services.shared.settings)
-                self.url = URL(string: searchProvider.searchURLString + encodedQuery)
-            case .showError(let title, let message):
-                webView.presentAnError(title: title, message: message)
-                Log.info(message)
-            case .none: break
-            }
-        }
-    }
+
 
     func toolbar(_ toolBar: Toolbar, didChangeText text: String) {
         browserAction = AddressBarInputHandler.actionFromEnteredText(text)
