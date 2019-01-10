@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import CocoaLumberjack
 
 struct AddressBarInputHandler {
 
@@ -40,7 +39,7 @@ struct AddressBarInputHandler {
             let prefixedURLParsedHost = parser.parse(host: prefixedURL?.host ?? "")
             return urlParsedHost ?? prefixedURLParsedHost
         } catch let error {
-            DDLogError(error.localizedDescription)
+            Log.error(error.localizedDescription)
             return nil
         }
     }

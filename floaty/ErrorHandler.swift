@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import CocoaLumberjack
 
 class ErrorHandler {
 
@@ -17,7 +16,7 @@ class ErrorHandler {
         do {
             return try function()
         } catch let error {
-            DDLogError("\(error) \n Stack Symbols: \(Thread.callStackSymbols)")
+            Log.error("\(error) \n Stack Symbols: \(Thread.callStackSymbols)")
             return nil
         }
     }

@@ -8,8 +8,6 @@
 
 import Cocoa
 import WebKit
-import Observable
-import CocoaLumberjack
 
 class WebViewController: NSViewController, ToolbarDelegate, WKUIDelegate, JavascriptPanelDismissalDelegate, Serviceable {
 
@@ -134,6 +132,6 @@ extension WebViewController: WKNavigationDelegate {
 
     private func handleNavigationDelegateError(_ error: Error) {
         webView.presentAnError(error)
-        DDLogInfo(error.localizedDescription)
+        Log.info(error.localizedDescription)
     }
 }
