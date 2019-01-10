@@ -2,14 +2,15 @@
 //  Log.swift
 //  Floaty
 //
-//  Created by James Zaghini on 25/12/18.
-//  Copyright © 2018 James Zaghini. All rights reserved.
+//  Created by James Zaghini on 10/1/19.
+//  Copyright © 2019 James Zaghini. All rights reserved.
 //
 
-import CocoaLumberjack
-
-struct Log {
-    static func setup() {
-        DDLog.add(DDOSLogger.sharedInstance)
+class Log {
+    static func info(_ string: String) {
+        print(string)
+    }
+    static func error(_ string: String) {
+        print(string)
     }
 }

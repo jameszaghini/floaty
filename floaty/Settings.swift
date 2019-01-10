@@ -7,7 +7,6 @@
 //
 
 import Cocoa
-import Observable
 
 struct Settings: Codable {
 

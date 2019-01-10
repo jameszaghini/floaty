@@ -1,6 +1,0 @@
-module Pods_Floaty {
-  umbrella header "Pods-Floaty-umbrella.h"
-
-  export *
-  module * { export * }
-}
