@@ -89,6 +89,8 @@ class WebViewController: NSViewController, ToolbarDelegate, WKUIDelegate, Javasc
 
     // MARK: - ToolbarDelegate
 
+
+
     func toolbar(_ toolBar: Toolbar, didChangeText text: String) {
         browserAction = AddressBarInputHandler.actionFromEnteredText(text)
     }
