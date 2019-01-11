@@ -20,7 +20,7 @@ struct AddressBarInputHandler {
 
         var action: BrowserAction?
 
-        if let url = URL(string: text), parseHost(url) != nil {
+        if let url = URL(string: text), parseHost(url) != nil || isValidIPAddress(url) {
             if url.scheme != nil {
                 action = .visit(url: url)
             } else if let adjustedURL = URL(string: "https://" + text) {
@@ -42,6 +42,15 @@ struct AddressBarInputHandler {
             Log.error(error.localizedDescription)
             return nil
         }
+    }
+
+    static func isValidIPAddress(_ url: URL) -> Bool {
+        guard let host = url.host else { return false }
+        return host.split(separator: ".")
+                   .compactMap { Int($0) }
+                   .filter { 0..<255 ~= $0 }
+                   .count == 4
+
     }
 
 }
