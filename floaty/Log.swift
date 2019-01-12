@@ -8,9 +8,9 @@
 
 class Log {
     static func info(_ string: String) {
-        print(string)
+        print("--I: " + string)
     }
     static func error(_ string: String) {
-        print(string)
+        print("--E: " + string)
     }
 }
