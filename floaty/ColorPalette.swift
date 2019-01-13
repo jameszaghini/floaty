@@ -9,5 +9,5 @@
 import Cocoa
 
 enum ColorPalette {
-    static let background = NSColor(red: 0.3, green: 0.3, blue: 0.3, alpha: Services.shared.settings.windowOpacity)
+    static let background = NSColor(white: 0.3, alpha: Services.shared.settings.windowOpacity)
 }
