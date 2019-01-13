@@ -20,7 +20,7 @@ struct AddressBarInputHandler {
 
         var action: BrowserAction?
 
-        if let url = URL(string: text), parseHost(url) != nil || isValidIPAddress(url) {
+        if let url = URL(string: text), parseHost(url)?.publicSuffix != nil && parseHost(url)?.domain != nil || isValidIPAddress(url) || isLoopbackAddress(text) {
             if url.scheme != nil {
                 action = .visit(url: url)
             } else if let adjustedURL = URL(string: "https://" + text) {
@@ -51,6 +51,10 @@ struct AddressBarInputHandler {
                    .filter { 0..<255 ~= $0 }
                    .count == 4
 
+    }
+
+    static func isLoopbackAddress(_ text: String) -> Bool {
+        return text.hasPrefix("http://localhost") || text.hasPrefix("https://localhost")
     }
 
 }
