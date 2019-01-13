@@ -160,12 +160,17 @@ class WebViewController: NSViewController, ToolbarDelegate, WKUIDelegate, Javasc
     private func handleKeyDown(with event: NSEvent) -> Bool {
         switch event.charactersIgnoringModifiers {
         case "l":
-            guard let textField = urlTextField, let window = view.window else { return false }
-            if event.modifierFlags.contains(.command) && textField.acceptsFirstResponder {
-                window.makeFirstResponder(textField)
-                return true
+            if event.modifierFlags.contains(.command) {
+                return makeURLTextFieldFirstResponder()
             }
         default: break
+        }
+        return false
+    }
+
+    private func makeURLTextFieldFirstResponder() -> Bool {
+        if urlTextField?.acceptsFirstResponder == true {
+            return view.window?.makeFirstResponder(urlTextField) == true
         }
         return false
     }
