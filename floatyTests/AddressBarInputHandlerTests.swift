@@ -122,4 +122,9 @@ class AddressBarInputHandlerTests: XCTestCase {
         let action = AddressBarInputHandler.actionFromEnteredText(text)
         XCTAssertEqual(action, expectedAction)
     }
+
+    func testIsLoopbackAddress() {
+        XCTAssertTrue(AddressBarInputHandler.isLoopbackAddress("http://localhost"))
+        XCTAssertTrue(AddressBarInputHandler.isLoopbackAddress("http://localhost"))
+    }
 }
