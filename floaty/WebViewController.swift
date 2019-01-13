@@ -53,11 +53,33 @@ class WebViewController: NSViewController, ToolbarDelegate, WKUIDelegate, Javasc
 
     private var disposable: Disposable?
 
+    private var keyDownEventMonitor: Any?
+
+    deinit {
+        if let keyDownEventMonitor = keyDownEventMonitor {
+            NSEvent.removeMonitor(keyDownEventMonitor)
+        }
+    }
+
+    override func viewDidAppear() {
+        super.viewDidAppear()
+        Log.info("viewDidAppear")
+        guard let toolbar = view.window?.toolbar as? Toolbar else { return }
+        toolbar.toolbarDelegate = self
+
+        webViewURLObserver = webView.observe(\.url) { (webView, _) in
+            switch self.browserAction {
+            case .visit(let url):
+                toolbar.urlTextField.stringValue = url?.absoluteString ?? ""
+            case .search:
+                toolbar.urlTextField.stringValue = webView.url?.absoluteString ?? ""
+            default: break
+            }
+        }
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        guard let toolbar = NSApplication.shared.windows.first?.toolbar as? Toolbar else { return }
-        toolbar.toolbarDelegate = self
 
         disposable = services.settings.windowOpacityObservable.observe { [weak self] opacity, _ in
             self?.webView.alphaValue = opacity
@@ -72,25 +94,20 @@ class WebViewController: NSViewController, ToolbarDelegate, WKUIDelegate, Javasc
             self?.progressIndicator.isHidden = webView.estimatedProgress == 1
         }
 
-        webViewURLObserver = webView.observe(\.url) { (webView, _) in
-            switch self.browserAction {
-            case .visit(let url):
-                toolbar.urlTextField.stringValue = url?.absoluteString ?? ""
-            case .search:
-                toolbar.urlTextField.stringValue = webView.url?.absoluteString ?? ""
-            default: break
-            }
-        }
-
         if let url = URL(string: services.settings.homepageURL) {
             browserAction = .visit(url: url)
+        }
+
+        keyDownEventMonitor = NSEvent.addLocalMonitorForEvents(matching: .keyDown) { [unowned self] in
+            return self.handleKeyDown(with: $0) ? nil : $0
         }
     }
 
     // MARK: - ToolbarDelegate
 
-    func toolbar(_ toolBar: Toolbar, didChangeText text: String) {
+    func toolbar(_ bar: Toolbar, didChangeText text: String) {
         browserAction = AddressBarInputHandler.actionFromEnteredText(text)
+        // TODO make textfield not first responder
     }
 
     // MARK: - WKUIDelegate
@@ -130,6 +147,19 @@ class WebViewController: NSViewController, ToolbarDelegate, WKUIDelegate, Javasc
         controller.delegate = self
         controller.textView.string = message
         javascriptPanelWindowController = controller
+    }
+
+    private func handleKeyDown(with event: NSEvent) -> Bool {
+        let commandDown = event.modifierFlags.contains(.command)
+        let lDown = event.charactersIgnoringModifiers == "l"
+        if lDown && commandDown {
+            guard let window = view.window, let toolbar = window.toolbar as? Toolbar else { return false }
+            if toolbar.urlTextField.acceptsFirstResponder {
+                window.makeFirstResponder(toolbar.urlTextField)
+                return true
+            }
+        }
+        return false
     }
 }
 
