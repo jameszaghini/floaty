@@ -44,6 +44,14 @@ class WebViewController: NSViewController, ToolbarDelegate, WKUIDelegate, Javasc
         }
     }
 
+    private var toolbar: Toolbar? {
+        return view.window?.toolbar as? Toolbar
+    }
+
+    private var urlTextField: URLTextField? {
+        return toolbar?.urlTextField
+    }
+
     private var javascriptPanelWindowController: JavascriptPanelWindowController? {
         didSet {
             guard let panelWindow = javascriptPanelWindowController?.window else { return }
@@ -64,7 +72,7 @@ class WebViewController: NSViewController, ToolbarDelegate, WKUIDelegate, Javasc
     override func viewDidAppear() {
         super.viewDidAppear()
         Log.info("viewDidAppear")
-        guard let toolbar = view.window?.toolbar as? Toolbar else { return }
+        guard let toolbar = toolbar else { return }
         toolbar.toolbarDelegate = self
 
         webViewURLObserver = webView.observe(\.url) { (webView, _) in
@@ -150,14 +158,14 @@ class WebViewController: NSViewController, ToolbarDelegate, WKUIDelegate, Javasc
     }
 
     private func handleKeyDown(with event: NSEvent) -> Bool {
-        let commandDown = event.modifierFlags.contains(.command)
-        let lDown = event.charactersIgnoringModifiers == "l"
-        if lDown && commandDown {
-            guard let window = view.window, let toolbar = window.toolbar as? Toolbar else { return false }
-            if toolbar.urlTextField.acceptsFirstResponder {
-                window.makeFirstResponder(toolbar.urlTextField)
+        switch event.charactersIgnoringModifiers {
+        case "l":
+            guard let textField = urlTextField, let window = view.window else { return false }
+            if event.modifierFlags.contains(.command) && textField.acceptsFirstResponder {
+                window.makeFirstResponder(textField)
                 return true
             }
+        default: break
         }
         return false
     }
