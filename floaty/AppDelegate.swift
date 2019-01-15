@@ -7,14 +7,9 @@
 //
 
 import Cocoa
-import CocoaLumberjack
 
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
-
-    func applicationDidFinishLaunching(_ aNotification: Notification) {
-        Log.setup()
-    }
 
     func applicationShouldTerminateAfterLastWindowClosed(_ sender: NSApplication) -> Bool {
         return true

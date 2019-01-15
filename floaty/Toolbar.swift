@@ -9,7 +9,7 @@
 import Cocoa
 
 protocol ToolbarDelegate: class {
-    func toolbar(_ toolBar: Toolbar, didChangeText text: String)
+    func toolbar(_ bar: Toolbar, didChangeText text: String)
 }
 
 class Toolbar: NSToolbar, NSTextFieldDelegate {

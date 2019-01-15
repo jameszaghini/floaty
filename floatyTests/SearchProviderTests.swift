@@ -7,7 +7,6 @@
 //
 
 import XCTest
-import Observable
 @testable import Floaty
 
 class SearchProviderTests: XCTestCase {

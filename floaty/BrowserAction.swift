@@ -10,6 +10,7 @@ import Foundation
 
 enum BrowserAction: Equatable {
     case search(text: String)
-    case visit(url: URL)
+    case visit(url: URL?)
+    case showError(title: String, message: String)
     case none
 }
