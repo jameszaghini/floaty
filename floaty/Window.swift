@@ -42,6 +42,7 @@ class WebWindow: Window {
     override func awakeFromNib() {
         trackingArea = NSTrackingArea(rect: contentView!.bounds, options: [.mouseEnteredAndExited, .activeAlways, .inVisibleRect], owner: self, userInfo: nil)
         initialWebViewConstraintConstant = webViewController?.topLayoutConstraint.constant ?? 0
+        hasShadow = false
     }
 
     override func mouseEntered(with event: NSEvent) {
