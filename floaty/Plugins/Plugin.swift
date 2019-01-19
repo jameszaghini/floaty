@@ -22,7 +22,12 @@ protocol Plugin {
 extension Plugin {
 
     func massageURL(_ url: URL) -> URL {
-        guard hostnames.contains(url.host ?? "") else { return url }
+        guard hostnames.contains(url.host ?? "") else {
+            Log.info("Plugin \(name) doesn't contain host" + (url.host ?? ""))
+            return url
+        }
+        Log.info("Plugin \(name) DOES contain host" + (url.host ?? ""))
+
         var url = url
         url = doReplace(url: url)
         url = addAdditionalParams(url: url)
@@ -33,7 +38,7 @@ extension Plugin {
         var newURLString = url.absoluteString
 
         replace.forEach {
-            newURLString = url.absoluteString.replacingOccurrences(of: $0, with: $1)
+            newURLString = newURLString.replacingOccurrences(of: $0, with: $1)
         }
 
         return URL(string: newURLString) ?? url
