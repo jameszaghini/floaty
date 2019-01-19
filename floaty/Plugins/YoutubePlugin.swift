@@ -11,7 +11,7 @@ import Foundation
 struct YoutubePlugin: Plugin {
     var name = "Youtube"
 
-    var hostnames = ["www.youtube.com", "www.youtu.be"]
+    var hostnames = ["www.youtube.com", "www.youtu.be", "youtu.be"]
 
     // https://www.youtube.com/watch?v=4xUQD2CanuY&feature=youtu.be
     var additionalQueryParams: DictionaryLiteral<ParameterKey, ParameterValue> = [
@@ -22,5 +22,7 @@ struct YoutubePlugin: Plugin {
 
     var replace: [String: String] = [
         "https://www.youtube.com/watch?v=": "https://www.youtube.com/embed/",
+        "http://youtu.be/": "https://www.youtube.com/embed/",
+        "https://youtu.be/": "https://www.youtube.com/embed/",
     ]
 }
