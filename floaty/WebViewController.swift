@@ -77,9 +77,7 @@ class WebViewController: NSViewController, ToolbarDelegate, WKUIDelegate, Javasc
 
         webViewURLObserver = webView.observe(\.url) { (webView, _) in
             switch self.browserAction {
-            case .visit(let url):
-                toolbar.urlTextField.stringValue = url?.absoluteString ?? ""
-            case .search:
+            case .visit, .search:
                 toolbar.urlTextField.stringValue = webView.url?.absoluteString ?? ""
             default: break
             }
