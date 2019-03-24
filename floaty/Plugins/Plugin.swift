@@ -16,32 +16,22 @@ protocol Plugin {
     var hostnames: [String] { get }
     var additionalQueryParams: DictionaryLiteral<ParameterKey, ParameterValue> { get }
     var replace: [String: String] { get }
-    func massageURL(_ url: URL) -> URL
+    func massageURL(_ url: URL) -> URL?
 }
 
 extension Plugin {
 
-    func massageURL(_ url: URL) -> URL {
-        guard hostnames.contains(url.host ?? "") else {
-            Log.info("Plugin \(name) doesn't contain host" + (url.host ?? ""))
-            return url
-        }
-        Log.info("Plugin \(name) DOES contain host" + (url.host ?? ""))
-
-        var url = url
-        url = doReplace(url: url)
-        url = addAdditionalParams(url: url)
-        return url
-    }
-
-    func doReplace(url: URL) -> URL {
+    func doReplace(url: URL) -> URL? {
         var newURLString = url.absoluteString
 
-        replace.forEach {
-            newURLString = newURLString.replacingOccurrences(of: $0, with: $1)
+        for (find, rep) in replace {
+            if newURLString.contains(find) {
+                Log.info("Relpacing: \(find), with:\(rep)")
+                newURLString = newURLString.replacingOccurrences(of: find, with: rep)
+            }
         }
 
-        return URL(string: newURLString) ?? url
+        return newURLString != url.absoluteString ? URL(string: newURLString) : nil
     }
 
     func addAdditionalParams(url: URL) -> URL {
@@ -54,6 +44,7 @@ extension Plugin {
 
         additionalQueryParams.forEach { (key: ParameterKey, value: ParameterValue) in
             if !url.containsParameterKey(key) {
+                Log.info("Appending: \(key), with:\(value)")
                 urlString.append("\(key)=\(value)&")
             }
         }

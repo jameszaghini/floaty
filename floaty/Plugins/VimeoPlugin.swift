@@ -23,4 +23,15 @@ struct VimeoPlugin: Plugin {
     var replace: [String: String] = [
         "https://vimeo.com/": "https://player.vimeo.com/video/",
     ]
+
+    func massageURL(_ url: URL) -> URL? {
+        guard hostnames.contains(url.host ?? "") else { return nil }
+        Log.info("Plugin \(name) DOES contain host: " + (url.host ?? ""))
+
+        if let newURL = doReplace(url: url) {
+            let url = addAdditionalParams(url: newURL)
+            return url
+        }
+        return nil
+    }
 }

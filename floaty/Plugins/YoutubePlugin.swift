@@ -14,6 +14,7 @@ struct YoutubePlugin: Plugin {
     var hostnames = ["www.youtube.com", "www.youtu.be", "youtu.be"]
 
     // https://www.youtube.com/watch?v=4xUQD2CanuY&feature=youtu.be
+    // https://www.youtube.com/watch?time_continue=36&v=mNDA-o9yJNw
     var additionalQueryParams: DictionaryLiteral<ParameterKey, ParameterValue> = [
         "autoplay": "1",
         "modestbranding": "1",
@@ -25,4 +26,30 @@ struct YoutubePlugin: Plugin {
         "http://youtu.be/": "https://www.youtube.com/embed/",
         "https://youtu.be/": "https://www.youtube.com/embed/",
     ]
+
+    // TODO: append all other query string values, like start time
+    func massageURL(_ url: URL) -> URL? {
+
+        let prefix = "https://www.youtube.com/embed/"
+        var newURLString: String?
+
+        if let videoId = url["v"] {
+            newURLString = prefix + videoId
+        } else if url.absoluteString.hasPrefix("http://youtu.be/") {
+            newURLString = url.absoluteString.replacingOccurrences(of: "http://youtu.be/", with: prefix)
+        } else if url.absoluteString.hasPrefix("https://youtu.be/") {
+            newURLString = url.absoluteString.replacingOccurrences(of: "https://youtu.be/", with: prefix)
+        }
+
+        if let newURLString = newURLString {
+            var string = newURLString
+            string += "?"
+            string += "modestbranding=1&"
+            string += "autoplay=1&"
+            string += "fs=0"
+            return URL(string: string)
+        }
+
+        return nil
+    }
 }

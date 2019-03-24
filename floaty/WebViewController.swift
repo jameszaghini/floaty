@@ -39,7 +39,7 @@ class WebViewController: NSViewController, ToolbarDelegate, WKUIDelegate, Javasc
     private(set) var url: URL? {
         didSet {
             guard let url = url else { return }
-            let request = URLRequest(url: url.massagedURL())
+            let request = URLRequest(url: url)
             webView.load(request)
         }
     }
@@ -76,6 +76,15 @@ class WebViewController: NSViewController, ToolbarDelegate, WKUIDelegate, Javasc
         toolbar.toolbarDelegate = self
 
         webViewURLObserver = webView.observe(\.url) { (webView, _) in
+
+            guard let url = webView.url else { return }
+
+            if let newURL = url.massagedURL() {
+                webView.stopLoading()
+                self.browserAction = .visit(url: newURL)
+                return
+            }
+
             switch self.browserAction {
             case .visit, .search:
                 toolbar.urlTextField.stringValue = webView.url?.absoluteString ?? ""
