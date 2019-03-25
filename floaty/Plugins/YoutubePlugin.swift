@@ -31,6 +31,12 @@ struct YoutubePlugin: Plugin {
     func massageURL(_ url: URL) -> URL? {
 
         let prefix = "https://www.youtube.com/embed/"
+
+        // if it's already an embed url, nothing more to do
+        guard !url.absoluteString.hasPrefix(prefix) else {
+            return nil
+        }
+
         var newURLString: String?
 
         if let videoId = url["v"] {
