@@ -21,26 +21,26 @@ class WebViewController: NSViewController, ToolbarDelegate, WKUIDelegate, Javasc
 
     var browserAction: BrowserAction = .none {
         didSet {
+
+            func loadURL(_ url: URL?) {
+                guard let url = url else { return }
+                let request = URLRequest(url: url)
+                webView.load(request)
+            }
+
             switch browserAction {
             case .visit(let url):
-                self.url = url
+                loadURL(url)
             case .search(let query):
                 guard let encodedQuery = query.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed) else { break }
                 let searchProvider = Search.activeProvider(settings: Services.shared.settings)
-                self.url = URL(string: searchProvider.searchURLString + encodedQuery)
+                let url = URL(string: searchProvider.searchURLString + encodedQuery)
+                loadURL(url)
             case .showError(let title, let message):
                 webView.presentAnError(title: title, message: message)
                 Log.info(message)
             case .none: break
             }
-        }
-    }
-
-    private(set) var url: URL? {
-        didSet {
-            guard let url = url else { return }
-            let request = URLRequest(url: url)
-            webView.load(request)
         }
     }
 
