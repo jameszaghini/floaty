@@ -169,9 +169,7 @@ class WebViewController: NSViewController, ToolbarDelegate, WKUIDelegate, Javasc
     private func startObservingURL() {
         webViewURLObserver = webView.observe(\.url) { (webView, _) in
 
-            guard let url = webView.url else { return }
-
-            if let newURL = url.massagedURL() {
+            if let newURL = webView.url?.massagedURL() {
                 webView.stopLoading()
                 self.browserAction = .visit(url: newURL)
                 return
