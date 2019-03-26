@@ -74,23 +74,7 @@ class WebViewController: NSViewController, ToolbarDelegate, WKUIDelegate, Javasc
         Log.info("viewDidAppear")
         guard let toolbar = toolbar else { return }
         toolbar.toolbarDelegate = self
-
-        webViewURLObserver = webView.observe(\.url) { (webView, _) in
-
-            guard let url = webView.url else { return }
-
-            if let newURL = url.massagedURL() {
-                webView.stopLoading()
-                self.browserAction = .visit(url: newURL)
-                return
-            }
-
-            switch self.browserAction {
-            case .visit, .search:
-                toolbar.urlTextField.stringValue = webView.url?.absoluteString ?? ""
-            default: break
-            }
-        }
+        startObservingURL()
     }
 
     override func viewDidLoad() {
@@ -180,6 +164,25 @@ class WebViewController: NSViewController, ToolbarDelegate, WKUIDelegate, Javasc
             return view.window?.makeFirstResponder(urlTextField) == true
         }
         return false
+    }
+
+    private func startObservingURL() {
+        webViewURLObserver = webView.observe(\.url) { (webView, _) in
+
+            guard let url = webView.url else { return }
+
+            if let newURL = url.massagedURL() {
+                webView.stopLoading()
+                self.browserAction = .visit(url: newURL)
+                return
+            }
+
+            switch self.browserAction {
+            case .visit, .search:
+                self.toolbar?.urlTextField.stringValue = webView.url?.absoluteString ?? ""
+            default: break
+            }
+        }
     }
 }
 
