@@ -20,6 +20,7 @@ struct Settings: Codable {
     var windowOpacityObservable = Observable(CGFloat(1))
     var windowOpacity: CGFloat {
         didSet {
+            Log.info("windowOpacity: \(windowOpacity)")
             windowOpacityObservable.value = windowOpacity
             save()
         }
