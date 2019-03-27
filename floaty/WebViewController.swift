@@ -86,7 +86,7 @@ class WebViewController: NSViewController, ToolbarDelegate, WKUIDelegate, Javasc
         // Some sites won't work with the default user agent, so I've set this to the Safari user agent
         webView.customUserAgent = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_5) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/11.1.1 Safari/605.1.15"
 
-        webViewProgressObserver = webView.observe(\.estimatedProgress) { [weak self ] (webView, _) in
+        webViewProgressObserver = webView.observe(\.estimatedProgress) { [weak self] (webView, _) in
             self?.progressIndicator.doubleValue = webView.estimatedProgress
             self?.progressIndicator.isHidden = webView.estimatedProgress == 1
         }
