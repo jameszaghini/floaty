@@ -104,7 +104,9 @@ class WebViewController: NSViewController, ToolbarDelegate, WKUIDelegate, Javasc
 
     func toolbar(_ bar: Toolbar, didChangeText text: String) {
         browserAction = AddressBarInputHandler.actionFromEnteredText(text)
-        webView.window?.makeFirstResponder(webView)
+        if webView.acceptsFirstResponder {
+            webView.window?.makeFirstResponder(webView)
+        }
     }
 
     // MARK: - WKUIDelegate
