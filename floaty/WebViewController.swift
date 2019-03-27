@@ -106,7 +106,7 @@ class WebViewController: NSViewController, ToolbarDelegate, WKUIDelegate, Javasc
 
     func toolbar(_ bar: Toolbar, didChangeText text: String) {
         browserAction = AddressBarInputHandler.actionFromEnteredText(text)
-        // TODO make textfield not first responder
+        webView.window?.makeFirstResponder(webView)
     }
 
     // MARK: - WKUIDelegate
