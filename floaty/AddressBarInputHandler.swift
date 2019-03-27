@@ -39,7 +39,7 @@ struct AddressBarInputHandler {
             let prefixedURLParsedHost = parser.parse(host: prefixedURL?.host ?? "")
             return urlParsedHost ?? prefixedURLParsedHost
         } catch let error {
-            Log.error(error.localizedDescription)
+            Log.error(error)
             return nil
         }
     }

@@ -7,7 +7,7 @@
 
 A browser window that floats on top of other application windows.
 
-![Shows floaty floating above another app](assets/screen-shot.png "Screen shot")
+![Shows floaty floating above another app](assets/screen-shot.jpg "Screen shot")
 
 ## Installing floaty
 

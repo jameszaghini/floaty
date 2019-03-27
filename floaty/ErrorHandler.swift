@@ -16,7 +16,7 @@ class ErrorHandler {
         do {
             return try function()
         } catch let error {
-            Log.error("\(error) \n Stack Symbols: \(Thread.callStackSymbols)")
+            Log.error(error, additionalInfo: "Stack Symbols: \(Thread.callStackSymbols)")
             return nil
         }
     }

@@ -42,37 +42,40 @@ class WebWindow: Window {
     override func awakeFromNib() {
         trackingArea = NSTrackingArea(rect: contentView!.bounds, options: [.mouseEnteredAndExited, .activeAlways, .inVisibleRect], owner: self, userInfo: nil)
         initialWebViewConstraintConstant = webViewController?.topLayoutConstraint.constant ?? 0
+        hasShadow = false
     }
 
     override func mouseEntered(with event: NSEvent) {
-        showToolbar(true)
+        isMouseOverWindow = true
     }
 
     override func mouseExited(with event: NSEvent) {
-        showToolbar(false)
+        isMouseOverWindow = false
     }
 
-    // MARK: - Private
+    private var isMouseOverWindow = false {
+        didSet {
+            if !isMouseOverWindow {
+                toolbar?.showsBaselineSeparator = false
+            }
+            let alpha: CGFloat = isMouseOverWindow ? 1 : 0
+            let urlTextField = (toolbar as? Toolbar)?.urlTextField
+            NSAnimationContext.runAnimationGroup({ context in
+                context.duration = 0.2
+                context.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
+                urlTextField?.animator().alphaValue = alpha
+                trafficLightButtons().forEach {
+                    $0.animator().alphaValue = alpha
+                }
+                webViewController?.topLayoutConstraint.animator().constant = isMouseOverWindow ? initialWebViewConstraintConstant : 0
+            }, completionHandler: {
+                if urlTextField?.alphaValue == 1 {
+                    self.toolbar?.showsBaselineSeparator = true
+                }
+            })
 
-    private func showToolbar(_ show: Bool) {
-        if !show {
-            self.toolbar?.showsBaselineSeparator = false
+            hasShadow = isMouseOverWindow
         }
-        let alpha: CGFloat = show ? 1 : 0
-        let urlTextField = (toolbar as? Toolbar)?.urlTextField
-        NSAnimationContext.runAnimationGroup({ context in
-            context.duration = 0.2
-            context.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
-            urlTextField?.animator().alphaValue = alpha
-            trafficLightButtons().forEach {
-                $0.animator().alphaValue = alpha
-            }
-            webViewController?.topLayoutConstraint.animator().constant = show ? initialWebViewConstraintConstant : 0
-        }, completionHandler: {
-            if urlTextField?.alphaValue == 1 {
-                self.toolbar?.showsBaselineSeparator = true
-            }
-        })
     }
 
 }

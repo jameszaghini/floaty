@@ -21,26 +21,26 @@ class WebViewController: NSViewController, ToolbarDelegate, WKUIDelegate, Javasc
 
     var browserAction: BrowserAction = .none {
         didSet {
+
+            func loadURL(_ url: URL?) {
+                guard let url = url else { return }
+                let request = URLRequest(url: url)
+                webView.load(request)
+            }
+
             switch browserAction {
             case .visit(let url):
-                self.url = url
+                loadURL(url)
             case .search(let query):
                 guard let encodedQuery = query.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed) else { break }
                 let searchProvider = Search.activeProvider(settings: Services.shared.settings)
-                self.url = URL(string: searchProvider.searchURLString + encodedQuery)
+                let url = URL(string: searchProvider.searchURLString + encodedQuery)
+                loadURL(url)
             case .showError(let title, let message):
                 webView.presentAnError(title: title, message: message)
                 Log.info(message)
             case .none: break
             }
-        }
-    }
-
-    private(set) var url: URL? {
-        didSet {
-            guard let url = url else { return }
-            let request = URLRequest(url: url.massagedURL())
-            webView.load(request)
         }
     }
 
@@ -74,16 +74,7 @@ class WebViewController: NSViewController, ToolbarDelegate, WKUIDelegate, Javasc
         Log.info("viewDidAppear")
         guard let toolbar = toolbar else { return }
         toolbar.toolbarDelegate = self
-
-        webViewURLObserver = webView.observe(\.url) { (webView, _) in
-            switch self.browserAction {
-            case .visit(let url):
-                toolbar.urlTextField.stringValue = url?.absoluteString ?? ""
-            case .search:
-                toolbar.urlTextField.stringValue = webView.url?.absoluteString ?? ""
-            default: break
-            }
-        }
+        startObservingURL()
     }
 
     override func viewDidLoad() {
@@ -174,6 +165,23 @@ class WebViewController: NSViewController, ToolbarDelegate, WKUIDelegate, Javasc
         }
         return false
     }
+
+    private func startObservingURL() {
+        webViewURLObserver = webView.observe(\.url) { (webView, _) in
+
+            if let newURL = webView.url?.massagedURL() {
+                webView.stopLoading()
+                self.browserAction = .visit(url: newURL)
+                return
+            }
+
+            switch self.browserAction {
+            case .visit, .search:
+                self.toolbar?.urlTextField.stringValue = webView.url?.absoluteString ?? ""
+            default: break
+            }
+        }
+    }
 }
 
 extension WebViewController: WKNavigationDelegate {
@@ -187,6 +195,12 @@ extension WebViewController: WKNavigationDelegate {
     }
 
     private func handleError(_ error: Error) {
-        browserAction = .showError(title: "Floaty couldn't load the URL", message: error.localizedDescription)
+        Log.error(error)
+        switch abs(error._code) {
+        case 102, 999: // TODO: create enum of error codes & decide which should be shown to user
+            return
+        default :
+            browserAction = .showError(title: "Floaty couldn't load the URL", message: error.localizedDescription)
+        }
     }
 }

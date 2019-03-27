@@ -27,17 +27,16 @@ class WebViewControllerTests: XCTestCase {
         webViewController?.loadView()
     }
 
-    // TODO: This test is flaky
-    func testSearchingChangesURL() {
+    func testEnteringTextPerformsSearch() {
         let toolbar = NSApplication.shared.windows.first?.toolbar as? Toolbar
         webViewController.toolbar(toolbar!, didChangeText: "grinch")
-        XCTAssertTrue(webViewController.url?.absoluteString.hasSuffix("grinch") == true)
+        XCTAssertTrue(webViewController.browserAction == .search(text: "grinch"))
     }
 
     func testEnteringInToolbarChangesActiveURL() {
         let toolbar = NSApplication.shared.windows.first?.toolbar as? Toolbar
         webViewController.toolbar(toolbar!, didChangeText: "https://www.google.com")
-        XCTAssertEqual(webViewController.url?.absoluteString, "https://www.google.com")
+        XCTAssertTrue(webViewController.webView.url!.absoluteString.hasPrefix(url.absoluteString))
     }
 
     func testURLThatShouldOpenInNewWindowOpensInSameWindow() {
@@ -45,7 +44,7 @@ class WebViewControllerTests: XCTestCase {
         let action = FakeNavigationAction(testRequest: URLRequest(url: url))
         let features = WKWindowFeatures()
         _ = webViewController.webView(webView, createWebViewWith: config, for: action, windowFeatures: features)
-       XCTAssertEqual(webViewController.url, url)
+        XCTAssertTrue(webViewController.browserAction == .visit(url: url))
     }
 }
 

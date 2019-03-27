@@ -10,7 +10,7 @@ class Log {
     static func info(_ string: String) {
         print("--I: " + string)
     }
-    static func error(_ string: String) {
-        print("--E: " + string)
+    static func error(_ error: Error, additionalInfo: String? = nil) {
+        print("--E: code: \(error._code), description: \(error.localizedDescription). \(additionalInfo ?? "")")
     }
 }
