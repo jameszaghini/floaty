@@ -195,6 +195,12 @@ extension WebViewController: WKNavigationDelegate {
     }
 
     private func handleError(_ error: Error) {
-        browserAction = .showError(title: "Floaty couldn't load the URL", message: error.localizedDescription)
+        Log.error(error)
+        switch abs(error._code) {
+        case 102, 999: // TODO: create enum of error codes & decide which should be shown to user
+            return
+        default :
+            browserAction = .showError(title: "Floaty couldn't load the URL", message: error.localizedDescription)
+        }
     }
 }
