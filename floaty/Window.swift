@@ -53,7 +53,7 @@ class WebWindow: Window {
         isMouseOverWindow = false
     }
 
-    private var isMouseOverWindow = false {
+    private(set) var isMouseOverWindow = false {
         didSet {
             if !isMouseOverWindow {
                 toolbar?.showsBaselineSeparator = false
