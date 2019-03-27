@@ -71,9 +71,7 @@ class WebViewController: NSViewController, ToolbarDelegate, WKUIDelegate, Javasc
 
     override func viewDidAppear() {
         super.viewDidAppear()
-        Log.info("viewDidAppear")
-        guard let toolbar = toolbar else { return }
-        toolbar.toolbarDelegate = self
+        toolbar?.toolbarDelegate = self
         startObservingURL()
     }
 
