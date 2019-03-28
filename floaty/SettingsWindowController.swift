@@ -10,8 +10,8 @@ import Cocoa
 
 class SettingsViewController: NSViewController, NSTextFieldDelegate, Serviceable {
 
-    @IBOutlet private var homepageURLTextField: NSTextField!
-    @IBOutlet private var opacitySlider: NSSlider!
+    @IBOutlet private(set) var homepageURLTextField: NSTextField!
+    @IBOutlet private(set) var opacitySlider: NSSlider!
 
     var settings = Services.shared.settings
 
@@ -26,6 +26,8 @@ class SettingsViewController: NSViewController, NSTextFieldDelegate, Serviceable
     }
 
     @IBAction func sliderChanged(_ sender: Any) {
-        settings.windowOpacity = CGFloat(opacitySlider.floatValue)
+        let slider = sender as? NSSlider
+        let opacity = CGFloat(slider?.floatValue ?? 1)
+        settings.windowOpacity = opacity
     }
 }
