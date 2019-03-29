@@ -28,8 +28,9 @@ class SettingsViewControllerTests: XCTestCase {
 
     func testChangingOpacitySliderUpdatesSetting() {
         let opacity: Float = 0.777
-        viewController.opacitySlider.floatValue = opacity
-        viewController.sliderChanged(viewController.opacitySlider)
+        let slider = NSSlider()
+        slider.floatValue = opacity
+        viewController.sliderChanged(slider)
         XCTAssertEqual(opacity, Float(settings.windowOpacity))
     }
 
