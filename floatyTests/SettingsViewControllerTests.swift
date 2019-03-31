@@ -34,7 +34,7 @@ class SettingsViewControllerTests: XCTestCase {
         viewController.sliderChanged(slider)
 
         print("settings in tests: ", settings)
-        XCTAssertEqual(opacity, Float(settings.windowOpacity))
+        XCTAssertEqual(opacity, Float(viewController.settings.windowOpacity))
     }
 
 }
