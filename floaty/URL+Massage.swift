@@ -21,7 +21,7 @@ extension URL {
 
     func massagedURL() -> URL? {
         var newURL: URL?
-        for plugin in Services.shared.settings.plugins {
+        for plugin in Services.shared.activePlugins {
             if let massaged = plugin.massageURL(self) {
                 newURL = massaged
                 break

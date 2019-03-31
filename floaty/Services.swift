@@ -8,7 +8,8 @@
 
 struct Services {
     static let shared = Services()
-    var settings = Settings.load()
+    var settings = Settings.load(storeFilename: "settings.v1")
+    var activePlugins: [Plugin] = [YoutubePlugin(), TwitchPlugin(), VimeoPlugin()]
 }
 
 protocol Serviceable {

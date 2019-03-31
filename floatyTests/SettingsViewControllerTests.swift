@@ -12,18 +12,19 @@ import XCTest
 class SettingsViewControllerTests: XCTestCase {
 
     var viewController: SettingsViewController!
-    let settings = Services.shared.settings
+    let settings = Settings.load(storeFilename: "tests")
 
     override func setUp() {
         let storyboardName = NSStoryboard.Name("Main")
         let storyboard = NSStoryboard(name: storyboardName, bundle: nil)
         let identifier = NSStoryboard.SceneIdentifier(rawValue: "SettingsViewController")
         viewController = storyboard.instantiateController(withIdentifier: identifier) as? SettingsViewController
+        viewController.settings = settings
         viewController?.loadView()
     }
 
     func testCorrectURLShownInHomepageTextField() {
-        XCTAssertEqual(viewController?.homepageURLTextField.stringValue, settings.homepageURL)
+        XCTAssertEqual(viewController?.homepageURLTextField.stringValue, settings.homepageURLString)
     }
 
     func testChangingOpacitySliderUpdatesSetting() {
@@ -31,7 +32,6 @@ class SettingsViewControllerTests: XCTestCase {
         let slider = NSSlider()
         slider.floatValue = opacity
         viewController.sliderChanged(slider)
-        sleep(2)
         XCTAssertEqual(opacity, Float(settings.windowOpacity))
     }
 

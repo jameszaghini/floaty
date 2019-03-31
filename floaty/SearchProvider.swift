@@ -10,20 +10,23 @@ import Foundation
 
 typealias SearchProviderId = String
 
-protocol SearchProvider {
+protocol SearchProvider: Codable {
     var providerId: SearchProviderId { get }
     var url: URL { get }
     var searchURLString: String { get }
 }
 
 struct Search {
-    static let allProviders: [SearchProvider] = [DuckDuckGo(), Google(), Bing()]
-    static let defaultProvider: SearchProvider = {
-        return allProviders.first!
-    }()
+
+    static let duckDuckGo = DuckDuckGo()
+    static let google = Google()
+    static let bing = Bing()
+
+    static let allProviders: [SearchProvider] = [duckDuckGo, google, bing]
+    static let defaultProvider: SearchProvider = duckDuckGo
 
     static func activeProvider(settings: Settings) -> SearchProvider {
-        return allProviders.filter { $0.providerId == settings.searchProviderId }.first ?? Search.defaultProvider
+        return defaultProvider
     }
 }
 

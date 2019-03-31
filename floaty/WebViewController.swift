@@ -91,7 +91,7 @@ class WebViewController: NSViewController, ToolbarDelegate, WKUIDelegate, Javasc
             self?.progressIndicator.isHidden = webView.estimatedProgress == 1
         }
 
-        if let url = URL(string: services.settings.homepageURL) {
+        if let url = URL(string: services.settings.homepageURLString) {
             browserAction = .visit(url: url)
         }
 

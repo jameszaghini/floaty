@@ -10,10 +10,9 @@ import Cocoa
 
 struct Settings: Codable {
 
-    private var defaults: UserDefaults = UserDefaults.standard
-    private static let defaultsKey = "settings"
+    var storeFilename = ""
 
-    var homepageURL: String {
+    var homepageURLString: String {
         didSet { save() }
     }
 
@@ -26,40 +25,33 @@ struct Settings: Codable {
         }
     }
 
-    var plugins: [Plugin] = [YoutubePlugin(), VimeoPlugin(), TwitchPlugin()]
-
-    var searchProviderId: SearchProviderId {
-        didSet { save() }
-    }
-
     private enum CodingKeys: String, CodingKey {
-        case homepageURL, windowOpacity, searchProviderId
+        case homepageURLString, windowOpacity
     }
 
-    static func load(defaults: UserDefaults = UserDefaults.standard) -> Settings {
-        guard let data = defaults.value(forKey: defaultsKey) as? Data else {
-            return Settings()
+    static func load(storeFilename: String) -> Settings {
+        if Storage.fileExists(storeFilename, in: .documents) {
+            var settings =  Storage.retrieve(storeFilename, from: .documents, as: Settings.self)
+            settings.storeFilename = storeFilename
+            return settings
         }
-        var settings = try? JSONDecoder().decode(Settings.self, from: data)
-        settings?.defaults = defaults
-        return settings ?? Settings()
+        let settings = Settings(storeFilename: storeFilename)
+        return settings
     }
 
     // MARK: - Private
 
-    private init(homepageURL: String = "https://www.duckduckgo.com?kae=d",
-                 windowOpacity: CGFloat = 1,
-                 searchProviderId: SearchProviderId = Search.defaultProvider.providerId,
-                 defaults: UserDefaults = UserDefaults.standard) {
-        self.homepageURL = homepageURL
+    init(storeFilename: String,
+         homepageURLString: String = "https://www.duckduckgo.com?kae=d",
+         windowOpacity: CGFloat = 1) {
+        self.homepageURLString = homepageURLString
         self.windowOpacity = windowOpacity
-        self.searchProviderId = searchProviderId
-        self.defaults = defaults
+        self.storeFilename = storeFilename
+        save()
     }
 
     private func save() {
-        if let encoded = try? JSONEncoder().encode(self) {
-            defaults.set(encoded, forKey: Settings.defaultsKey)
-        }
+        Storage.store(self, to: .documents, as: storeFilename)
     }
+
 }
