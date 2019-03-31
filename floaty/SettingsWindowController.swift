@@ -30,6 +30,7 @@ class SettingsViewController: NSViewController, NSTextFieldDelegate, Serviceable
         guard let slider = sender as? NSSlider else { return }
         let opacity = CGFloat(slider.floatValue)
         Log.info("slider value: \(opacity)")
+        print("settings in vc: ", settings)
         settings.windowOpacity = opacity
     }
 }
