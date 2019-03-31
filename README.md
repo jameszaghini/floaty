@@ -16,3 +16,13 @@ floaty is available for direct download on the [releases page](https://github.co
 ```
 brew cask install https://raw.githubusercontent.com/jameszaghini/floaty/develop/floaty.rb
 ```
+
+## Building floaty
+
+Install Xcode 10.2, then clone & open the project:
+
+```
+git clone https://github.com/jameszaghini/floaty.git && cd floaty && xed .
+```
+
+Press build. You're done!
