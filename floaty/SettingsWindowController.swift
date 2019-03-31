@@ -27,8 +27,9 @@ class SettingsViewController: NSViewController, NSTextFieldDelegate, Serviceable
     }
 
     @IBAction func sliderChanged(_ sender: Any) {
-        let slider = sender as? NSSlider
-        let opacity = CGFloat(slider?.floatValue ?? 1)
+        guard let slider = sender as? NSSlider else { return }
+        let opacity = CGFloat(slider.floatValue)
+        Log.info("slider value: \(opacity"))
         settings.windowOpacity = opacity
     }
 }
