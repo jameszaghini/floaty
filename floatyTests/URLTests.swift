@@ -17,4 +17,8 @@ class URLTests: XCTestCase {
         XCTAssertTrue(url.containsParameterKey(key))
     }
 
+    func testMassageURL() {
+        let youtubeURL = URL(string: "https://www.youtube.com/watch?v=hHW1oY26kxQ")!
+        XCTAssertNotNil(youtubeURL.massagedURL())
+    }
 }
