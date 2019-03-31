@@ -18,9 +18,13 @@ struct AddressBarInputHandler {
             return .none
         }
 
+        guard let url = URL(string: text) else {
+            return .search(text: text)
+        }
+
         var action: BrowserAction?
 
-        if let url = URL(string: text), parseHost(url)?.publicSuffix != nil && parseHost(url)?.domain != nil || isValidIPAddress(url) || isLoopbackAddress(text) {
+        if canVisitURL(url, text: text) {
             if url.scheme != nil {
                 action = .visit(url: url)
             } else if let adjustedURL = URL(string: "https://" + text) {
@@ -29,6 +33,13 @@ struct AddressBarInputHandler {
         }
 
         return action ?? .search(text: text)
+    }
+
+    static func canVisitURL(_ url: URL, text: String) -> Bool {
+        return parseHost(url)?.publicSuffix != nil &&
+            parseHost(url)?.domain != nil ||
+            isValidIPAddress(url) ||
+            isLoopbackAddress(text)
     }
 
     static func parseHost(_ url: URL) -> ParsedHost? {
