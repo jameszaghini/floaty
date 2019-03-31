@@ -12,10 +12,8 @@ import WebKit
 
 class WebViewControllerTests: XCTestCase {
 
-    var webViewController: WebViewController!
-    var webView: WKWebView {
-        return webViewController.webView
-    }
+    var viewController: WebViewController!
+    var webView: WKWebView! { return viewController.webView! }
 
     let url = URL(string: "https://www.google.com")!
 
@@ -23,29 +21,44 @@ class WebViewControllerTests: XCTestCase {
         let storyboardName = NSStoryboard.Name("Main")
         let storyboard = NSStoryboard(name: storyboardName, bundle: nil)
         let webWindowController = storyboard.instantiateInitialController() as? WebWindowController
-        webViewController = webWindowController?.window?.contentViewController as? WebViewController
-        webViewController?.loadView()
+        viewController = webWindowController?.window?.contentViewController as? WebViewController
+        viewController?.loadView()
     }
 
     func testEnteringTextPerformsSearch() {
         let toolbar = NSApplication.shared.windows.first?.toolbar as? Toolbar
-        webViewController.toolbar(toolbar!, didChangeText: "grinch")
-        XCTAssertTrue(webViewController.browserAction == .search(text: "grinch"))
+        viewController.toolbar(toolbar!, didChangeText: "grinch")
+        XCTAssertTrue(viewController.browserAction == .search(text: "grinch"))
     }
 
     func testEnteringInToolbarChangesActiveURL() {
         let toolbar = NSApplication.shared.windows.first?.toolbar as? Toolbar
-        webViewController.toolbar(toolbar!, didChangeText: "https://www.google.com")
-        XCTAssertTrue(webViewController.webView.url!.absoluteString.hasPrefix(url.absoluteString))
+        viewController.toolbar(toolbar!, didChangeText: "https://www.google.com")
+        XCTAssertTrue(webView.url!.absoluteString.hasPrefix(url.absoluteString))
     }
 
     func testURLThatShouldOpenInNewWindowOpensInSameWindow() {
         let config = WKWebViewConfiguration()
         let action = FakeNavigationAction(testRequest: URLRequest(url: url))
         let features = WKWindowFeatures()
-        _ = webViewController.webView(webView, createWebViewWith: config, for: action, windowFeatures: features)
-        XCTAssertTrue(webViewController.browserAction == .visit(url: url))
+        _ = viewController.webView(webView!, createWebViewWith: config, for: action, windowFeatures: features)
+        XCTAssertTrue(viewController.browserAction == .visit(url: url))
     }
+
+    func testDismissJavascriptPanelWindow() {
+        XCTAssertNil(viewController.javascriptPanelWindowController)
+        viewController.webView(webView, runJavaScriptAlertPanelWithMessage: "Message", initiatedByFrame: WKFrameInfo(), completionHandler: {})
+        XCTAssertNotNil(viewController.javascriptPanelWindowController)
+        viewController.didDismissJavascriptPanelWindowController(viewController.javascriptPanelWindowController!)
+        XCTAssertNil(viewController.javascriptPanelWindowController)
+    }
+
+    func testJavascriptAlert() {
+        XCTAssertNil(viewController.javascriptPanelWindowController)
+        viewController.webView(webView, runJavaScriptAlertPanelWithMessage: "Message", initiatedByFrame: WKFrameInfo(), completionHandler: {})
+        XCTAssertNotNil(viewController.javascriptPanelWindowController)
+    }
+
 }
 
 class FakeNavigationAction: WKNavigationAction {

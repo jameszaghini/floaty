@@ -52,7 +52,7 @@ class WebViewController: NSViewController, ToolbarDelegate, WKUIDelegate, Javasc
         return toolbar?.urlTextField
     }
 
-    private var javascriptPanelWindowController: JavascriptPanelWindowController? {
+    private(set) var javascriptPanelWindowController: JavascriptPanelWindowController? {
         didSet {
             guard let panelWindow = javascriptPanelWindowController?.window else { return }
             view.window?.beginSheet(panelWindow)
