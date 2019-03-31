@@ -8,7 +8,7 @@
 
 import Cocoa
 
-struct Settings: Codable {
+class Settings: Codable {
 
     var storeFilename = ""
 
