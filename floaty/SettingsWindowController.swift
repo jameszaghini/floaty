@@ -16,18 +16,19 @@ class SettingsViewController: NSViewController, NSTextFieldDelegate, Serviceable
     var settings = Services.shared.settings
 
     override func viewDidLoad() {
-        homepageURLTextField.stringValue = settings.homepageURL
+        homepageURLTextField.stringValue = settings.homepageURLString
+        opacitySlider.floatValue = Float(settings.windowOpacity)
     }
 
     override func controlTextDidEndEditing(_ aNotification: Notification) {
         if aNotification.object as? NSTextField == homepageURLTextField {
-            settings.homepageURL = homepageURLTextField.stringValue
+            settings.homepageURLString = homepageURLTextField.stringValue
         }
     }
 
     @IBAction func sliderChanged(_ sender: Any) {
         let slider = sender as? NSSlider
-        let opacity = CGFloat(slider?.floatValue ?? 0.9)
+        let opacity = CGFloat(slider?.floatValue ?? 1)
         settings.windowOpacity = opacity
     }
 }

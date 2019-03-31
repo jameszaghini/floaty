@@ -39,6 +39,7 @@
 		1A8BECDE21CEEEFD001FE824 /* WebViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A8BECDD21CEEEFD001FE824 /* WebViewControllerTests.swift */; };
 		1A8F059821E622AD003E78DD /* ErrorHandlerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A8F059621E62224003E78DD /* ErrorHandlerTests.swift */; };
 		1A8F059A21E624BF003E78DD /* StringTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A8F059921E624BF003E78DD /* StringTests.swift */; };
+		1A94A998224F678B00BC0F73 /* Storage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A94A997224F678B00BC0F73 /* Storage.swift */; };
 		1A9DAC0320B1975000DCE63F /* URL+Massage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A9DAC0220B1975000DCE63F /* URL+Massage.swift */; };
 		1A9DAC3920B4CD5F00DCE63F /* URLTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A9DAC3820B4CD5F00DCE63F /* URLTextField.swift */; };
 		1AA38F7F224B9D9300C4A5A7 /* WebWindowTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AA38F7E224B9D9300C4A5A7 /* WebWindowTests.swift */; };
@@ -120,6 +121,7 @@
 		1A8BECDD21CEEEFD001FE824 /* WebViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewControllerTests.swift; sourceTree = "<group>"; };
 		1A8F059621E62224003E78DD /* ErrorHandlerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ErrorHandlerTests.swift; path = FloatyTests/ErrorHandlerTests.swift; sourceTree = SOURCE_ROOT; };
 		1A8F059921E624BF003E78DD /* StringTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = StringTests.swift; path = FloatyTests/StringTests.swift; sourceTree = SOURCE_ROOT; };
+		1A94A997224F678B00BC0F73 /* Storage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storage.swift; sourceTree = "<group>"; };
 		1A9DAC0220B1975000DCE63F /* URL+Massage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL+Massage.swift"; sourceTree = "<group>"; };
 		1A9DAC3820B4CD5F00DCE63F /* URLTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLTextField.swift; sourceTree = "<group>"; };
 		1AA38F7E224B9D9300C4A5A7 /* WebWindowTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = WebWindowTests.swift; path = FloatyTests/WebWindowTests.swift; sourceTree = SOURCE_ROOT; };
@@ -278,6 +280,7 @@
 				1A6B726D20CDFE3F00AE2008 /* Services.swift */,
 				1A6B727320CE000700AE2008 /* Settings.swift */,
 				1AA751E020CB806300490962 /* SettingsWindowController.swift */,
+				1A94A997224F678B00BC0F73 /* Storage.swift */,
 				1A2088FE21E16B6E0034ED83 /* String+Conveniences.swift */,
 				1ABB83E920B153F70004C50E /* Toolbar.swift */,
 				1A9DAC0220B1975000DCE63F /* URL+Massage.swift */,
@@ -467,6 +470,7 @@
 				1A02ED7021C9CFB30093114C /* ColorPalette.swift in Sources */,
 				1ABB83CE20B141280004C50E /* WebViewController.swift in Sources */,
 				1A6B726E20CDFE3F00AE2008 /* Services.swift in Sources */,
+				1A94A998224F678B00BC0F73 /* Storage.swift in Sources */,
 				1ABB83CC20B141280004C50E /* AppDelegate.swift in Sources */,
 				1A6B726C20CD5EA000AE2008 /* WebWindowController.swift in Sources */,
 				1A8BECD221CD20BB001FE824 /* VimeoPlugin.swift in Sources */,
