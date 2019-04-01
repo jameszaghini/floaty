@@ -15,7 +15,7 @@ class SettingsTests: XCTestCase {
     let storeFilename = "tests"
 
     func testChangingHomepageURLSaves() {
-        var settings = Settings.load(storeFilename: storeFilename)
+        let settings = Settings.load(storeFilename: storeFilename)
         let urlString = "http://www.duckduckgo.com"
         settings.homepageURLString = urlString
         let settings2 = Settings.load(storeFilename: storeFilename)
@@ -24,7 +24,7 @@ class SettingsTests: XCTestCase {
 
     func testChangingWindowOpacityFiresObserver() {
 
-        var settings = Settings.load(storeFilename: storeFilename)
+        let settings = Settings.load(storeFilename: storeFilename)
         let newOpacity: CGFloat = 0.05
 
         let promise = expectation(description: "Observer will fire on opacity change")
