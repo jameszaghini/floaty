@@ -60,7 +60,6 @@ class WebViewController: NSViewController, ToolbarDelegate, WKUIDelegate, Javasc
     }
 
     private var disposable: Disposable?
-
     private var keyDownEventMonitor: Any?
 
     deinit {
@@ -79,9 +78,12 @@ class WebViewController: NSViewController, ToolbarDelegate, WKUIDelegate, Javasc
         super.viewDidLoad()
 
         disposable = services.settings.windowOpacityObservable.observe { [weak self] opacity, _ in
-            self?.webView.alphaValue = opacity
-            self?.view.window?.backgroundColor = ColorPalette.background.withAlphaComponent(opacity)
+            guard let opacity = opacity else { return }
+            self?.webViewOpacity(opacity)
         }
+        webViewOpacity(services.settings.windowOpacity)
+
+        (view as? WebViewControllerMainView)?.services = services
 
         // Some sites won't work with the default user agent, so I've set this to the Safari user agent
         webView.customUserAgent = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_5) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/11.1.1 Safari/605.1.15"
@@ -140,6 +142,10 @@ class WebViewController: NSViewController, ToolbarDelegate, WKUIDelegate, Javasc
     }
 
     // MARK: - Private
+
+    private func webViewOpacity(_ opacity: CGFloat) {
+        webView.alphaValue = opacity
+    }
 
     private func setupJavascriptWindowController(_ controller: JavascriptPanelWindowController, message: String) {
         controller.loadWindow()

@@ -16,7 +16,7 @@ class Settings: Codable {
         didSet { save() }
     }
 
-    var windowOpacityObservable = Observable(CGFloat(1))
+    var windowOpacityObservable = Observable(CGFloat?(nil))
     var windowOpacity: CGFloat {
         didSet {
             Log.info("windowOpacity: \(windowOpacity)")
@@ -36,6 +36,7 @@ class Settings: Codable {
             return settings
         }
         let settings = Settings(storeFilename: storeFilename)
+        settings.windowOpacityObservable.value = settings.windowOpacity
         return settings
     }
 
