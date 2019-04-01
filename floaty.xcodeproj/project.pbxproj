@@ -65,6 +65,7 @@
 		1AC9589721C604DD00B85B15 /* SettingsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AC9589621C604DD00B85B15 /* SettingsTests.swift */; };
 		1AC958A821C7697F00B85B15 /* SearchProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AC958A721C7697F00B85B15 /* SearchProvider.swift */; };
 		1AFC49C222522E8800F99C6D /* WebViewControllerMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AFC49C122522E8800F99C6D /* WebViewControllerMainView.swift */; };
+		1AFC49CA2252D31600F99C6D /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AFC49C92252D31600F99C6D /* WebKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -152,6 +153,7 @@
 		1AC9589621C604DD00B85B15 /* SettingsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTests.swift; sourceTree = "<group>"; };
 		1AC958A721C7697F00B85B15 /* SearchProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchProvider.swift; sourceTree = "<group>"; };
 		1AFC49C122522E8800F99C6D /* WebViewControllerMainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewControllerMainView.swift; sourceTree = "<group>"; };
+		1AFC49C92252D31600F99C6D /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -159,6 +161,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1AFC49CA2252D31600F99C6D /* WebKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -249,6 +252,7 @@
 				1ABB83DD20B1412A0004C50E /* floatyTests */,
 				1ABB83C920B141280004C50E /* Products */,
 				1AB9682B21E80D4B00658083 /* vendor */,
+				1AFC49C82252D31500F99C6D /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -319,6 +323,14 @@
 				1A8BECC521CCC7C1001FE824 /* YoutubePluginTests.swift */,
 			);
 			path = floatyTests;
+			sourceTree = "<group>";
+		};
+		1AFC49C82252D31500F99C6D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1AFC49C92252D31600F99C6D /* WebKit.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
