@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1A006B0C20F9A82100E0D87F /* Window.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A006B0B20F9A82000E0D87F /* Window.swift */; };
+		1A01B817225378F7009812D9 /* NSAppearance+Floaty.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A01B816225378F7009812D9 /* NSAppearance+Floaty.swift */; };
 		1A02ED7021C9CFB30093114C /* ColorPalette.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A02ED6F21C9CFB30093114C /* ColorPalette.swift */; };
 		1A02ED7721C9F6D40093114C /* WindowTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A02ED7621C9F6D30093114C /* WindowTests.swift */; };
 		1A1BA46C21E551E700203A53 /* error.html in Resources */ = {isa = PBXBuildFile; fileRef = 1A1BA46B21E551E700203A53 /* error.html */; };
@@ -92,6 +93,7 @@
 
 /* Begin PBXFileReference section */
 		1A006B0B20F9A82000E0D87F /* Window.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Window.swift; sourceTree = "<group>"; };
+		1A01B816225378F7009812D9 /* NSAppearance+Floaty.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSAppearance+Floaty.swift"; sourceTree = "<group>"; };
 		1A02ED6F21C9CFB30093114C /* ColorPalette.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorPalette.swift; sourceTree = "<group>"; };
 		1A02ED7621C9F6D30093114C /* WindowTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindowTests.swift; sourceTree = "<group>"; };
 		1A1BA46B21E551E700203A53 /* error.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = error.html; sourceTree = "<group>"; };
@@ -280,6 +282,7 @@
 				1A49F6A920C545BD00D5A98B /* JavascriptPanelWindowController.swift */,
 				1AB967EF21E7483400658083 /* Log.swift */,
 				1ABB83D120B1412A0004C50E /* Main.storyboard */,
+				1A01B816225378F7009812D9 /* NSAppearance+Floaty.swift */,
 				1A66C60D21DA321200675AFE /* NSWindow+Conveniences.swift */,
 				1A8BECC921CCC806001FE824 /* Plugins */,
 				1AC958A721C7697F00B85B15 /* SearchProvider.swift */,
@@ -494,6 +497,7 @@
 				1A6B727420CE000700AE2008 /* Settings.swift in Sources */,
 				1A20890121E16D950034ED83 /* BrowserAction.swift in Sources */,
 				1A9DAC0320B1975000DCE63F /* URL+Massage.swift in Sources */,
+				1A01B817225378F7009812D9 /* NSAppearance+Floaty.swift in Sources */,
 				1A006B0C20F9A82100E0D87F /* Window.swift in Sources */,
 				1A8BECD621CD8EDA001FE824 /* TwitchPlugin.swift in Sources */,
 			);
