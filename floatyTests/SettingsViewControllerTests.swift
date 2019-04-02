@@ -23,6 +23,13 @@ class SettingsViewControllerTests: XCTestCase {
         viewController?.loadView()
     }
 
+    func testHomepageURLStringChangesAfterEditing() {
+        viewController.homepageURLTextField.stringValue = "http://www.google.com"
+        let notification = Notification(name: Notification.Name("Name"), object: viewController.homepageURLTextField, userInfo: nil)
+        viewController.controlTextDidEndEditing(notification)
+        XCTAssertEqual(viewController.homepageURLTextField.stringValue, settings.homepageURLString)
+    }
+
     func testCorrectURLShownInHomepageTextField() {
         XCTAssertEqual(viewController?.homepageURLTextField.stringValue, settings.homepageURLString)
     }
