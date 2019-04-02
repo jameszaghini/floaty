@@ -59,6 +59,17 @@ class WebViewControllerTests: XCTestCase {
         XCTAssertNotNil(viewController.javascriptPanelWindowController)
     }
 
+    func testErrorWebPage() {
+        XCTAssertNil(viewController.html)
+        let title = "My Error title"
+        let message = "My Error message"
+        viewController.browserAction = .showError(title: title, message: message)
+        XCTAssertNotNil(viewController.html)
+        XCTAssertTrue(viewController.html!.contains(title))
+        XCTAssertTrue(viewController.html!.contains(message))
+
+    }
+
 }
 
 class FakeNavigationAction: WKNavigationAction {

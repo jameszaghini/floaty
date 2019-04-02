@@ -15,7 +15,6 @@
 		1A02ED7721C9F6D40093114C /* WindowTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A02ED7621C9F6D30093114C /* WindowTests.swift */; };
 		1A1BA46C21E551E700203A53 /* error.html in Resources */ = {isa = PBXBuildFile; fileRef = 1A1BA46B21E551E700203A53 /* error.html */; };
 		1A1BA49D21E5B78700203A53 /* ErrorHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A1BA49C21E5B78700203A53 /* ErrorHandler.swift */; };
-		1A1BA49F21E5B7BA00203A53 /* WKWebView+ErrorHTML.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A1BA49E21E5B7BA00203A53 /* WKWebView+ErrorHTML.swift */; };
 		1A2088FB21E08DE00034ED83 /* AddressBarInputHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A2088FA21E08DE00034ED83 /* AddressBarInputHandler.swift */; };
 		1A2088FD21E0913B0034ED83 /* AddressBarInputHandlerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A2088FC21E0913B0034ED83 /* AddressBarInputHandlerTests.swift */; };
 		1A2088FF21E16B6E0034ED83 /* String+Conveniences.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A2088FE21E16B6E0034ED83 /* String+Conveniences.swift */; };
@@ -102,7 +101,6 @@
 		1A02ED7621C9F6D30093114C /* WindowTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindowTests.swift; sourceTree = "<group>"; };
 		1A1BA46B21E551E700203A53 /* error.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = error.html; sourceTree = "<group>"; };
 		1A1BA49C21E5B78700203A53 /* ErrorHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorHandler.swift; sourceTree = "<group>"; };
-		1A1BA49E21E5B7BA00203A53 /* WKWebView+ErrorHTML.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WKWebView+ErrorHTML.swift"; sourceTree = "<group>"; };
 		1A2088FA21E08DE00034ED83 /* AddressBarInputHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressBarInputHandler.swift; sourceTree = "<group>"; };
 		1A2088FC21E0913B0034ED83 /* AddressBarInputHandlerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressBarInputHandlerTests.swift; sourceTree = "<group>"; };
 		1A2088FE21E16B6E0034ED83 /* String+Conveniences.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Conveniences.swift"; sourceTree = "<group>"; };
@@ -302,7 +300,6 @@
 				1AFC49C122522E8800F99C6D /* WebViewControllerMainView.swift */,
 				1A6B726B20CD5EA000AE2008 /* WebWindowController.swift */,
 				1A006B0B20F9A82000E0D87F /* Window.swift */,
-				1A1BA49E21E5B7BA00203A53 /* WKWebView+ErrorHTML.swift */,
 			);
 			path = floaty;
 			sourceTree = "<group>";
@@ -476,7 +473,6 @@
 				1A49F6AA20C545BD00D5A98B /* JavascriptPanelWindowController.swift in Sources */,
 				1AB9687321E80E5C00658083 /* Rule.swift in Sources */,
 				1A2088FF21E16B6E0034ED83 /* String+Conveniences.swift in Sources */,
-				1A1BA49F21E5B7BA00203A53 /* WKWebView+ErrorHTML.swift in Sources */,
 				1AB967F021E7483400658083 /* Log.swift in Sources */,
 				1A8BECC821CCC7DC001FE824 /* YoutubePlugin.swift in Sources */,
 				1AB9685721E80D4B00658083 /* Disposable.swift in Sources */,

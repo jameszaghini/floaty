@@ -19,6 +19,13 @@ class WebViewController: NSViewController, ToolbarDelegate, WKUIDelegate, Javasc
     private var webViewProgressObserver: NSKeyValueObservation?
     private var webViewURLObserver: NSKeyValueObservation?
 
+    private(set) var html: String? {
+        didSet {
+            guard let html = html else { return }
+            webView.loadHTMLString(html, baseURL: Bundle.main.bundleURL)
+        }
+    }
+
     var browserAction: BrowserAction = .none {
         didSet {
 
@@ -37,8 +44,8 @@ class WebViewController: NSViewController, ToolbarDelegate, WKUIDelegate, Javasc
                 let url = URL(string: searchProvider.searchURLString + encodedQuery)
                 loadURL(url)
             case .showError(let title, let message):
-                webView.presentAnError(title: title, message: message)
-                Log.info(message)
+                presentErrorWebPage(title: title, message: message)
+                Log.info(title + " " + message)
             case .none: break
             }
         }
@@ -188,6 +195,18 @@ class WebViewController: NSViewController, ToolbarDelegate, WKUIDelegate, Javasc
             }
         }
     }
+
+    private func presentErrorWebPage(title: String, message: String) {
+        guard let path = Bundle.main.path(forResource: "error", ofType: "html") else { return }
+        let isDarkMode = NSAppearance.isDarkMode(UserDefaults.standard)
+        var html: String = ErrorHandler.shared.wrap { try String(contentsOfFile: path) } ?? ""
+        html = html.replacingOccurrences(of: "{{title}}", with: title)
+        html = html.replacingOccurrences(of: "{{message}}", with: message)
+        html = html.replacingOccurrences(of: "{{bg-rgb}}", with: isDarkMode ? "30" : "246")
+        html = html.replacingOccurrences(of: "{{bg-rgb}}", with: isDarkMode ? "rgb(110, 110, 110);" : "")
+        self.html = html
+    }
+
 }
 
 extension WebViewController: WKNavigationDelegate {
