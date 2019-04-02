@@ -9,8 +9,13 @@
 import Cocoa
 
 extension NSAppearance {
-    static var isDarkMode: Bool {
-        let mode = UserDefaults.standard.string(forKey: "AppleInterfaceStyle")
-        return mode == "Dark"
+
+    static let darkModeDefaultsKey = "AppleInterfaceStyle"
+    static let darkModeAppearanceValue = "Dark"
+
+    static func isDarkMode(_ defaults: UserDefaults) -> Bool {
+        Log.info(defaults.string(forKey: darkModeDefaultsKey)!)
+        return defaults.string(forKey: darkModeDefaultsKey) == darkModeAppearanceValue
     }
+
 }
