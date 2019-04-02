@@ -60,14 +60,19 @@ class WebViewControllerTests: XCTestCase {
     }
 
     func testErrorWebPage() {
+        print("xxx: 1")
         XCTAssertNil(viewController.html)
+        print("xxx: 2")
         let title = "My Error title"
         let message = "My Error message"
         viewController.browserAction = .showError(title: title, message: message)
+        print("xxx: 3")
         XCTAssertNotNil(viewController.html)
+        print("xxx: 4, ",  viewController.html)
         XCTAssertTrue(viewController.html!.contains(title))
+        print("xxx: 5, ",  viewController.html)
         XCTAssertTrue(viewController.html!.contains(message))
-
+        print("xxx: 4, ",  viewController.html)
     }
 
 }
