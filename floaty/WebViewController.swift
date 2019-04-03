@@ -197,23 +197,17 @@ class WebViewController: NSViewController, ToolbarDelegate, WKUIDelegate, Javasc
     }
 
     private func presentErrorWebPage(title: String, message: String) {
-        print("xxx: ", "aaaa")
         let bundle = Bundle(for: type(of: self))
-        print("xxx: ", "bbbb")
         guard let path = bundle.path(forResource: "error", ofType: "html") else {
             print("couldn't find path for error.html")
             return
         }
-        print("xxx: ", "cccc")
         let isDarkMode = NSAppearance.isDarkMode(UserDefaults.standard)
-        print("xxx: ", "dddd")
         var html: String = ErrorHandler.shared.wrap { try String(contentsOfFile: path) } ?? ""
-        print("xxx: eeee ", html)
         html = html.replacingOccurrences(of: "{{title}}", with: title)
         html = html.replacingOccurrences(of: "{{message}}", with: message)
         html = html.replacingOccurrences(of: "{{bg-rgb}}", with: isDarkMode ? "30" : "246")
         html = html.replacingOccurrences(of: "{{bg-rgb}}", with: isDarkMode ? "rgb(110, 110, 110);" : "")
-        print("xxx: ", "ffff")
         self.html = html
     }
 
