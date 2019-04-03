@@ -30,8 +30,7 @@ class Settings: Codable {
     }
 
     static func load(storeFilename: String) -> Settings {
-        if Storage.fileExists(storeFilename, in: .documents) {
-            let settings =  Storage.retrieve(storeFilename, from: .documents, as: Settings.self)
+        if Storage.fileExists(storeFilename, in: .documents), let settings = Storage.retrieve(storeFilename, from: .documents, as: Settings.self) {
             settings.storeFilename = storeFilename
             return settings
         }

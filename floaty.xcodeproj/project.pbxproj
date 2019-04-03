@@ -12,6 +12,7 @@
 		1A01B81922541083009812D9 /* NSAppearanceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A01B81822541083009812D9 /* NSAppearanceTests.swift */; };
 		1A01B81B2254157E009812D9 /* MockUserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A01B81A2254157E009812D9 /* MockUserDefaults.swift */; };
 		1A01B81C225431AB009812D9 /* error.html in Resources */ = {isa = PBXBuildFile; fileRef = 1A1BA46B21E551E700203A53 /* error.html */; };
+		1A01B81E225490AB009812D9 /* StorageTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A01B81D225490AB009812D9 /* StorageTests.swift */; };
 		1A02ED7021C9CFB30093114C /* ColorPalette.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A02ED6F21C9CFB30093114C /* ColorPalette.swift */; };
 		1A02ED7721C9F6D40093114C /* WindowTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A02ED7621C9F6D30093114C /* WindowTests.swift */; };
 		1A1BA46C21E551E700203A53 /* error.html in Resources */ = {isa = PBXBuildFile; fileRef = 1A1BA46B21E551E700203A53 /* error.html */; };
@@ -98,6 +99,7 @@
 		1A01B816225378F7009812D9 /* NSAppearance+Floaty.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSAppearance+Floaty.swift"; sourceTree = "<group>"; };
 		1A01B81822541083009812D9 /* NSAppearanceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSAppearanceTests.swift; sourceTree = "<group>"; };
 		1A01B81A2254157E009812D9 /* MockUserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockUserDefaults.swift; sourceTree = "<group>"; };
+		1A01B81D225490AB009812D9 /* StorageTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageTests.swift; sourceTree = "<group>"; };
 		1A02ED6F21C9CFB30093114C /* ColorPalette.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorPalette.swift; sourceTree = "<group>"; };
 		1A02ED7621C9F6D30093114C /* WindowTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindowTests.swift; sourceTree = "<group>"; };
 		1A1BA46B21E551E700203A53 /* error.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = error.html; sourceTree = "<group>"; };
@@ -319,6 +321,7 @@
 				1A8BECDB21CE7338001FE824 /* SearchProviderTests.swift */,
 				1AC9589621C604DD00B85B15 /* SettingsTests.swift */,
 				1AA38F82224C2A4500C4A5A7 /* SettingsViewControllerTests.swift */,
+				1A01B81D225490AB009812D9 /* StorageTests.swift */,
 				1A8F059921E624BF003E78DD /* StringTests.swift */,
 				1A8BECD721CD93B5001FE824 /* TwitchPluginTests.swift */,
 				1A8BECC321CC58BB001FE824 /* URLTests.swift */,
@@ -527,6 +530,7 @@
 				1A8BECDE21CEEEFD001FE824 /* WebViewControllerTests.swift in Sources */,
 				1A8BECB821CA26F3001FE824 /* JavascriptAlertWindowControllerTests.swift in Sources */,
 				1A8BECC021CAF839001FE824 /* URLTextFieldTests.swift in Sources */,
+				1A01B81E225490AB009812D9 /* StorageTests.swift in Sources */,
 				1A8BECDC21CE7338001FE824 /* SearchProviderTests.swift in Sources */,
 				1A8BECD421CD2364001FE824 /* VimeoPluginTests.swift in Sources */,
 				1AA4DA5621D84576001E27A4 /* AppDelegateTests.swift in Sources */,
