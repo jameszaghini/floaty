@@ -65,14 +65,15 @@ class WebViewControllerTests: XCTestCase {
         print("xxx: 2")
         let title = "My Error title"
         let message = "My Error message"
-        viewController.browserAction = .showError(title: title, message: message)
         print("xxx: 3")
+        viewController.browserAction = .showError(title: title, message: message)
+        print("xxx: 4")
         XCTAssertNotNil(viewController.html)
-        print("xxx: 4, ",  viewController.html)
-        XCTAssertTrue(viewController.html!.contains(title))
         print("xxx: 5, ",  viewController.html)
+        XCTAssertTrue(viewController.html!.contains(title))
+        print("xxx: 6, ",  viewController.html)
         XCTAssertTrue(viewController.html!.contains(message))
-        print("xxx: 4, ",  viewController.html)
+        print("xxx: 7, ",  viewController.html)
     }
 
 }
