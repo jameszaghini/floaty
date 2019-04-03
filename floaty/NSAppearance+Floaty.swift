@@ -14,7 +14,6 @@ extension NSAppearance {
     static let darkModeAppearanceValue = "Dark"
 
     static func isDarkMode(_ defaults: UserDefaults) -> Bool {
-        Log.info(defaults.string(forKey: darkModeDefaultsKey)!)
         return defaults.string(forKey: darkModeDefaultsKey) == darkModeAppearanceValue
     }
 
