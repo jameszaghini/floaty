@@ -197,7 +197,8 @@ class WebViewController: NSViewController, ToolbarDelegate, WKUIDelegate, Javasc
     }
 
     private func presentErrorWebPage(title: String, message: String) {
-        guard let path = Bundle.main.path(forResource: "error", ofType: "html") else { return }
+        let bundle = Bundle(for: type(of: self))
+        guard let path = bundle.path(forResource: "error", ofType: "html") else { return }
         let isDarkMode = NSAppearance.isDarkMode(UserDefaults.standard)
         var html: String = ErrorHandler.shared.wrap { try String(contentsOfFile: path) } ?? ""
         html = html.replacingOccurrences(of: "{{title}}", with: title)
