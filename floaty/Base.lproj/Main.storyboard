@@ -715,8 +715,40 @@
                                     </textField>
                                 </toolbarItem>
                                 <toolbarItem implicitItemIdentifier="NSToolbarFlexibleSpaceItem" id="bmD-ya-VUb"/>
+                                <toolbarItem implicitItemIdentifier="E9AFDD2A-8A5D-4F5A-89E7-9BB7CBAD9DC4" explicitItemIdentifier="forward" label="" paletteLabel="Forward" image="NSGoForwardTemplate" sizingBehavior="auto" id="UdE-s3-jyq">
+                                    <nil key="toolTip"/>
+                                    <button key="view" id="INk-Sp-yNL">
+                                        <rect key="frame" x="1" y="14" width="48" height="48"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                        <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="NSGoForwardTemplate" imagePosition="overlaps" alignment="center" imageScaling="proportionallyUpOrDown" inset="2" id="3qU-dq-2fJ">
+                                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                            <font key="font" metaFont="system"/>
+                                        </buttonCell>
+                                        <connections>
+                                            <action selector="forwardWithSender:" target="gc6-xp-Ui8" id="ras-ZO-JYG"/>
+                                        </connections>
+                                    </button>
+                                </toolbarItem>
+                                <toolbarItem implicitItemIdentifier="07C44B2B-000B-4B28-B6B2-0F2A8F263B02" explicitItemIdentifier="back" label="" paletteLabel="Back" image="NSGoBackTemplate" sizingBehavior="auto" id="K8H-yz-VEs">
+                                    <nil key="toolTip"/>
+                                    <button key="view" id="PQT-ki-bj8">
+                                        <rect key="frame" x="0.0" y="14" width="48" height="48"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                        <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="NSGoBackTemplate" imagePosition="only" alignment="center" imageScaling="proportionallyUpOrDown" inset="2" id="QHZ-1W-8u2">
+                                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                            <font key="font" metaFont="system"/>
+                                        </buttonCell>
+                                        <connections>
+                                            <action selector="backWithSender:" target="gc6-xp-Ui8" id="qvy-cT-10p"/>
+                                        </connections>
+                                    </button>
+                                </toolbarItem>
                             </allowedToolbarItems>
                             <defaultToolbarItems>
+                                <toolbarItem reference="bmD-ya-VUb"/>
+                                <toolbarItem reference="K8H-yz-VEs"/>
+                                <toolbarItem reference="bmD-ya-VUb"/>
+                                <toolbarItem reference="UdE-s3-jyq"/>
                                 <toolbarItem reference="bmD-ya-VUb"/>
                                 <toolbarItem reference="U00-CP-vvG"/>
                                 <toolbarItem reference="bmD-ya-VUb"/>
@@ -884,4 +916,8 @@
             <point key="canvasLocation" x="75" y="1010"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="NSGoBackTemplate" width="9" height="12"/>
+        <image name="NSGoForwardTemplate" width="9" height="12"/>
+    </resources>
 </document>
