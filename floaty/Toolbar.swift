@@ -26,32 +26,28 @@ class Toolbar: NSToolbar, NSTextFieldDelegate {
     private let backItemIdentifier = NSToolbarItem.Identifier(rawValue: "back")
     private let forwardItemIdentifier = NSToolbarItem.Identifier(rawValue: "forward")
 
+    private var backItem: NSToolbarItem? {
+        return items.first(where: { $0.itemIdentifier == backItemIdentifier })
+    }
+
+    private var forwardItem: NSToolbarItem? {
+        return items.first(where: { $0.itemIdentifier == forwardItemIdentifier })
+    }
+
     override func awakeFromNib() {
-        for item in items {
-            if item.itemIdentifier == backItemIdentifier {
-                backImage = item.image
-            } else if item.itemIdentifier == forwardItemIdentifier {
-                forwardImage = item.image
-            }
-        }
+        backImage = backItem?.image
+        forwardImage = items.first(where: { $0.itemIdentifier == forwardItemIdentifier })?.image
     }
 
     func removeButtons() {
-        for item in items {
-            if item.itemIdentifier == backItemIdentifier || item.itemIdentifier == forwardItemIdentifier {
-                item.image = nil
-            }
-        }
+        let identifiers = [backItemIdentifier, forwardItemIdentifier]
+        let buttons = items.filter { identifiers.contains($0.itemIdentifier) }
+        buttons.forEach { $0.image = nil }
     }
 
     func addButtons() {
-        for item in items {
-            if item.itemIdentifier == backItemIdentifier {
-                item.image = backImage
-            } else if item.itemIdentifier == forwardItemIdentifier {
-                item.image = forwardImage
-            }
-        }
+        backItem?.image = backImage
+        forwardItem?.image = forwardImage
     }
 
     // MARK: - Private
