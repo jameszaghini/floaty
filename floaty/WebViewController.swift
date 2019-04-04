@@ -109,6 +109,19 @@ class WebViewController: NSViewController, ToolbarDelegate, WKUIDelegate, Javasc
         }
     }
 
+    func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction, decisionHandler: @escaping (WKNavigationActionPolicy) -> Void) {
+
+        // Prevents the user getting stuck on the same webpage after
+        // pressing back when viewing a massaged URL
+        if navigationAction.navigationType == .backForward, navigationAction.request.url?.massagedURL() != nil {
+            decisionHandler(.cancel)
+            webView.goBack()
+            return
+        }
+
+        decisionHandler(.allow)
+    }
+
     // MARK: - ToolbarDelegate
 
     func toolbar(_ bar: Toolbar, didChangeText text: String) {
@@ -116,6 +129,14 @@ class WebViewController: NSViewController, ToolbarDelegate, WKUIDelegate, Javasc
         if webView.acceptsFirstResponder {
             webView.window?.makeFirstResponder(webView)
         }
+    }
+
+    func toolbarForwardButtonWasPressed(_ toolbar: Toolbar) {
+        webView.goForward()
+    }
+
+    func toolbarBackButtonWasPressed(_ toolbar: Toolbar) {
+        webView.goBack()
     }
 
     // MARK: - WKUIDelegate
