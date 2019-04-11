@@ -26,11 +26,11 @@ class Toolbar: NSToolbar, NSTextFieldDelegate {
     private let backItemIdentifier = NSToolbarItem.Identifier(rawValue: "back")
     private let forwardItemIdentifier = NSToolbarItem.Identifier(rawValue: "forward")
 
-    private var backItem: NSToolbarItem? {
+    var backItem: NSToolbarItem? {
         return items.first(where: { $0.itemIdentifier == backItemIdentifier })
     }
 
-    private var forwardItem: NSToolbarItem? {
+    var forwardItem: NSToolbarItem? {
         return items.first(where: { $0.itemIdentifier == forwardItemIdentifier })
     }
 

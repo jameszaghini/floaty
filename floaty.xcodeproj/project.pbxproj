@@ -15,6 +15,7 @@
 		1A01B81E225490AB009812D9 /* StorageTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A01B81D225490AB009812D9 /* StorageTests.swift */; };
 		1A02ED7021C9CFB30093114C /* ColorPalette.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A02ED6F21C9CFB30093114C /* ColorPalette.swift */; };
 		1A02ED7721C9F6D40093114C /* WindowTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A02ED7621C9F6D30093114C /* WindowTests.swift */; };
+		1A155850226006F100254EC9 /* ToolbarTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A15584F226006F100254EC9 /* ToolbarTests.swift */; };
 		1A1BA46C21E551E700203A53 /* error.html in Resources */ = {isa = PBXBuildFile; fileRef = 1A1BA46B21E551E700203A53 /* error.html */; };
 		1A1BA49D21E5B78700203A53 /* ErrorHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A1BA49C21E5B78700203A53 /* ErrorHandler.swift */; };
 		1A2088FB21E08DE00034ED83 /* AddressBarInputHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A2088FA21E08DE00034ED83 /* AddressBarInputHandler.swift */; };
@@ -102,6 +103,7 @@
 		1A01B81D225490AB009812D9 /* StorageTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageTests.swift; sourceTree = "<group>"; };
 		1A02ED6F21C9CFB30093114C /* ColorPalette.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorPalette.swift; sourceTree = "<group>"; };
 		1A02ED7621C9F6D30093114C /* WindowTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindowTests.swift; sourceTree = "<group>"; };
+		1A15584F226006F100254EC9 /* ToolbarTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolbarTests.swift; sourceTree = "<group>"; };
 		1A1BA46B21E551E700203A53 /* error.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = error.html; sourceTree = "<group>"; };
 		1A1BA49C21E5B78700203A53 /* ErrorHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorHandler.swift; sourceTree = "<group>"; };
 		1A2088FA21E08DE00034ED83 /* AddressBarInputHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressBarInputHandler.swift; sourceTree = "<group>"; };
@@ -323,6 +325,7 @@
 				1AA38F82224C2A4500C4A5A7 /* SettingsViewControllerTests.swift */,
 				1A01B81D225490AB009812D9 /* StorageTests.swift */,
 				1A8F059921E624BF003E78DD /* StringTests.swift */,
+				1A15584F226006F100254EC9 /* ToolbarTests.swift */,
 				1A8BECD721CD93B5001FE824 /* TwitchPluginTests.swift */,
 				1A8BECC321CC58BB001FE824 /* URLTests.swift */,
 				1A8BECBF21CAF839001FE824 /* URLTextFieldTests.swift */,
@@ -522,6 +525,7 @@
 				1A8BECC621CCC7C1001FE824 /* YoutubePluginTests.swift in Sources */,
 				1A8F059821E622AD003E78DD /* ErrorHandlerTests.swift in Sources */,
 				1A8BECD821CD93B5001FE824 /* TwitchPluginTests.swift in Sources */,
+				1A155850226006F100254EC9 /* ToolbarTests.swift in Sources */,
 				1A2088FD21E0913B0034ED83 /* AddressBarInputHandlerTests.swift in Sources */,
 				1A8BECBA21CA3ED9001FE824 /* JavascriptConfirmWindowControllerTests.swift in Sources */,
 				1AA38F83224C2A4500C4A5A7 /* SettingsViewControllerTests.swift in Sources */,

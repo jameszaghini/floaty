@@ -7,27 +7,36 @@
 //
 
 import XCTest
+@testable import Floaty
 
 class ToolbarTests: XCTestCase {
 
+    private var viewController: WebViewController!
+
+    private var toolbar: Toolbar? {
+        return viewController.view.window?.toolbar as? Toolbar
+    }
+
     override func setUp() {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+        let storyboardName = NSStoryboard.Name("Main")
+        let storyboard = NSStoryboard(name: storyboardName, bundle: nil)
+        let webWindowController = storyboard.instantiateInitialController() as? WebWindowController
+        viewController = webWindowController?.window?.contentViewController as? WebViewController
+        viewController?.loadView()
     }
 
-    override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+    func testAddButtons() {
+        XCTAssertNotNil(toolbar)
+        toolbar?.addButtons()
+        XCTAssertNotNil(toolbar?.backItem?.image)
+        XCTAssertNotNil(toolbar?.forwardItem?.image)
     }
 
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-    }
-
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
+    func testRemoveButtons() {
+        XCTAssertNotNil(toolbar)
+        toolbar?.removeButtons()
+        XCTAssertNil(toolbar?.backItem?.image)
+        XCTAssertNil(toolbar?.forwardItem?.image)
     }
 
 }
