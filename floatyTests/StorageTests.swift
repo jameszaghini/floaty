@@ -18,11 +18,11 @@ class StorageTests: XCTestCase {
     func testClear() {
         let thing = Thing()
         let storeFilename = "test"
-        Storage.store(thing, to: .documents, as: storeFilename)
-        let retrievedThing = Storage.retrieve(storeFilename, from: .documents, as: Thing.self)
+        Storage.store(thing, as: storeFilename)
+        let retrievedThing = Storage.retrieve(storeFilename, as: Thing.self)
         XCTAssertNotNil(retrievedThing)
-        Storage.remove(storeFilename, from: .documents)
-        let retrievedThing2 = Storage.retrieve(storeFilename, from: .documents, as: Thing.self)
+        Storage.remove(storeFilename)
+        let retrievedThing2 = Storage.retrieve(storeFilename, as: Thing.self)
         XCTAssertNil(retrievedThing2)
     }
 
