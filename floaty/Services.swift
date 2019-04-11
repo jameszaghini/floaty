@@ -8,7 +8,7 @@
 
 struct Services {
     static let shared = Services()
-    var settings = Settings.load(storeFilename: "settings.v1")
+    var settings = Settings.load(storeFilename: "settings")
     var activePlugins: [Plugin] = [YoutubePlugin(), TwitchPlugin(), VimeoPlugin()]
 }
 
