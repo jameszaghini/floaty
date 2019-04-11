@@ -7,6 +7,8 @@
 
 A browser window that floats on top of other application windows.
 
+Floaty presents Youtube, Vimeo & Twitch videos using the entire window, while hiding the window controls so you can watch a video while you work or play.
+
 ![Shows floaty floating above another app](assets/screen-shot.jpg "Screen shot")
 
 ## Installing floaty
