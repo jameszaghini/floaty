@@ -12,7 +12,7 @@
 
 import Foundation
 
-public class Storage {
+class Storage {
 
     fileprivate init() { }
 
@@ -66,11 +66,7 @@ public class Storage {
     static func remove(_ fileName: String) {
         guard let url = applicationSupportURL?.appendingPathComponent(fileName, isDirectory: false) else { return }
         if FileManager.default.fileExists(atPath: url.path) {
-            do {
-                try FileManager.default.removeItem(at: url)
-            } catch {
-                fatalError(error.localizedDescription)
-            }
+            try? FileManager.default.removeItem(at: url)
         }
     }
 
