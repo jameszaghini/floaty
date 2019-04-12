@@ -52,14 +52,7 @@ class Storage {
 
         if let data = FileManager.default.contents(atPath: url.path) {
             let decoder = JSONDecoder()
-            do {
-                let model = try decoder.decode(type, from: data)
-                return model
-            } catch {
-                fatalError(error.localizedDescription)
-            }
-        } else {
-            fatalError("No data at \(url.path)!")
+            return try? decoder.decode(type, from: data)
         }
     }
 
