@@ -44,16 +44,11 @@ class Storage {
     }
 
     static func retrieve<T: Decodable>(_ fileName: String, as type: T.Type) -> T? {
-        guard let url = applicationSupportURL?.appendingPathComponent(fileName, isDirectory: false) else { return nil }
+        guard
+            let url = applicationSupportURL?.appendingPathComponent(fileName, isDirectory: false),
+            let data = FileManager.default.contents(atPath: url.path) else { return nil }
 
-        if !FileManager.default.fileExists(atPath: url.path) {
-            return nil
-        }
-
-        if let data = FileManager.default.contents(atPath: url.path) {
-            let decoder = JSONDecoder()
-            return try? decoder.decode(type, from: data)
-        }
+        return try? JSONDecoder().decode(type, from: data)
     }
 
     static func remove(_ fileName: String) {
