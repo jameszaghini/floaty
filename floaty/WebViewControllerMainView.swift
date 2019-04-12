@@ -30,6 +30,5 @@ class WebViewControllerMainView: NSView {
 
     private func setWindowBackgroundOpacity(_ opacity: CGFloat) {
         window?.backgroundColor = ColorPalette.background.withAlphaComponent(opacity)
-        Log.info("opacity: \(opacity)")
     }
 }

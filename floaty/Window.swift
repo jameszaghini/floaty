@@ -35,7 +35,6 @@ class WebWindow: Window {
         isOpaque = false
         styleMask.insert(.fullSizeContentView)
         titlebarAppearsTransparent = true
-        Log.info("Webwindow init, windowOpacity: \(Services.shared.settings.windowOpacity)")
         backgroundColor = ColorPalette.background.withAlphaComponent(Services.shared.settings.windowOpacity)
     }
 
