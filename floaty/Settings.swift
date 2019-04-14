@@ -8,57 +8,56 @@
 
 import Cocoa
 
-struct Settings: Codable {
+class Settings: Codable {
 
-    private var defaults: UserDefaults = UserDefaults.standard
-    private static let defaultsKey = "settings"
+    var storeFilename = ""
 
-    var homepageURL: String {
+    var homepageURLString: String {
         didSet { save() }
     }
 
-    var windowOpacityObservable = Observable(CGFloat(1))
+    var activeSearchProviderId: SearchProviderId {
+        didSet { save() }
+    }
+
+    var windowOpacityObservable = Observable(CGFloat?(nil))
     var windowOpacity: CGFloat {
         didSet {
+            Log.info("windowOpacity: \(windowOpacity)")
             windowOpacityObservable.value = windowOpacity
             save()
         }
     }
 
-    var plugins: [Plugin] = [YoutubePlugin(), VimeoPlugin(), TwitchPlugin()]
-
-    var searchProviderId: SearchProviderId {
-        didSet { save() }
-    }
-
     private enum CodingKeys: String, CodingKey {
-        case homepageURL, windowOpacity, searchProviderId
+        case homepageURLString, windowOpacity, activeSearchProviderId
     }
 
-    static func load(defaults: UserDefaults = UserDefaults.standard) -> Settings {
-        guard let data = defaults.value(forKey: defaultsKey) as? Data else {
-            return Settings()
+    static func load(storeFilename: String) -> Settings {
+        if Storage.fileExists(storeFilename), let settings = Storage.retrieve(storeFilename, as: Settings.self) {
+            settings.storeFilename = storeFilename
+            return settings
         }
-        var settings = try? JSONDecoder().decode(Settings.self, from: data)
-        settings?.defaults = defaults
-        return settings ?? Settings()
+        let settings = Settings(storeFilename: storeFilename)
+        settings.windowOpacityObservable.value = settings.windowOpacity
+        return settings
     }
 
     // MARK: - Private
 
-    private init(homepageURL: String = "https://www.duckduckgo.com?kae=d",
-                 windowOpacity: CGFloat = 1,
-                 searchProviderId: SearchProviderId = Search.defaultProvider.providerId,
-                 defaults: UserDefaults = UserDefaults.standard) {
-        self.homepageURL = homepageURL
+    init(storeFilename: String,
+         homepageURLString: String = "https://www.duckduckgo.com?kae=d",
+         windowOpacity: CGFloat = 1,
+         activeSearchProviderId: SearchProviderId = Search.defaultProvider.identifier) {
+        self.homepageURLString = homepageURLString
         self.windowOpacity = windowOpacity
-        self.searchProviderId = searchProviderId
-        self.defaults = defaults
+        self.storeFilename = storeFilename
+        self.activeSearchProviderId = activeSearchProviderId
+        save()
     }
 
     private func save() {
-        if let encoded = try? JSONEncoder().encode(self) {
-            defaults.set(encoded, forKey: Settings.defaultsKey)
-        }
+        Storage.store(self, as: storeFilename)
     }
+
 }

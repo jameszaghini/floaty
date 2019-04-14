@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14460.31"/>
-        <plugIn identifier="com.apple.WebKit2IBPlugin" version="14460.31"/>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14490.70"/>
+        <plugIn identifier="com.apple.WebKit2IBPlugin" version="14490.70"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -624,7 +625,7 @@
                                         <menuItem title="Show Sidebar" keyEquivalent="s" id="kIP-vf-haE">
                                             <modifierMask key="keyEquivalentModifierMask" control="YES" command="YES"/>
                                             <connections>
-                                                <action selector="toggleSourceList:" target="Ady-hI-5gd" id="iwa-gc-5KM"/>
+                                                <action selector="toggleSidebar:" target="Ady-hI-5gd" id="iwa-gc-5KM"/>
                                             </connections>
                                         </menuItem>
                                         <menuItem title="Enter Full Screen" keyEquivalent="f" id="4J7-dP-txa">
@@ -714,8 +715,40 @@
                                     </textField>
                                 </toolbarItem>
                                 <toolbarItem implicitItemIdentifier="NSToolbarFlexibleSpaceItem" id="bmD-ya-VUb"/>
+                                <toolbarItem implicitItemIdentifier="E9AFDD2A-8A5D-4F5A-89E7-9BB7CBAD9DC4" explicitItemIdentifier="forward" label="" paletteLabel="Forward" image="NSGoForwardTemplate" sizingBehavior="auto" id="UdE-s3-jyq">
+                                    <nil key="toolTip"/>
+                                    <button key="view" id="INk-Sp-yNL">
+                                        <rect key="frame" x="1" y="14" width="48" height="48"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                        <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="NSGoForwardTemplate" imagePosition="overlaps" alignment="center" imageScaling="proportionallyUpOrDown" inset="2" id="3qU-dq-2fJ">
+                                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                            <font key="font" metaFont="system"/>
+                                        </buttonCell>
+                                        <connections>
+                                            <action selector="forwardWithSender:" target="gc6-xp-Ui8" id="ras-ZO-JYG"/>
+                                        </connections>
+                                    </button>
+                                </toolbarItem>
+                                <toolbarItem implicitItemIdentifier="07C44B2B-000B-4B28-B6B2-0F2A8F263B02" explicitItemIdentifier="back" label="" paletteLabel="Back" image="NSGoBackTemplate" sizingBehavior="auto" id="K8H-yz-VEs">
+                                    <nil key="toolTip"/>
+                                    <button key="view" id="PQT-ki-bj8">
+                                        <rect key="frame" x="0.0" y="14" width="48" height="48"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                        <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="NSGoBackTemplate" imagePosition="only" alignment="center" imageScaling="proportionallyUpOrDown" inset="2" id="QHZ-1W-8u2">
+                                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                            <font key="font" metaFont="system"/>
+                                        </buttonCell>
+                                        <connections>
+                                            <action selector="backWithSender:" target="gc6-xp-Ui8" id="qvy-cT-10p"/>
+                                        </connections>
+                                    </button>
+                                </toolbarItem>
                             </allowedToolbarItems>
                             <defaultToolbarItems>
+                                <toolbarItem reference="bmD-ya-VUb"/>
+                                <toolbarItem reference="K8H-yz-VEs"/>
+                                <toolbarItem reference="bmD-ya-VUb"/>
+                                <toolbarItem reference="UdE-s3-jyq"/>
                                 <toolbarItem reference="bmD-ya-VUb"/>
                                 <toolbarItem reference="U00-CP-vvG"/>
                                 <toolbarItem reference="bmD-ya-VUb"/>
@@ -774,7 +807,7 @@
         <!--Settings View Controller-->
         <scene sceneID="UtS-z9-nHR">
             <objects>
-                <viewController id="dmE-PD-IGl" customClass="SettingsViewController" customModule="Floaty" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SettingsViewController" id="dmE-PD-IGl" customClass="SettingsViewController" customModule="Floaty" sceneMemberID="viewController">
                     <view key="view" id="Ktc-ZX-ubL">
                         <rect key="frame" x="0.0" y="0.0" width="480" height="270"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -813,26 +846,49 @@
                                     <action selector="sliderChanged:" target="dmE-PD-IGl" id="f0f-RP-SCr"/>
                                 </connections>
                             </slider>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="79X-d9-c6E">
+                                <rect key="frame" x="18" y="124" width="444" height="17"/>
+                                <textFieldCell key="cell" lineBreakMode="clipping" title="Search provider" id="owf-Gv-5ZO">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <popUpButton verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="oCn-Sh-FsZ">
+                                <rect key="frame" x="18" y="92" width="445" height="25"/>
+                                <popUpButtonCell key="cell" type="push" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" id="4UO-tS-TSw">
+                                    <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="menu"/>
+                                    <menu key="menu" id="Dxa-0i-9xd"/>
+                                </popUpButtonCell>
+                            </popUpButton>
                         </subviews>
                         <constraints>
                             <constraint firstItem="Hl7-6C-ECX" firstAttribute="top" secondItem="iwb-tU-Q5M" secondAttribute="bottom" constant="14" id="0Tl-zV-db4"/>
                             <constraint firstItem="iwb-tU-Q5M" firstAttribute="leading" secondItem="1ff-id-YLM" secondAttribute="leading" id="3ss-oD-Xtr"/>
                             <constraint firstItem="iwb-tU-Q5M" firstAttribute="top" secondItem="1ff-id-YLM" secondAttribute="bottom" constant="8" id="ARC-d7-CX4"/>
+                            <constraint firstItem="79X-d9-c6E" firstAttribute="trailing" secondItem="5uM-FD-SWL" secondAttribute="trailing" id="Hw2-5b-ing"/>
+                            <constraint firstItem="oCn-Sh-FsZ" firstAttribute="top" secondItem="79X-d9-c6E" secondAttribute="bottom" constant="8" id="Kb4-fp-SnA"/>
                             <constraint firstItem="5uM-FD-SWL" firstAttribute="trailing" secondItem="Hl7-6C-ECX" secondAttribute="trailing" id="N4b-Fd-TUH"/>
+                            <constraint firstItem="oCn-Sh-FsZ" firstAttribute="leading" secondItem="79X-d9-c6E" secondAttribute="leading" id="QYE-5Z-Hhh"/>
                             <constraint firstItem="Hl7-6C-ECX" firstAttribute="trailing" secondItem="iwb-tU-Q5M" secondAttribute="trailing" id="VrA-TJ-Fde"/>
                             <constraint firstItem="Hl7-6C-ECX" firstAttribute="leading" secondItem="iwb-tU-Q5M" secondAttribute="leading" id="XMt-XA-d1j"/>
                             <constraint firstItem="iwb-tU-Q5M" firstAttribute="trailing" secondItem="1ff-id-YLM" secondAttribute="trailing" id="YBn-3Y-YtK"/>
                             <constraint firstItem="iwb-tU-Q5M" firstAttribute="top" secondItem="1ff-id-YLM" secondAttribute="bottom" constant="8" id="Zma-cr-f4L"/>
                             <constraint firstItem="1ff-id-YLM" firstAttribute="leading" secondItem="Ktc-ZX-ubL" secondAttribute="leading" constant="20" id="caB-1f-W87"/>
+                            <constraint firstItem="79X-d9-c6E" firstAttribute="leading" secondItem="5uM-FD-SWL" secondAttribute="leading" id="d0J-S0-UW8"/>
+                            <constraint firstItem="79X-d9-c6E" firstAttribute="top" secondItem="5uM-FD-SWL" secondAttribute="bottom" constant="8" id="gs5-TU-d0a"/>
                             <constraint firstItem="1ff-id-YLM" firstAttribute="top" secondItem="Ktc-ZX-ubL" secondAttribute="top" constant="20" id="hGA-Te-OcT"/>
                             <constraint firstAttribute="trailing" secondItem="1ff-id-YLM" secondAttribute="trailing" constant="20" id="lat-bj-Fqp"/>
                             <constraint firstItem="5uM-FD-SWL" firstAttribute="leading" secondItem="Hl7-6C-ECX" secondAttribute="leading" id="mHl-wH-ONy"/>
+                            <constraint firstItem="oCn-Sh-FsZ" firstAttribute="trailing" secondItem="79X-d9-c6E" secondAttribute="trailing" id="pYn-Sk-AaC"/>
                             <constraint firstItem="5uM-FD-SWL" firstAttribute="top" secondItem="Hl7-6C-ECX" secondAttribute="bottom" constant="8" id="vJs-lO-LEg"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="homepageURLTextField" destination="iwb-tU-Q5M" id="dTg-gt-upc"/>
                         <outlet property="opacitySlider" destination="5uM-FD-SWL" id="DRF-vK-yyx"/>
+                        <outlet property="searchProviderPopUpButton" destination="oCn-Sh-FsZ" id="CVF-wF-CjL"/>
                     </connections>
                 </viewController>
                 <customObject id="krR-By-U9r" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
@@ -843,7 +899,7 @@
         <scene sceneID="hIz-AP-VOD">
             <objects>
                 <viewController id="XfG-lQ-9wD" customClass="WebViewController" customModule="Floaty" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" wantsLayer="YES" id="m2S-Jp-Qdl">
+                    <view key="view" wantsLayer="YES" id="m2S-Jp-Qdl" customClass="WebViewControllerMainView" customModule="Floaty" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="960" height="540"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
@@ -883,4 +939,8 @@
             <point key="canvasLocation" x="75" y="1010"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="NSGoBackTemplate" width="9" height="12"/>
+        <image name="NSGoForwardTemplate" width="9" height="12"/>
+    </resources>
 </document>

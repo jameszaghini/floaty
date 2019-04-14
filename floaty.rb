@@ -1,6 +1,6 @@
 cask 'floaty' do
-  version '0.4.1'
-  sha256 '502d4dab156df01da3a51ed652895ea5f2211ac5be43cb3f2e40e25a5a92c5d6'
+  version '0.4.5'
+  sha256 '6f37b22518df5c43875bf813cac2c19e0f77c79f97226c4c7690004aa779104a'
 
   url "https://github.com/jameszaghini/floaty/releases/download/#{version}/Floaty.app.zip"
   appcast 'https://github.com/jameszaghini/floaty/releases.atom'

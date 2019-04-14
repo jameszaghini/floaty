@@ -14,9 +14,13 @@ class URLTextFieldTests: XCTestCase {
     func testAllSelectedOnMouseDown() {
         let textField = URLTextField(frame: .zero)
         XCTAssertEqual(textField.selectedCell()?.stringValue, "")
-
         textField.stringValue = "test"
         textField.mouseDown(with: NSEvent())
         XCTAssertEqual(textField.stringValue, textField.selectedCell()?.stringValue)
+    }
+
+    func testAcceptsFirstResponder() {
+        let textField = URLTextField(frame: .zero)
+        XCTAssertTrue(textField.acceptsFirstResponder)
     }
 }

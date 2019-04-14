@@ -7,6 +7,8 @@
 
 A browser window that floats on top of other application windows.
 
+Floaty presents Youtube, Vimeo & Twitch videos using the entire window, while hiding the window controls so you can watch a video while you work or play.
+
 ![Shows floaty floating above another app](assets/screen-shot.jpg "Screen shot")
 
 ## Installing floaty
@@ -16,3 +18,13 @@ floaty is available for direct download on the [releases page](https://github.co
 ```
 brew cask install https://raw.githubusercontent.com/jameszaghini/floaty/develop/floaty.rb
 ```
+
+## Building floaty
+
+Install Xcode 10.2, then clone & open the project:
+
+```
+git clone https://github.com/jameszaghini/floaty.git && cd floaty && xed .
+```
+
+Press build. You're done!

@@ -35,7 +35,6 @@ class WebWindow: Window {
         isOpaque = false
         styleMask.insert(.fullSizeContentView)
         titlebarAppearsTransparent = true
-        Log.info("Webwindow init, windowOpacity: \(Services.shared.settings.windowOpacity)")
         backgroundColor = ColorPalette.background.withAlphaComponent(Services.shared.settings.windowOpacity)
     }
 
@@ -53,13 +52,15 @@ class WebWindow: Window {
         isMouseOverWindow = false
     }
 
-    private var isMouseOverWindow = false {
+    private(set) var isMouseOverWindow = false {
         didSet {
             if !isMouseOverWindow {
                 toolbar?.showsBaselineSeparator = false
             }
             let alpha: CGFloat = isMouseOverWindow ? 1 : 0
-            let urlTextField = (toolbar as? Toolbar)?.urlTextField
+            let floatyToolbar = toolbar as? Toolbar
+            let urlTextField = floatyToolbar?.urlTextField
+            isMouseOverWindow ? floatyToolbar?.addButtons() : floatyToolbar?.removeButtons()
             NSAnimationContext.runAnimationGroup({ context in
                 context.duration = 0.2
                 context.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)

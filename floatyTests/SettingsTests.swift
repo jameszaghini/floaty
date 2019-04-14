@@ -12,18 +12,19 @@ import XCTest
 class SettingsTests: XCTestCase {
 
     var disposable: Disposable?
+    let storeFilename = "tests"
 
     func testChangingHomepageURLSaves() {
-        var settings = Settings.load()
+        let settings = Settings.load(storeFilename: storeFilename)
         let urlString = "http://www.duckduckgo.com"
-        settings.homepageURL = urlString
-        let settings2 = Settings.load()
-        XCTAssertEqual(settings2.homepageURL, urlString)
+        settings.homepageURLString = urlString
+        let settings2 = Settings.load(storeFilename: storeFilename)
+        XCTAssertEqual(settings2.homepageURLString, urlString)
     }
 
     func testChangingWindowOpacityFiresObserver() {
 
-        var settings = Settings.load()
+        let settings = Settings.load(storeFilename: storeFilename)
         let newOpacity: CGFloat = 0.05
 
         let promise = expectation(description: "Observer will fire on opacity change")
