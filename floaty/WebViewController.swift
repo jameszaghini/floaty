@@ -40,7 +40,7 @@ class WebViewController: NSViewController, ToolbarDelegate, WKUIDelegate, Javasc
                 loadURL(url)
             case .search(let query):
                 guard let encodedQuery = query.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed) else { break }
-                let searchProvider = Search.activeProvider(settings: Services.shared.settings)
+                let searchProvider = Search.activeProvider(withId: Services.shared.settings.activeSearchProviderId)
                 let url = URL(string: searchProvider.searchURLString + encodedQuery)
                 loadURL(url)
             case .showError(let title, let message):
