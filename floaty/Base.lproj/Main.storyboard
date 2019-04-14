@@ -846,26 +846,49 @@
                                     <action selector="sliderChanged:" target="dmE-PD-IGl" id="f0f-RP-SCr"/>
                                 </connections>
                             </slider>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="79X-d9-c6E">
+                                <rect key="frame" x="18" y="124" width="444" height="17"/>
+                                <textFieldCell key="cell" lineBreakMode="clipping" title="Search provider" id="owf-Gv-5ZO">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <popUpButton verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="oCn-Sh-FsZ">
+                                <rect key="frame" x="18" y="92" width="445" height="25"/>
+                                <popUpButtonCell key="cell" type="push" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" id="4UO-tS-TSw">
+                                    <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="menu"/>
+                                    <menu key="menu" id="Dxa-0i-9xd"/>
+                                </popUpButtonCell>
+                            </popUpButton>
                         </subviews>
                         <constraints>
                             <constraint firstItem="Hl7-6C-ECX" firstAttribute="top" secondItem="iwb-tU-Q5M" secondAttribute="bottom" constant="14" id="0Tl-zV-db4"/>
                             <constraint firstItem="iwb-tU-Q5M" firstAttribute="leading" secondItem="1ff-id-YLM" secondAttribute="leading" id="3ss-oD-Xtr"/>
                             <constraint firstItem="iwb-tU-Q5M" firstAttribute="top" secondItem="1ff-id-YLM" secondAttribute="bottom" constant="8" id="ARC-d7-CX4"/>
+                            <constraint firstItem="79X-d9-c6E" firstAttribute="trailing" secondItem="5uM-FD-SWL" secondAttribute="trailing" id="Hw2-5b-ing"/>
+                            <constraint firstItem="oCn-Sh-FsZ" firstAttribute="top" secondItem="79X-d9-c6E" secondAttribute="bottom" constant="8" id="Kb4-fp-SnA"/>
                             <constraint firstItem="5uM-FD-SWL" firstAttribute="trailing" secondItem="Hl7-6C-ECX" secondAttribute="trailing" id="N4b-Fd-TUH"/>
+                            <constraint firstItem="oCn-Sh-FsZ" firstAttribute="leading" secondItem="79X-d9-c6E" secondAttribute="leading" id="QYE-5Z-Hhh"/>
                             <constraint firstItem="Hl7-6C-ECX" firstAttribute="trailing" secondItem="iwb-tU-Q5M" secondAttribute="trailing" id="VrA-TJ-Fde"/>
                             <constraint firstItem="Hl7-6C-ECX" firstAttribute="leading" secondItem="iwb-tU-Q5M" secondAttribute="leading" id="XMt-XA-d1j"/>
                             <constraint firstItem="iwb-tU-Q5M" firstAttribute="trailing" secondItem="1ff-id-YLM" secondAttribute="trailing" id="YBn-3Y-YtK"/>
                             <constraint firstItem="iwb-tU-Q5M" firstAttribute="top" secondItem="1ff-id-YLM" secondAttribute="bottom" constant="8" id="Zma-cr-f4L"/>
                             <constraint firstItem="1ff-id-YLM" firstAttribute="leading" secondItem="Ktc-ZX-ubL" secondAttribute="leading" constant="20" id="caB-1f-W87"/>
+                            <constraint firstItem="79X-d9-c6E" firstAttribute="leading" secondItem="5uM-FD-SWL" secondAttribute="leading" id="d0J-S0-UW8"/>
+                            <constraint firstItem="79X-d9-c6E" firstAttribute="top" secondItem="5uM-FD-SWL" secondAttribute="bottom" constant="8" id="gs5-TU-d0a"/>
                             <constraint firstItem="1ff-id-YLM" firstAttribute="top" secondItem="Ktc-ZX-ubL" secondAttribute="top" constant="20" id="hGA-Te-OcT"/>
                             <constraint firstAttribute="trailing" secondItem="1ff-id-YLM" secondAttribute="trailing" constant="20" id="lat-bj-Fqp"/>
                             <constraint firstItem="5uM-FD-SWL" firstAttribute="leading" secondItem="Hl7-6C-ECX" secondAttribute="leading" id="mHl-wH-ONy"/>
+                            <constraint firstItem="oCn-Sh-FsZ" firstAttribute="trailing" secondItem="79X-d9-c6E" secondAttribute="trailing" id="pYn-Sk-AaC"/>
                             <constraint firstItem="5uM-FD-SWL" firstAttribute="top" secondItem="Hl7-6C-ECX" secondAttribute="bottom" constant="8" id="vJs-lO-LEg"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="homepageURLTextField" destination="iwb-tU-Q5M" id="dTg-gt-upc"/>
                         <outlet property="opacitySlider" destination="5uM-FD-SWL" id="DRF-vK-yyx"/>
+                        <outlet property="searchProviderPopUpButton" destination="oCn-Sh-FsZ" id="CVF-wF-CjL"/>
                     </connections>
                 </viewController>
                 <customObject id="krR-By-U9r" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>

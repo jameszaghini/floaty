@@ -16,6 +16,10 @@ class Settings: Codable {
         didSet { save() }
     }
 
+    var activeSearchProviderId: SearchProviderId {
+        didSet { save() }
+    }
+
     var windowOpacityObservable = Observable(CGFloat?(nil))
     var windowOpacity: CGFloat {
         didSet {
@@ -26,7 +30,7 @@ class Settings: Codable {
     }
 
     private enum CodingKeys: String, CodingKey {
-        case homepageURLString, windowOpacity
+        case homepageURLString, windowOpacity, activeSearchProviderId
     }
 
     static func load(storeFilename: String) -> Settings {
@@ -43,10 +47,12 @@ class Settings: Codable {
 
     init(storeFilename: String,
          homepageURLString: String = "https://www.duckduckgo.com?kae=d",
-         windowOpacity: CGFloat = 1) {
+         windowOpacity: CGFloat = 1,
+         activeSearchProviderId: SearchProviderId = Search.defaultProvider.identifier) {
         self.homepageURLString = homepageURLString
         self.windowOpacity = windowOpacity
         self.storeFilename = storeFilename
+        self.activeSearchProviderId = activeSearchProviderId
         save()
     }
 
