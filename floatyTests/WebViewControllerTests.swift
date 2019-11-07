@@ -18,7 +18,7 @@ class WebViewControllerTests: XCTestCase {
     let url = URL(string: "https://www.google.com")!
 
     override func setUp() {
-        let storyboardName = NSStoryboard.Name("Main")
+        let storyboardName = "Main"
         let storyboard = NSStoryboard(name: storyboardName, bundle: nil)
         let webWindowController = storyboard.instantiateInitialController() as? WebWindowController
         viewController = webWindowController?.window?.contentViewController as? WebViewController

@@ -15,9 +15,9 @@ class SettingsViewControllerTests: XCTestCase {
     let settings = Settings.load(storeFilename: "tests")
 
     override func setUp() {
-        let storyboardName = NSStoryboard.Name("Main")
+        let storyboardName = "Main"
         let storyboard = NSStoryboard(name: storyboardName, bundle: nil)
-        let identifier = NSStoryboard.SceneIdentifier(rawValue: "SettingsViewController")
+        let identifier = "SettingsViewController"
         viewController = storyboard.instantiateController(withIdentifier: identifier) as? SettingsViewController
         viewController.settings = settings
         viewController?.loadView()

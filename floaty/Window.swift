@@ -63,7 +63,7 @@ class WebWindow: Window {
             isMouseOverWindow ? floatyToolbar?.addButtons() : floatyToolbar?.removeButtons()
             NSAnimationContext.runAnimationGroup({ context in
                 context.duration = 0.2
-                context.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
+                context.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeInEaseOut)
                 urlTextField?.animator().alphaValue = alpha
                 trafficLightButtons().forEach {
                     $0.animator().alphaValue = alpha

@@ -22,7 +22,7 @@ class SettingsViewController: NSViewController, NSTextFieldDelegate, Serviceable
         setupSearchProviders()
     }
 
-    override func controlTextDidEndEditing(_ aNotification: Notification) {
+    func controlTextDidEndEditing(_ aNotification: Notification) {
         if aNotification.object as? NSTextField == homepageURLTextField {
             settings.homepageURLString = homepageURLTextField.stringValue
         }
