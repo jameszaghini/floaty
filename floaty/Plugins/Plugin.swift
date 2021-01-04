@@ -14,7 +14,7 @@ typealias ParameterValue = String
 protocol Plugin {
     var name: String { get }
     var hostnames: [String] { get }
-    var additionalQueryParams: DictionaryLiteral<ParameterKey, ParameterValue> { get }
+    var additionalQueryParams: KeyValuePairs<ParameterKey, ParameterValue> { get }
     var replace: [String: String] { get }
     func massageURL(_ url: URL) -> URL?
 }

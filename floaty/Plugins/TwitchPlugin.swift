@@ -14,7 +14,7 @@ struct TwitchPlugin: Plugin {
 
     var hostnames = ["www.twitch.tv", "twitch.tv"]
 
-    var additionalQueryParams: DictionaryLiteral<ParameterKey, ParameterValue> = [:]
+    var additionalQueryParams: KeyValuePairs<ParameterKey, ParameterValue> = [:]
 
     var replace: [String: String] = [
         "https://twitch.tv/videos/": "https://player.twitch.tv/?video=v",

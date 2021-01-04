@@ -15,7 +15,7 @@ struct VimeoPlugin: Plugin {
     var hostnames = ["www.vimeo.com", "vimeo.com"]
 
     // https://help.vimeo.com/hc/en-us/articles/360001494447-Using-Player-Parameters
-    var additionalQueryParams: DictionaryLiteral<ParameterKey, ParameterValue> = [
+    var additionalQueryParams: KeyValuePairs<ParameterKey, ParameterValue> = [
         "transparent": "0",
         "autoplay": "1",
     ]

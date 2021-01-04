@@ -34,22 +34,22 @@ struct Search {
 }
 
 struct Google: SearchProvider {
-    let identifier = "google"
-    let name = "Google"
+    var identifier = "google"
+    var name = "Google"
     var url = URL(string: "https://www.google.com")!
     var searchURLString = "https://google.com/search?client=safari&q="
 }
 
 struct DuckDuckGo: SearchProvider {
-    let identifier = "duckduckgo"
-    let name = "DuckDuckGo"
+    var identifier = "duckduckgo"
+    var name = "DuckDuckGo"
     var url = URL(string: "https://www.duckduckgo.com?kae=d")!
     var searchURLString = "https://www.duckduckgo.com?kae=d&q="
 }
 
 struct Bing: SearchProvider {
-    let identifier = "bing"
-    let name = "Bing"
+    var identifier = "bing"
+    var name = "Bing"
     var url = URL(string: "https://www.bing.com/")!
     var searchURLString = "https://www.bing.com/search?q="
 }

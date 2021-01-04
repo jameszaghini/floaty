@@ -15,7 +15,7 @@ struct YoutubePlugin: Plugin {
 
     // https://www.youtube.com/watch?v=4xUQD2CanuY&feature=youtu.be
     // https://www.youtube.com/watch?time_continue=36&v=mNDA-o9yJNw
-    var additionalQueryParams: DictionaryLiteral<ParameterKey, ParameterValue> = [
+    var additionalQueryParams: KeyValuePairs<ParameterKey, ParameterValue> = [
         "autoplay": "1",
         "modestbranding": "1",
         "fs": "0",

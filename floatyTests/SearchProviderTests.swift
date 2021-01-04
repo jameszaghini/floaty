@@ -9,23 +9,19 @@
 import XCTest
 @testable import Floaty
 
-//class SearchProviderTests: XCTestCase {
-//
-//    override func setUp() {
-//        super.setUp()
-//    }
-//
+class SearchProviderTests: XCTestCase {
+
 //    func testDefaultProviderReturnedIfNoneChosenByUser() {
 //        let settings = Settings.load()
 //        let activeProvider = Search.activeProvider(settings: settings)
 //        XCTAssert(activeProvider.providerId == Search.defaultProvider.providerId)
 //    }
-//
+
 //    func testNonDefaultProviderReturnedIfChangedByUser() {
 //        var settings = Settings.load()
 //        settings.searchProviderId = Google().providerId
 //        let activeProvider = Search.activeProvider(settings: settings)
 //        XCTAssert(activeProvider.providerId == settings.searchProviderId)
 //    }
-//
-//}
+
+}
