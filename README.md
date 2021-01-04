@@ -13,11 +13,7 @@ Floaty presents Youtube, Vimeo & Twitch videos using the entire window, while hi
 
 ## Installing floaty
 
-floaty is available for direct download on the [releases page](https://github.com/jameszaghini/floaty/releases) or using [homebrew cask](https://github.com/caskroom/homebrew-cask).
-
-```
-brew cask install https://raw.githubusercontent.com/jameszaghini/floaty/develop/floaty.rb
-```
+floaty is available for direct download on the [releases page](https://github.com/jameszaghini/floaty/releases)
 
 ## Building floaty
 
