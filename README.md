@@ -21,7 +21,7 @@ brew cask install https://raw.githubusercontent.com/jameszaghini/floaty/develop/
 
 ## Building floaty
 
-Install Xcode 11.1, then clone & open the project:
+Install Xcode 12.3+, then clone & open the project:
 
 ```
 git clone https://github.com/jameszaghini/floaty.git && cd floaty && xed .
