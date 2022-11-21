@@ -8,7 +8,7 @@
 
 import Cocoa
 
-protocol JavascriptPanelDismissalDelegate: class {
+protocol JavascriptPanelDismissalDelegate: AnyObject {
     func didDismissJavascriptPanelWindowController(_ windowController: JavascriptPanelWindowController)
 }
 

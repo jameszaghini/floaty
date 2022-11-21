@@ -8,7 +8,7 @@
 
 import Cocoa
 
-protocol ToolbarDelegate: class {
+protocol ToolbarDelegate: AnyObject {
     func toolbar(_ bar: Toolbar, didChangeText text: String)
     func toolbarForwardButtonWasPressed(_ toolbar: Toolbar)
     func toolbarBackButtonWasPressed(_ toolbar: Toolbar)
