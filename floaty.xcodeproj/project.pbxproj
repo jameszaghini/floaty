@@ -52,9 +52,6 @@
 		1AA4DA5621D84576001E27A4 /* AppDelegateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AA4DA5521D84576001E27A4 /* AppDelegateTests.swift */; };
 		1AA751E120CB806300490962 /* SettingsWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AA751E020CB806300490962 /* SettingsWindowController.swift */; };
 		1AB967F021E7483400658083 /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AB967EF21E7483400658083 /* Log.swift */; };
-		1AB9685621E80D4B00658083 /* Lock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AB9682E21E80D4B00658083 /* Lock.swift */; };
-		1AB9685721E80D4B00658083 /* Disposable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AB9682F21E80D4B00658083 /* Disposable.swift */; };
-		1AB9685821E80D4B00658083 /* Observable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AB9683021E80D4B00658083 /* Observable.swift */; };
 		1AB9686F21E80E5C00658083 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1AB9686721E80E5C00658083 /* Info.plist */; };
 		1AB9687021E80E5C00658083 /* ParsedHost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AB9686821E80E5C00658083 /* ParsedHost.swift */; };
 		1AB9687121E80E5C00658083 /* DomainParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AB9686A21E80E5C00658083 /* DomainParser.swift */; };
@@ -71,6 +68,9 @@
 		1AC958A821C7697F00B85B15 /* SearchProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AC958A721C7697F00B85B15 /* SearchProvider.swift */; };
 		1AFC49C222522E8800F99C6D /* WebViewControllerMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AFC49C122522E8800F99C6D /* WebViewControllerMainView.swift */; };
 		1AFC49CA2252D31600F99C6D /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AFC49C92252D31600F99C6D /* WebKit.framework */; };
+		A2B6A946292B0B480081C3F5 /* Disposable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2B6A943292B0B480081C3F5 /* Disposable.swift */; };
+		A2B6A947292B0B480081C3F5 /* Observable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2B6A944292B0B480081C3F5 /* Observable.swift */; };
+		A2B6A948292B0B480081C3F5 /* Observable+Binding.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2B6A945292B0B480081C3F5 /* Observable+Binding.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -140,9 +140,6 @@
 		1AA4DA5521D84576001E27A4 /* AppDelegateTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegateTests.swift; sourceTree = "<group>"; };
 		1AA751E020CB806300490962 /* SettingsWindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsWindowController.swift; sourceTree = "<group>"; };
 		1AB967EF21E7483400658083 /* Log.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Log.swift; sourceTree = "<group>"; };
-		1AB9682E21E80D4B00658083 /* Lock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Lock.swift; sourceTree = "<group>"; };
-		1AB9682F21E80D4B00658083 /* Disposable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Disposable.swift; sourceTree = "<group>"; };
-		1AB9683021E80D4B00658083 /* Observable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Observable.swift; sourceTree = "<group>"; };
 		1AB9686721E80E5C00658083 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = DomainParser/DomainParser/Info.plist; sourceTree = "<group>"; };
 		1AB9686821E80E5C00658083 /* ParsedHost.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ParsedHost.swift; path = DomainParser/DomainParser/ParsedHost.swift; sourceTree = "<group>"; };
 		1AB9686921E80E5C00658083 /* DomainParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DomainParser.h; path = DomainParser/DomainParser/DomainParser.h; sourceTree = "<group>"; };
@@ -163,6 +160,9 @@
 		1AC958A721C7697F00B85B15 /* SearchProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchProvider.swift; sourceTree = "<group>"; };
 		1AFC49C122522E8800F99C6D /* WebViewControllerMainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewControllerMainView.swift; sourceTree = "<group>"; };
 		1AFC49C92252D31600F99C6D /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
+		A2B6A943292B0B480081C3F5 /* Disposable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Disposable.swift; path = "vendor/Observable-2.2.0/Classes/Disposable.swift"; sourceTree = SOURCE_ROOT; };
+		A2B6A944292B0B480081C3F5 /* Observable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Observable.swift; path = "vendor/Observable-2.2.0/Classes/Observable.swift"; sourceTree = SOURCE_ROOT; };
+		A2B6A945292B0B480081C3F5 /* Observable+Binding.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Observable+Binding.swift"; path = "vendor/Observable-2.2.0/Classes/Observable+Binding.swift"; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -223,9 +223,9 @@
 		1AB9682D21E80D4B00658083 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				1AB9682E21E80D4B00658083 /* Lock.swift */,
-				1AB9682F21E80D4B00658083 /* Disposable.swift */,
-				1AB9683021E80D4B00658083 /* Observable.swift */,
+				A2B6A943292B0B480081C3F5 /* Disposable.swift */,
+				A2B6A944292B0B480081C3F5 /* Observable.swift */,
+				A2B6A945292B0B480081C3F5 /* Observable+Binding.swift */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -485,22 +485,22 @@
 				1A2088FF21E16B6E0034ED83 /* String+Conveniences.swift in Sources */,
 				1AB967F021E7483400658083 /* Log.swift in Sources */,
 				1A8BECC821CCC7DC001FE824 /* YoutubePlugin.swift in Sources */,
-				1AB9685721E80D4B00658083 /* Disposable.swift in Sources */,
 				1A8BECCB21CCC820001FE824 /* Plugin.swift in Sources */,
 				1A9DAC3920B4CD5F00DCE63F /* URLTextField.swift in Sources */,
 				1A66C60E21DA321200675AFE /* NSWindow+Conveniences.swift in Sources */,
 				1AC958A821C7697F00B85B15 /* SearchProvider.swift in Sources */,
 				1AB9687021E80E5C00658083 /* ParsedHost.swift in Sources */,
+				A2B6A947292B0B480081C3F5 /* Observable.swift in Sources */,
 				1A01B81B2254157E009812D9 /* MockUserDefaults.swift in Sources */,
-				1AB9685621E80D4B00658083 /* Lock.swift in Sources */,
 				1AB9687221E80E5C00658083 /* RuleLabel.swift in Sources */,
-				1AB9685821E80D4B00658083 /* Observable.swift in Sources */,
 				1A2088FB21E08DE00034ED83 /* AddressBarInputHandler.swift in Sources */,
 				1AB9687121E80E5C00658083 /* DomainParser.swift in Sources */,
 				1AB9687421E80E5C00658083 /* Constant.swift in Sources */,
 				1A02ED7021C9CFB30093114C /* ColorPalette.swift in Sources */,
 				1AFC49C222522E8800F99C6D /* WebViewControllerMainView.swift in Sources */,
+				A2B6A946292B0B480081C3F5 /* Disposable.swift in Sources */,
 				1ABB83CE20B141280004C50E /* WebViewController.swift in Sources */,
+				A2B6A948292B0B480081C3F5 /* Observable+Binding.swift in Sources */,
 				1A6B726E20CDFE3F00AE2008 /* Services.swift in Sources */,
 				1A94A998224F678B00BC0F73 /* Storage.swift in Sources */,
 				1ABB83CC20B141280004C50E /* AppDelegate.swift in Sources */,
@@ -685,6 +685,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "-";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = 79K99DQD5E;
@@ -704,6 +705,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "-";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = 79K99DQD5E;
