@@ -60,7 +60,12 @@ class WebWindow: Window {
             let alpha: CGFloat = isMouseOverWindow ? 1 : 0
             let floatyToolbar = toolbar as? Toolbar
             let urlTextField = floatyToolbar?.urlTextField
-            isMouseOverWindow ? floatyToolbar?.addButtons() : floatyToolbar?.removeButtons()
+            if isMouseOverWindow {
+                floatyToolbar?.addButtons()
+            } else {
+                floatyToolbar?.removeButtons()
+            }
+
             NSAnimationContext.runAnimationGroup({ context in
                 context.duration = 0.2
                 context.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeInEaseOut)
