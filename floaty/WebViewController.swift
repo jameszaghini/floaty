@@ -250,7 +250,7 @@ extension WebViewController: WKNavigationDelegate {
         case 102, 999, 204:
             // 204 - Plug-in handled load
             return
-        default :
+        default:
             browserAction = .showError(title: "Floaty couldn't load the URL", message: error.localizedDescription)
         }
     }
