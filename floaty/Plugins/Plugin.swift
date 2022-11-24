@@ -24,11 +24,9 @@ extension Plugin {
     func doReplace(url: URL) -> URL? {
         var newURLString = url.absoluteString
 
-        for (find, rep) in replace {
-            if newURLString.contains(find) {
-                Log.info("Relpacing: \(find), with:\(rep)")
-                newURLString = newURLString.replacingOccurrences(of: find, with: rep)
-            }
+        for (find, rep) in replace where newURLString.contains(find) {
+            Log.info("Relpacing: \(find), with:\(rep)")
+            newURLString = newURLString.replacingOccurrences(of: find, with: rep)
         }
 
         return newURLString != url.absoluteString ? URL(string: newURLString) : nil
